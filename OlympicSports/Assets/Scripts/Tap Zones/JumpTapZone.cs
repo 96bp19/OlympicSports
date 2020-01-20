@@ -19,4 +19,6 @@ public abstract class JumpTapZone : ATapZone
        
         player.getRigidbody().velocity = Vector3.up * jumpvel;
     }
+
+    
 }

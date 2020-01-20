@@ -21,20 +21,16 @@ public abstract class ATapZone : MonoBehaviour
 
     void OnInputReceived(Inputs inp)
     {
-        Debug.Log("Input received");
+      
         if (inputListiningAllowed)
         {
-            Debug.Log("input registered on " + name);
             accuracy = PlayerInputAccuracyCalculatorWithRespectToDistance();
             DoInputAction(accuracy);
             inputListiningAllowed = false;
             triggercheckAllowed = false;
           
         }
-        else
-        {
-            Debug.Log("input not registered on " + name);
-        }
+       
     }
    
     private void OnTriggerEnter(Collider other)
