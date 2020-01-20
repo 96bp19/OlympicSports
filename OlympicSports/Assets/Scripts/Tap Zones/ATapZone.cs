@@ -6,6 +6,7 @@ public abstract class ATapZone : MonoBehaviour
 {
    
     private bool inputListiningAllowed;
+    private bool triggercheckAllowed = true;
 
     protected Player player;
 
@@ -24,6 +25,8 @@ public abstract class ATapZone : MonoBehaviour
         {
             Debug.Log("input registered on " + name);
             DoInputAction();
+            inputListiningAllowed = false;
+            triggercheckAllowed = false;
           
         }
         else
@@ -35,6 +38,10 @@ public abstract class ATapZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // input will be registered here onwards
+        if (!triggercheckAllowed)
+        {
+            return;
+        }
         if (other.gameObject.CompareTag("Player"))
         {
            

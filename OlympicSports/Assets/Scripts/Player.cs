@@ -7,8 +7,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] float moveSpeed = 5;
     [SerializeField] float currentSpeed = 0;
+    [SerializeField] float defaultGravityMultiplier = 3;
+    private float gravityMultiplier = 3;
 
+    private Vector3 downVector = Vector3.down;
     private Rigidbody rb;
+
     public Rigidbody getRigidbody()
     {
         return rb;
@@ -20,6 +24,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         currentSpeed = moveSpeed;
+        SetDefaultGravityMultiplier();
     }
 
     private void Update()
@@ -27,6 +32,10 @@ public class Player : MonoBehaviour
         movePlayer();
     }
 
+    private void FixedUpdate()
+    {
+        AddNewGravity();
+    }
     void movePlayer()
     {
         transform.position += transform.forward * currentSpeed *Time.deltaTime;
@@ -37,9 +46,29 @@ public class Player : MonoBehaviour
         currentSpeed += addedSpeed;
     }
 
-    public void ResetPlayer()
+    public void ResetPlayerSpeed()
     {
         currentSpeed = moveSpeed;
+    }
+
+   
+    public void AddNewGravity()
+    {
+        rb.AddForce(downVector * 9.8f * gravityMultiplier, ForceMode.Acceleration);
+    }
+
+    public void setNewGravityMutiplier(float newGrav)
+    {
+        gravityMultiplier = newGrav;
+    }
+    public float getCurrentGravity()
+    {
+        return 9.8f * gravityMultiplier;
+    }
+
+    public void SetDefaultGravityMultiplier()
+    {
+        gravityMultiplier = defaultGravityMultiplier;
     }
 
    
