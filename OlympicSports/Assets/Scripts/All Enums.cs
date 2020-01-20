@@ -1,0 +1,4 @@
+﻿public enum SportsType
+{
+    RUN,JUMP,LONGJUMP,HIGHJUMP,JAVALINETHROW
+}
