@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class longJumpTapZone : JumpTapZone
 {
-    public override void DoInputAction()
+    public override void DoInputAction(float accuracy)
     {
         player.setNewGravityMutiplier(1);
-        base.DoInputAction();
+        base.DoInputAction(accuracy);
     }
 }

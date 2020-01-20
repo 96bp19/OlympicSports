@@ -5,10 +5,11 @@ using UnityEngine;
 public class NormalJumpTapZone : JumpTapZone
 {
    
-    public override void DoInputAction()
+    public override void DoInputAction(float accuracy)
     {
         player.SetDefaultGravityMultiplier();
-        base.DoInputAction();
+        base.DoInputAction(accuracy);
+        Debug.Log("accuracy was : " + accuracy);
     }
 
    
