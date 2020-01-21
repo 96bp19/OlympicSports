@@ -62,7 +62,13 @@ public class JavalineThrowZone : ATapZone
     float calculateRandomAngleBasedOnAccuracy(float accuracy)
     {
         float randomAngle = 0;
-        if (accuracy <0.5f)
+
+        if (accuracy <0.25)
+        {
+            randomAngle = Random.Range(75, 90);
+        }
+
+        else if (accuracy <0.5f)
         {
             //fair
             randomAngle = RandomBool() ? Random.Range(25, 35) : Random.Range(60, 75); 
