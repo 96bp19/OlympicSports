@@ -12,7 +12,7 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        defaultInputs = new Inputs(false);
+        defaultInputs = new Inputs(false,false);
     }
 
     public void EnableInput(bool value = true)
@@ -43,10 +43,22 @@ public class InputManager : MonoBehaviour
     void UpdateInputs()
     {
         myInputs.screenTouched = Input.GetMouseButtonDown(0);
+
         if (myInputs.screenTouched)
         {
-            InputListeners?.Invoke(myInputs);
+            myInputs.screenHold = true;
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            myInputs.screenHold = false;
             EnableInput(false);
+        }
+        
+        
+        if (myInputs.screenTouched || myInputs.screenHold)
+        {
+            InputListeners?.Invoke(myInputs);
+            
 
         }
        
@@ -59,9 +71,11 @@ public class InputManager : MonoBehaviour
 public struct Inputs
 {
     public bool screenTouched;
+    public bool screenHold;
 
-    public Inputs(bool screenTouched)
+    public Inputs(bool screenTouched, bool screenHold)
     {
         this.screenTouched = screenTouched;
+        this.screenHold = screenHold;
     }
 }

@@ -47,5 +47,5 @@ MonoBehaviour:
     type: 3}
   PlayerPrefab: {fileID: 253336633695339288, guid: a187ad72de8925c418399e9329bd5a0c,
     type: 3}
-  currentSportsType: 0
-  AllsportsPrefab: {fileID: 0}
+  UImanagerprefab: {fileID: 8808539702783088607, guid: 5d8a60aaa74104d429a7a7346e90000d,
+    type: 3}

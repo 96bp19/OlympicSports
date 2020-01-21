@@ -24,7 +24,7 @@ public abstract class ATapZone : MonoBehaviour
       
         if (inputListiningAllowed)
         {
-            accuracy = PlayerInputAccuracyCalculatorWithRespectToDistance();
+            accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
             DoInputAction(accuracy);
             inputListiningAllowed = false;
             triggercheckAllowed = false;
@@ -60,14 +60,14 @@ public abstract class ATapZone : MonoBehaviour
         }
     }
 
-    float  PlayerInputAccuracyCalculatorWithRespectToDistance()
+    public float  CalculatePlayerInputAccuracyWithRespectToDistance()
     {
         float zScale = transform.localScale.z;
         float currentPlayerPosZ = player.transform.position.z;
         float extentz = transform.position.z + zScale;
 
-        float accuracy =  1 -Mathf.Abs(currentPlayerPosZ - extentz) / zScale;
-        accuracy = Mathf.Clamp(accuracy, 0.1f, 1f);
+        float accuracy =  1 -Mathf.Abs((currentPlayerPosZ-1) - extentz) / zScale;
+        accuracy = Mathf.Clamp(accuracy, 0f, 1f);
 
         return accuracy;
         

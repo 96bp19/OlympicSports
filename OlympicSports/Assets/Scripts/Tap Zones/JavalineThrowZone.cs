@@ -5,12 +5,46 @@ using UnityEngine;
 public class JavalineThrowZone : ATapZone
 {
     [SerializeField] private Transform javalineObjectPrefab;
+
+    private Vector3 javalinThrowStartpos, JavalinThrowEndPos;
+    private float startAccuracy = 0;
     public override void DoInputAction(float accuracy)
     {
-        player.ResetPlayerSpeed();
-        ThrowJavaline(accuracy);
+     
+        javalineHoldStart = true;
+        GameManager.UIManager_Instance.EnableJavalineMeter(true);
+        javalinThrowStartpos = player.transform.position;
+        startAccuracy = accuracy;
+        
     }
-    
+
+    bool javalineHoldStart;
+    private void Update()
+    {
+        if (javalineHoldStart)
+        {
+            if (player)
+            {
+                GameManager.UIManager_Instance.UpdateJavalinMeter(CalculatePlayerInputAccuracyWithRespectToDistance()- startAccuracy+0.1f);
+                if (GameManager.InputManagerInstance.getInputData().screenHold == false)
+                {
+                    javalineHoldStart = false;
+                
+                        player.ResetPlayerSpeed();
+                        float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() - startAccuracy;
+                        ThrowJavaline(newAccuracy);
+  
+                }
+
+            }
+            else
+            {
+                Debug.Log("foul");
+                javalineHoldStart = false;
+            }
+        }
+    }
+
     void ThrowJavaline(float accuracy)
     {
         float angleToThrowAt = calculateRandomAngleBasedOnAccuracy(accuracy);
