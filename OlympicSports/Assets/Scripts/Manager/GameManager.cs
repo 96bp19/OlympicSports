@@ -19,24 +19,13 @@ public class GameManager : MonoBehaviour
         BeginGame();
     }
 
-    private void Update()
-    {
-        
-    }
-
     void BeginGame()
     {
         InputManagerInstance = Instantiate(InputManagerPrefab) as InputManager;
         PlayerInstance = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity) as Player;
         UIManager_Instance = Instantiate(UImanagerprefab) as UI_Manager;
-        
-
     }
 
-    void RestartGame()
-    {
-
-    }
 
 
 }

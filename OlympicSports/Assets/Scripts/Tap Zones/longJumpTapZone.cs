@@ -34,8 +34,6 @@ public class longJumpTapZone : JumpTapZone
                     // because it has already been calculated , so 1 used here is random value
                     // we can use any thing it does not matter
                     base.DoInputAction(1);
-
-            
                 }
 
             }

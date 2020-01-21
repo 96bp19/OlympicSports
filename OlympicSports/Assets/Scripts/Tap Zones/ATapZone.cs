@@ -8,8 +8,8 @@ public abstract class ATapZone : MonoBehaviour
     private bool inputListiningAllowed;
     private bool triggercheckAllowed = true;
     private float accuracy;
-
     protected Player player;
+
 
     public abstract void DoInputAction(float accuracy);
 
