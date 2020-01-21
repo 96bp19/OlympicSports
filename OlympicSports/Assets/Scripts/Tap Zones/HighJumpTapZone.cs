@@ -20,19 +20,19 @@ public class HighJumpTapZone : JumpTapZone
         if (accuracy < 0.5f)
         {
             // fair
-            val = 1f;
+            val = 8f;
             Debug.Log("fair");
         }
         else if (accuracy < 0.8)
         {
             // good 
-            val = 3f;
+            val = 10f;
             Debug.Log("good");
         }
         else
         {
             // perfect
-            val = 5f;
+            val = 12f;
             Debug.Log("perfect");
         }
         return val;
