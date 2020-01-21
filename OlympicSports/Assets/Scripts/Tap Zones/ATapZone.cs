@@ -57,6 +57,7 @@ public abstract class ATapZone : MonoBehaviour
             GameManager.InputManagerInstance.EnableInput(false);
             inputListiningAllowed = false;
             player = null;
+            GameManager.UIManager_Instance.EnableHoldMeter(false);
         }
     }
 

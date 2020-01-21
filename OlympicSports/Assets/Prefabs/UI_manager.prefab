@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6ea2476b65325449c4fa87df6682b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  javalineThrowSlider: {fileID: 7431659651694148276}
+  HoldMeter: {fileID: 7431659651694148276}
 --- !u!1 &4175769521567678435
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,22 +5,26 @@ using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
-    [SerializeField] private Slider javalineThrowSlider;
-    private bool UpdateJavalinmeterValue;
+    [SerializeField] private Slider HoldMeter;
+    
 
     private void Awake()
     {
-        if (javalineThrowSlider)
+        if (HoldMeter)
         {
-            EnableJavalineMeter(false);
+            EnableHoldMeter(false);
         }
     }
-    public void EnableJavalineMeter(bool value)
+    public void EnableHoldMeter(bool value)
     {
-        if (javalineThrowSlider)
+        if (HoldMeter)
         {
-            javalineThrowSlider.gameObject.SetActive(value);
-            UpdateJavalinmeterValue = value;
+            HoldMeter.gameObject.SetActive(value);
+            if (value == false)
+            {
+                UpdateHoldMeterVal(0);
+            }
+           
         }
         else
         {
@@ -28,9 +32,9 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void UpdateJavalinMeter(float value)
+    public void UpdateHoldMeterVal(float value)
     {
-        javalineThrowSlider.value = value;
+        HoldMeter.value = value;
     }
 
 }

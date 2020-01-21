@@ -12,7 +12,7 @@ public class JavalineThrowZone : ATapZone
     {
      
         javalineHoldStart = true;
-        GameManager.UIManager_Instance.EnableJavalineMeter(true);
+        GameManager.UIManager_Instance.EnableHoldMeter(true);
         javalinThrowStartpos = player.transform.position;
         startAccuracy = accuracy;
         
@@ -25,7 +25,7 @@ public class JavalineThrowZone : ATapZone
         {
             if (player)
             {
-                GameManager.UIManager_Instance.UpdateJavalinMeter(CalculatePlayerInputAccuracyWithRespectToDistance()- startAccuracy+0.1f);
+                GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance()- startAccuracy+0.1f);
                 if (GameManager.InputManagerInstance.getInputData().screenHold == false)
                 {
                     javalineHoldStart = false;

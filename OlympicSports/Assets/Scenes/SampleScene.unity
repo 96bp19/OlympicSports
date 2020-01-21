@@ -120,6 +120,26 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &276408394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4159472863960858786, guid: 5558e3fa611684f4596a92c23592bd4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 820156722}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &276408395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276408394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315afad4db4ccbe46bc041b190533977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  javalineObjectPrefab: {fileID: 1802688320096485009, guid: 592129c2442dde3428577c19fd2b7e86,
+    type: 3}
 --- !u!1001 &468802759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,11 +422,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 716759410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315afad4db4ccbe46bc041b190533977, type: 3}
+  m_Script: {fileID: 11500000, guid: 2810ffd0b25550f469bd3be797797b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  javalineObjectPrefab: {fileID: 1802688320096485009, guid: 592129c2442dde3428577c19fd2b7e86,
-    type: 3}
+  jumpHeight: 6
 --- !u!1 &800463432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4159472863960858786, guid: 5558e3fa611684f4596a92c23592bd4d,
@@ -425,6 +444,90 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1361dc91dc946cd41b5e14ebc8e03100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &820156722
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4159472863960858786, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_Name
+      value: javaline area (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 176.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3404380512140397193, guid: 5558e3fa611684f4596a92c23592bd4d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 19a7a8764af493c44a1d4ae6138114e1, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5558e3fa611684f4596a92c23592bd4d, type: 3}
 --- !u!1 &1094161273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4159472863960858786, guid: 5558e3fa611684f4596a92c23592bd4d,
@@ -805,7 +908,7 @@ PrefabInstance:
     - target: {fileID: 4159472863960858786, guid: 5558e3fa611684f4596a92c23592bd4d,
         type: 3}
       propertyPath: m_Name
-      value: javaline area
+      value: Long Jump Area
       objectReference: {fileID: 0}
     - target: {fileID: 719407835686043117, guid: 5558e3fa611684f4596a92c23592bd4d,
         type: 3}

@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     }
     void movePlayer()
     {
+        
         transform.position += transform.forward * currentSpeed *Time.deltaTime;
     }
 
