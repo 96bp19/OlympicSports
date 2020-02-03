@@ -10,6 +10,8 @@ public class Javaline : MonoBehaviour
     public float currentDistance;
     void Update()
     {
+        // this is calculated to know if the javalin has landed on ground
+        // will use different approach later this is temp approach
         if (transform.position.y <1f)
         {
             calculateDistanceStart = false;
@@ -29,6 +31,8 @@ public class Javaline : MonoBehaviour
         }
     }
 
+    // target is who ever thorws this javalin
+    // target here is used to calculate the distance between the javalin and thrower
     public void setTarget(Transform target)
     {
         this.target = target;
