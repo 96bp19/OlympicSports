@@ -49,3 +49,7 @@ MonoBehaviour:
     type: 3}
   UImanagerprefab: {fileID: 8808539702783088607, guid: 5d8a60aaa74104d429a7a7346e90000d,
     type: 3}
+  StageLoaderPrefab: {fileID: 8982286505538818578, guid: 65a9070f59775a949ab1a04dca5a7a84,
+    type: 3}
+  saveManagerPrefab: {fileID: 3625216341915541429, guid: 8ba0b9c9dd1fa1a4b8220bd6a628278d,
+    type: 3}

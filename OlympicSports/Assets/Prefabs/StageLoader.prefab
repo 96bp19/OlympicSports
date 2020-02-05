@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8982286505538818579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8982286505538818577}
+  - component: {fileID: 8982286505538818578}
+  m_Layer: 0
+  m_Name: StageLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8982286505538818577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8982286505538818579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.068024, y: -9.479828, z: 807.6806}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8982286505538818578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8982286505538818579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f99fe879545a75647bc6da9e15b4ee81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SportsGames:
+  - {fileID: 5057094565724095024, guid: 0716b842fef574844877200d39c30dbc, type: 3}
+  - {fileID: 7470070239057717236, guid: a2703e35248232347a0387735aa87f1c, type: 3}
+  - {fileID: 3971513733872339464, guid: 68c21df90462a7f4fbc28f82f39f52ef, type: 3}
+  - {fileID: 4361906833209264808, guid: 6fd85c459e8dd1b4781e966f94bd233d, type: 3}
+  - {fileID: 2757919541375575814, guid: 25099df4309ae154b81d809dad56efe7, type: 3}

@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UI_Manager UImanagerprefab;
     public static UI_Manager UIManager_Instance;
 
+    [SerializeField] private NewStageLoader StageLoaderPrefab;
+    public static NewStageLoader StageLoaderInstance;
+
+    [SerializeField] private SaveManager saveManagerPrefab;
+
     private void Awake()
     {
         BeginGame();
@@ -24,6 +29,8 @@ public class GameManager : MonoBehaviour
         InputManagerInstance = Instantiate(InputManagerPrefab) as InputManager;
         PlayerInstance = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity) as Player;
         UIManager_Instance = Instantiate(UImanagerprefab) as UI_Manager;
+        StageLoaderInstance = Instantiate(StageLoaderPrefab) as NewStageLoader;
+        Instantiate(saveManagerPrefab);
     }
 
 
