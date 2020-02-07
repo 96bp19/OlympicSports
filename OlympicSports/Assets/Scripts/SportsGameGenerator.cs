@@ -30,7 +30,10 @@ public class SportsGameGenerator : MonoBehaviour
         Vector3 currentPos = Vector3.forward * 15;
 
         LengthChanger sportLength;
-        
+
+        float ReducedLength = 3;
+        float lengthCount = 0;
+        float maxlength = (float)noOfObjectsToSpawn * sportsPrefab.Length;
         for (int i = 0; i < noOfObjectsToSpawn; i++)
         {
             for (int j = 0; j < sportsPrefab.Length; j++)
@@ -38,12 +41,15 @@ public class SportsGameGenerator : MonoBehaviour
                 sportLength = Instantiate(sportsPrefab[j].SportPrefab);
                 if (sportsPrefab[j].lengthChangeable)
                 {
-                    sportLength.SetLength(2);
+                    ReducedLength =  ((maxlength- lengthCount) / maxlength)*6;
+                    sportLength.SetLength(ReducedLength);
+                    lengthCount++;
 
                 }
+
                 sportLength.transform.SetParent(transform);
                 sportLength.transform.localPosition = currentPos;
-                currentPos += ( new Vector3(0, 0, sportLength.transform.localScale.z)  + Vector3.forward *10);
+                currentPos += ( new Vector3(0, 0, sportLength.transform.localScale.z)  + Vector3.forward *(20-lengthCount));
                 
 
             }

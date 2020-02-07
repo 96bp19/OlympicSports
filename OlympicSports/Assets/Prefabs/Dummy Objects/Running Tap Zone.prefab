@@ -88,8 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e23d150e7c709c498ad10a1b203e390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minLength: 1
-  maxLength: 3
+  minLength: 2
+  maxLength: 5
 --- !u!1 &6638392768573092436
 GameObject:
   m_ObjectHideFlags: 0
