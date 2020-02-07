@@ -22,7 +22,9 @@ public class FinishLineChecker : MonoBehaviour
                 SaveManager.Instance.SaveLastLevelData(nextlevel);
 
                 // load next level
-                GameManager.StageLoaderInstance.LoadNextSport(other.transform.position + other.transform.forward * 30);
+                Debug.Log("my current pos : " + transform.position);
+                Debug.Log(" next load pos : " +( transform.position + Vector3.forward * 30));
+                GameManager.StageLoaderInstance.LoadNextSport(transform.position + Vector3.forward* 30);
             }
         }
     }

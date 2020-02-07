@@ -6,6 +6,7 @@ public class NewStageLoader : MonoBehaviour
 {
     public GameObject[] SportsGames;
 
+    [HideInInspector]
     public  int levelLoadIndexMax;
     private void Awake()
     {
@@ -23,11 +24,12 @@ public class NewStageLoader : MonoBehaviour
     {
         int currentIndex = SaveManager.Instance.getLastLoadedLevelIndex();
         Debug.Log("level load index : " + currentIndex);
-        spawnPos.y = 0;
+        
+
         if (currentIndex < SportsGames.Length)
         {
             GameObject obj = Instantiate(SportsGames[currentIndex], spawnPos, Quaternion.identity);
-           
+            Debug.Log("spawned obj pos : " + spawnPos);
 
         }
         else

@@ -26,11 +26,17 @@ public class GameManager : MonoBehaviour
 
     void BeginGame()
     {
+        GameObject allmanagers = new GameObject("All Managers");
+        transform.SetParent(allmanagers.transform);
         InputManagerInstance = Instantiate(InputManagerPrefab) as InputManager;
+        InputManagerInstance.transform.SetParent(allmanagers.transform);
+
         PlayerInstance = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity) as Player;
+
         UIManager_Instance = Instantiate(UImanagerprefab) as UI_Manager;
+        UIManager_Instance.transform.SetParent(allmanagers.transform);
         StageLoaderInstance = Instantiate(StageLoaderPrefab) as NewStageLoader;
-        Instantiate(saveManagerPrefab);
+        Instantiate(saveManagerPrefab).transform.SetParent(allmanagers.transform);
     }
 
 

@@ -2,7 +2,7 @@
 
 using System;
 
-    public class Enum<T> where T : struct, IConvertible
+    public static class Enum<T> where T : struct, IConvertible
     {
         public static int Count
         {

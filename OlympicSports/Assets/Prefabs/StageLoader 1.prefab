@@ -44,9 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SportsGames:
-  - {fileID: 7716222615923654842, guid: 4f8c2d33548402443abe394cba4d92a7, type: 3}
-  - {fileID: 2299164425195103545, guid: 09717f3b194518c40bd387560c40c5bb, type: 3}
-  - {fileID: 9223169394608911905, guid: 84b13533d53e42546ae11a6563816440, type: 3}
-  - {fileID: 6644852942725953492, guid: c27c487fde9bc2e48b5b72166c8222c1, type: 3}
-  - {fileID: 4461763101049902957, guid: 6d2f150c91cf1f34c9f1793cbd455e8c, type: 3}
-  levelLoadIndexMax: 0
+  - {fileID: 5057094565724095024, guid: 0716b842fef574844877200d39c30dbc, type: 3}
+  - {fileID: 7470070239057717236, guid: a2703e35248232347a0387735aa87f1c, type: 3}
+  - {fileID: 3971513733872339464, guid: 68c21df90462a7f4fbc28f82f39f52ef, type: 3}
+  - {fileID: 4361906833209264808, guid: 6fd85c459e8dd1b4781e966f94bd233d, type: 3}
+  - {fileID: 2757919541375575814, guid: 25099df4309ae154b81d809dad56efe7, type: 3}

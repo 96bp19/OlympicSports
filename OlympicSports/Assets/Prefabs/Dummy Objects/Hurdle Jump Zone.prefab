@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 760379566742092419}
   - component: {fileID: 7825777993688841915}
   - component: {fileID: 1594378405738245675}
+  - component: {fileID: 5017144097759316949}
   m_Layer: 0
   m_Name: Hurdle Jump Zone
   m_TagString: Untagged
@@ -76,6 +77,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 4
+--- !u!114 &5017144097759316949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429830034036738079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e23d150e7c709c498ad10a1b203e390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minLength: 1
+  maxLength: 3
 --- !u!1 &4115890660704141832
 GameObject:
   m_ObjectHideFlags: 0
