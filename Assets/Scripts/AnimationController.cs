@@ -47,6 +47,7 @@ public class AnimationController : MonoBehaviour
 
     public void LongJump()
     {
+        anim.SetTrigger("LongJump");
 
     }
 
