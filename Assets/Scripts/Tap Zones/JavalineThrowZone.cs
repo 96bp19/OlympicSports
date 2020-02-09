@@ -92,4 +92,9 @@ public class JavalineThrowZone : ATapZone
     {
         return Random.Range(0, 2) == 0;
     }
+
+    public override void PlayAnimation(AnimationController animController)
+    {
+        animController.JavalineThrow();
+    }
 }

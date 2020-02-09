@@ -29,7 +29,7 @@ public class NewStageLoader : MonoBehaviour
         if (currentIndex < SportsGames.Length)
         {
             GameObject obj = Instantiate(SportsGames[currentIndex], spawnPos, Quaternion.identity);
-            Debug.Log("spawned obj pos : " + spawnPos);
+
 
         }
         else

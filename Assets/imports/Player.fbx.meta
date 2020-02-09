@@ -44,7 +44,7 @@ ModelImporter:
       name: run
       takeName: rig|run
       internalID: 0
-      firstFrame: 2
+      firstFrame: 1
       lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
@@ -74,7 +74,7 @@ ModelImporter:
       takeName: rig|run
       internalID: 0
       firstFrame: 22
-      lastFrame: 38
+      lastFrame: 41
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

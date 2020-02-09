@@ -11,7 +11,12 @@ public abstract class ATapZone : MonoBehaviour
     protected Player player;
 
 
+
+
     public abstract void DoInputAction(float accuracy);
+    public abstract void PlayAnimation(AnimationController animController);
+   
+
 
     private void Start()
     {
@@ -26,6 +31,8 @@ public abstract class ATapZone : MonoBehaviour
         {
             accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
             DoInputAction(accuracy);
+      
+            PlayAnimation(player.GetComponent<AnimationController>());
             inputListiningAllowed = false;
             triggercheckAllowed = false;
           

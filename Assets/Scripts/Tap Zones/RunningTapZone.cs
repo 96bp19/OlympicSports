@@ -10,25 +10,30 @@ public class RunningTapZone : ATapZone
         player.AddSpeed(speedToadd);    
     }
 
+    public override void PlayAnimation(AnimationController animController)
+    {
+        animController.IncreaseAnimationSpeed();
+    }
+
     float calculateSpeedToAddBasedOnAccuracy(float accuracy)
     {
         float val = 0;
         if (accuracy <0.5f)
         {
             // fair
-            val = 3f;
+            val = 0.5f;
             Debug.Log("fair");
         }
         else if (accuracy <0.8)
         {
             // good 
-            val = 4f;
+            val = 1.2f;
             Debug.Log("good");
         }
         else
         {
             // perfect
-            val = 5f;
+            val = 2f;
             Debug.Log("perfect");
         }
         return val;

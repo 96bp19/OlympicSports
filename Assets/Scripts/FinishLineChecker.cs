@@ -15,6 +15,7 @@ public class FinishLineChecker : MonoBehaviour
             {
                 
                 player.ResetPlayerSpeed();
+                player.GetComponent<AnimationController>().SlowDownRunSpeed();
 
                 // get next sport type by increasing index
                 int nextlevel = SaveManager.Instance.getLastLoadedLevelIndex() + 1;

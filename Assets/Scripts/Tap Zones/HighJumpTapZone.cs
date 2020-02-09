@@ -10,8 +10,14 @@ public class HighJumpTapZone : JumpTapZone
         player.ResetPlayerSpeed();
         jumpHeight = calculateJumpheightBasedOnAccuracy(accuracy);
         base.DoInputAction(accuracy);
+
        
         
+    }
+
+    public override void PlayAnimation(AnimationController animController)
+    {
+        animController.HighJump();
     }
 
     float calculateJumpheightBasedOnAccuracy(float accuracy)
@@ -38,6 +44,8 @@ public class HighJumpTapZone : JumpTapZone
         return val;
 
     }
+
+    
 
 
 }

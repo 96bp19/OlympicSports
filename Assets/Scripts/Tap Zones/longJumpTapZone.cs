@@ -16,6 +16,13 @@ public class longJumpTapZone : JumpTapZone
         GameManager.UIManager_Instance.EnableHoldMeter(true);
     }
 
+   
+
+    public override void PlayAnimation(AnimationController animController)
+    {
+        animController.LongJump();
+    }
+
     private void Update()
     {
         if ( screenHoldStarted)
