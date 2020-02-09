@@ -5,10 +5,10 @@ using UnityEngine;
 public class NormalJumpTapZone : JumpTapZone
 {
 
-    float accuracy;
+    float Playeraccuracy;
     public override void DoInputAction(float accuracy)
     {
-        this.accuracy = accuracy;
+        this.Playeraccuracy = accuracy;
        // player.SetDefaultGravityMultiplier();
         //base.DoInputAction(accuracy);
 
@@ -26,7 +26,7 @@ public class NormalJumpTapZone : JumpTapZone
     void JumpAfterDelay()
     {
         Debug.Log("jump delayed");
-        base.DoInputAction(accuracy);
+        base.DoInputAction(Playeraccuracy);
 
     }
 }

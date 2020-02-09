@@ -6,7 +6,26 @@ public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator anim;
 
-    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            SetGroundedState(true); 
+        }
+
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            SetGroundedState(false);
+        }
+    }
+
+
+
 
 
     public void SlowDownRunSpeed()
@@ -39,6 +58,11 @@ public class AnimationController : MonoBehaviour
     public void JavalineThrow()
     {
 
+    }
+
+    void SetGroundedState(bool grounded)
+    {
+        anim.SetBool("IsGrounded", grounded);
     }
 
     
