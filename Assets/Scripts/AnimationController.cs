@@ -59,6 +59,7 @@ public class AnimationController : MonoBehaviour
 
     public void JavalineThrow()
     {
+        anim.SetTrigger("JavalinThrow");
 
     }
 

@@ -34,8 +34,9 @@ public class JavalineThrowZone : ATapZone
                 
                         player.ResetPlayerSpeed();
                         float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() - startAccuracy;
-                        
-                      //  ThrowJavaline(newAccuracy);
+
+                        PlayJavalineThrowAnimation(newAccuracy);
+                     
   
                 }
 
@@ -102,10 +103,12 @@ public class JavalineThrowZone : ATapZone
         this.animControler = animController;
     }
 
-    void PlayJavalineThrowAnimation()
+    IEnumerator enumerator;
+    void PlayJavalineThrowAnimation(float accuracy)
     {
         animControler.JavalineThrow();
-        Invoke("ThrowJavaline", 0.2f);
+        System.Action javalinethrowAction = () => ThrowJavaline(accuracy);
+        this.RunFunctionAfter(javalinethrowAction, 0.8f, ref enumerator);
         
 
     }
