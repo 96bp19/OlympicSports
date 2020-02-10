@@ -49,7 +49,9 @@ public class SportsGameGenerator : MonoBehaviour
 
                 sportLength.transform.SetParent(transform);
                 sportLength.transform.localPosition = currentPos;
-                currentPos += ( new Vector3(0, 0, sportLength.transform.localScale.z)  + Vector3.forward *(20-lengthCount));
+                float distanceTonextplatform = sportsPrefab.Length * (noOfObjectsToSpawn +1) - lengthCount;
+                distanceTonextplatform = Mathf.Clamp(distanceTonextplatform,10, 15);
+                currentPos += ( new Vector3(0, 0, sportLength.transform.localScale.z)  + Vector3.forward *distanceTonextplatform);
                 
 
             }

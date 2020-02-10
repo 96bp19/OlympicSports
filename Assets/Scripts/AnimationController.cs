@@ -42,6 +42,7 @@ public class AnimationController : MonoBehaviour
 
     public void HighJump()
     {
+        anim.SetTrigger("HighJump");
 
     }
 

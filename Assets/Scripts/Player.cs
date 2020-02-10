@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    [SerializeField] float moveSpeed = 5;
+    [SerializeField] float defaultMoveSpeed = 5;
+    [SerializeField] float maxMoveSpeed = 25f;
     [SerializeField] float currentSpeed = 0;
     [SerializeField] float defaultGravityMultiplier = 3;
     private float gravityMultiplier = 3;
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentSpeed = moveSpeed;
+        currentSpeed = defaultMoveSpeed;
         SetDefaultGravityMultiplier();
     }
 
@@ -70,11 +71,12 @@ public class Player : MonoBehaviour
     public void AddSpeed(float addedSpeed)
     {
         currentSpeed += addedSpeed;
+        currentSpeed = Mathf.Clamp(currentSpeed, defaultMoveSpeed, maxMoveSpeed);
     }
 
     public void ResetPlayerSpeed()
     {
-        currentSpeed = moveSpeed;
+        currentSpeed = defaultMoveSpeed;
     }
 
 
@@ -102,6 +104,18 @@ public class Player : MonoBehaviour
     public float GetCurrentPlayerSpeed()
     {
         return currentSpeed;
+    }
+
+    public void StopMoving(bool val)
+    {
+        if (val)
+        {
+            currentSpeed = 0;
+        }
+        else
+        {
+            ResetPlayerSpeed();
+        }
     }
 
    
