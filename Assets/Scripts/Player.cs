@@ -27,9 +27,35 @@ public class Player : MonoBehaviour
         SetDefaultGravityMultiplier();
     }
 
+    IEnumerator call;
     private void Update()
     {
         movePlayer();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+
+            System.Action actions = () => Apple(3);
+
+            this.RunFunctionAfter( actions, 2, ref call);
+            
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            System.Action actions = () => Apple(1);
+            this.CancleFunctionExecution( ref call);
+
+          
+
+           
+        }
+    }
+
+   
+
+    void Apple(int x)
+    {
+        Debug.Log("apple called with val : " + x);
+       
     }
 
     private void FixedUpdate()
@@ -50,6 +76,8 @@ public class Player : MonoBehaviour
     {
         currentSpeed = moveSpeed;
     }
+
+
 
    
     public void AddNewGravity()

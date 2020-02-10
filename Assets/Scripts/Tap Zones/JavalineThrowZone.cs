@@ -8,6 +8,8 @@ public class JavalineThrowZone : ATapZone
 
     private Vector3 javalinThrowStartpos, JavalinThrowEndPos;
     private float startAccuracy = 0;
+
+    private AnimationController animControler;
     public override void DoInputAction(float accuracy)
     {
      
@@ -32,7 +34,8 @@ public class JavalineThrowZone : ATapZone
                 
                         player.ResetPlayerSpeed();
                         float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() - startAccuracy;
-                        ThrowJavaline(newAccuracy);
+                        
+                      //  ThrowJavaline(newAccuracy);
   
                 }
 
@@ -95,6 +98,15 @@ public class JavalineThrowZone : ATapZone
 
     public override void PlayAnimation(AnimationController animController)
     {
-        animController.JavalineThrow();
+        // animController.JavalineThrow();
+        this.animControler = animController;
+    }
+
+    void PlayJavalineThrowAnimation()
+    {
+        animControler.JavalineThrow();
+        Invoke("ThrowJavaline", 0.2f);
+        
+
     }
 }
