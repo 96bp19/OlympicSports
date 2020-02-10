@@ -204,8 +204,8 @@ ModelImporter:
       name: javlinthrow
       takeName: rig|CylinderAction
       internalID: 0
-      firstFrame: 0
-      lastFrame: 24
+      firstFrame: 133
+      lastFrame: 172
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -233,8 +233,8 @@ ModelImporter:
       name: high_jump
       takeName: rig|CylinderAction
       internalID: 0
-      firstFrame: 21
-      lastFrame: 24
+      firstFrame: 185
+      lastFrame: 258
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
