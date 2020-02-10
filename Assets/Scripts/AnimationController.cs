@@ -66,5 +66,10 @@ public class AnimationController : MonoBehaviour
         anim.SetBool("IsGrounded", grounded);
     }
 
+    public void UpdatePlayerSpeed()
+    {
+        anim.SetFloat("PlayerSpeed", GameManager.PlayerInstance.GetCurrentPlayerSpeed());
+    }
+
     
 }

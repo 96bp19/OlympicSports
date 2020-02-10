@@ -71,5 +71,10 @@ public class Player : MonoBehaviour
         gravityMultiplier = defaultGravityMultiplier;
     }
 
+    public float GetCurrentPlayerSpeed()
+    {
+        return currentSpeed;
+    }
+
    
 }

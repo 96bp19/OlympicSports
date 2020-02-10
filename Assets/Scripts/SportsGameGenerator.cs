@@ -61,7 +61,7 @@ public class SportsGameGenerator : MonoBehaviour
             obj = Instantiate(finalObjectToSpawn);
             obj.transform.SetParent(transform);
             obj.transform.localPosition = currentPos;
-            currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * 60);
+            currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * 100);
         }
 
         obj = Instantiate(celebrationPrefab);

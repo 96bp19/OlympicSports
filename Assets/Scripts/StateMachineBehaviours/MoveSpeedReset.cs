@@ -20,6 +20,8 @@ public class MoveSpeedReset : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.SetFloat("AnimationSpeeed", 1);
+        GameManager.PlayerInstance.ResetPlayerSpeed();
+      
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
