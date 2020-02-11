@@ -72,7 +72,17 @@ public class AnimationController : MonoBehaviour
 
     public void StartSwimming(bool value)
     {
-        anim.SetBool("SwimmingStart", value);
+        if (value)
+        {
+            anim.SetTrigger("SwimStart");
+
+        }
+
+        else
+        {
+            anim.SetTrigger("SwimEnd");
+
+        }
     }
 
     

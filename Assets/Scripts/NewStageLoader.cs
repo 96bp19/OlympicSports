@@ -8,6 +8,15 @@ public class NewStageLoader : MonoBehaviour
 
     [HideInInspector]
     public  int levelLoadIndexMax;
+
+    private Vector3 newSpawnPos;
+
+    public void SetSpawnPos(Vector3 newpos)
+    {
+        newSpawnPos = newpos;
+    }
+
+
     private void Awake()
     {
         levelLoadIndexMax = SportsGames.Length;
@@ -15,12 +24,12 @@ public class NewStageLoader : MonoBehaviour
 
     private void Start()
     {
-      
-        Vector3 spawnPos = new Vector3(0, 0, 20);
-        LoadNextSport(spawnPos);
+
+        SetSpawnPos(Vector3.zero);
+        LoadNextSport();
     }
 
-    public void LoadNextSport(Vector3 spawnPos)
+    public void LoadNextSport()
     {
         int currentIndex = SaveManager.Instance.getLastLoadedLevelIndex();
         Debug.Log("level load index : " + currentIndex);
@@ -28,7 +37,7 @@ public class NewStageLoader : MonoBehaviour
 
         if (currentIndex < SportsGames.Length)
         {
-            GameObject obj = Instantiate(SportsGames[currentIndex], spawnPos, Quaternion.identity);
+            GameObject obj = Instantiate(SportsGames[currentIndex], newSpawnPos, Quaternion.identity);
 
 
         }

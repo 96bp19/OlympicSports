@@ -24,8 +24,9 @@ public class FinishLineChecker : MonoBehaviour
 
                 // load next level
                 Debug.Log("my current pos : " + transform.position);
-                Debug.Log(" next load pos : " +( transform.position + Vector3.forward * 30));
-                GameManager.StageLoaderInstance.LoadNextSport(transform.position + Vector3.forward* 30);
+                Debug.Log(" next load pos : " +( transform.position + Vector3.forward * 20));
+                GameManager.StageLoaderInstance.LoadNextSport();
+                
             }
         }
     }

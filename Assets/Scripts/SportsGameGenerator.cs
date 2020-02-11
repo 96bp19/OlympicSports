@@ -16,6 +16,8 @@ public class SportsGameGenerator : MonoBehaviour
 
     [SerializeField] private int noOfSportsPrefabsToSpawn =10;
 
+    [SerializeField] private GameObject groundPrefab;
+
     private void Start()
     {
         GeneratePrefabs();
@@ -69,7 +71,19 @@ public class SportsGameGenerator : MonoBehaviour
         obj = Instantiate(celebrationPrefab);
         obj.transform.SetParent(transform);
         obj.transform.localPosition = currentPos;
-        currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * 10);
+        currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * 20);
+
+        Debug.Log("current level length is : " + currentPos.z);
+        Transform groundTrans = Instantiate(groundPrefab, transform).transform;
+        groundTrans.SetParent(transform);
+        Vector3 localpos = Vector3.zero;
+        localpos.y = transform.localPosition.y-1f;
+        groundTrans.localPosition = localpos;
+        groundTrans.localScale = new Vector3(3, 1, currentPos.z);
+
+        // spawn pos for next platform
+        Vector3 spawnPos = transform.position + new Vector3(0, 0, currentPos.z);
+        GameManager.StageLoaderInstance.SetSpawnPos(spawnPos);
     }
 }
 

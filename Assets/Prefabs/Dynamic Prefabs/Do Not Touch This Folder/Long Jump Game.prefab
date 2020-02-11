@@ -53,3 +53,5 @@ MonoBehaviour:
   celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,
     type: 3}
   noOfSportsPrefabsToSpawn: 0
+  groundPrefab: {fileID: 4159472863960858786, guid: da35768d7a2592e438d7799c50fa212f,
+    type: 3}
