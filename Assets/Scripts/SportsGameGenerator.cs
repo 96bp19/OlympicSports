@@ -50,7 +50,7 @@ public class SportsGameGenerator : MonoBehaviour
                 sportLength.transform.SetParent(transform);
                 sportLength.transform.localPosition = currentPos;
                 float distanceTonextplatform = sportsPrefab.Length * (noOfObjectsToSpawn +1) - lengthCount;
-                distanceTonextplatform = Mathf.Clamp(distanceTonextplatform,10, 15);
+                distanceTonextplatform = Mathf.Clamp(distanceTonextplatform,1, 15);
                 currentPos += ( new Vector3(0, 0, sportLength.transform.localScale.z)  + Vector3.forward *distanceTonextplatform);
                 
 
@@ -63,7 +63,7 @@ public class SportsGameGenerator : MonoBehaviour
             obj = Instantiate(finalObjectToSpawn);
             obj.transform.SetParent(transform);
             obj.transform.localPosition = currentPos;
-            currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * 100);
+            currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * sportsPrefab[sportsPrefab.Length-1].celebrationZoneDistance);
         }
 
         obj = Instantiate(celebrationPrefab);
@@ -78,4 +78,5 @@ public struct SportGame
 {
     public LengthChanger SportPrefab;
     public bool lengthChangeable;
+    public float celebrationZoneDistance;
 }

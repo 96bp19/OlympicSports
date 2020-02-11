@@ -24,10 +24,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-
-
-
-
+    
     public void SlowDownRunSpeed()
     {
         Debug.Log("Animation reset");
@@ -71,6 +68,11 @@ public class AnimationController : MonoBehaviour
     public void UpdatePlayerSpeed()
     {
         anim.SetFloat("PlayerSpeed", GameManager.PlayerInstance.GetCurrentPlayerSpeed());
+    }
+
+    public void StartSwimming(bool value)
+    {
+        anim.SetBool("SwimmingStart", value);
     }
 
     

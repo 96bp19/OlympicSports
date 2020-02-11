@@ -47,9 +47,11 @@ MonoBehaviour:
   - SportPrefab: {fileID: -941793769728776965, guid: ecc0f94650f79ef458cf70a66429ea82,
       type: 3}
     lengthChangeable: 1
+    celebrationZoneDistance: 0
   - SportPrefab: {fileID: 5017144097759316949, guid: 0a4e082f68d5b90459b2c9f3b11514c2,
       type: 3}
     lengthChangeable: 0
+    celebrationZoneDistance: 20
   finalObjectToSpawn: {fileID: 0}
   celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,
     type: 3}

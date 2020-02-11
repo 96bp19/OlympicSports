@@ -31,13 +31,10 @@ public static class MonobehaviourExtension
             stopper = null;
 
         }
-        Debug.Log("should cancle");
+      
     }
 
-    public static void CheckAction(this MonoBehaviour behaviour )
-    {
-
-    } 
+   
        
         
         

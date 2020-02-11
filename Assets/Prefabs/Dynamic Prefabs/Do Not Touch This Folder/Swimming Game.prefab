@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6644852942725953492
+--- !u!1 &1170594395042127691
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6644852942725953493}
-  - component: {fileID: 6644852942725953494}
+  - component: {fileID: 1170594395042127690}
+  - component: {fileID: 1170594395042127689}
   m_Layer: 0
-  m_Name: Long Jump Game
+  m_Name: Swimming Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6644852942725953493
+--- !u!4 &1170594395042127690
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6644852942725953492}
+  m_GameObject: {fileID: 1170594395042127691}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,25 +31,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6644852942725953494
+--- !u!114 &1170594395042127689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6644852942725953492}
+  m_GameObject: {fileID: 1170594395042127691}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac900e02120f9e142925d1e7c9ea370f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sportsPrefab:
-  - SportPrefab: {fileID: -941793769728776965, guid: ecc0f94650f79ef458cf70a66429ea82,
+  - SportPrefab: {fileID: 53638998102446383, guid: 517e4e19e1fbfb64ea4bd1d5b3c75ae4,
       type: 3}
     lengthChangeable: 1
-    celebrationZoneDistance: 100
-  finalObjectToSpawn: {fileID: 5194554361303768653, guid: 98d96cce69ee11f4a8e5140863c76248,
+    celebrationZoneDistance: 10
+  finalObjectToSpawn: {fileID: 3414810965681694080, guid: e0cf217f6e49b1a45b2753267ecc1af8,
     type: 3}
   celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,
     type: 3}
-  noOfSportsPrefabsToSpawn: 0
+  noOfSportsPrefabsToSpawn: 1

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] float maxMoveSpeed = 25f;
     [SerializeField] float currentSpeed = 0;
     [SerializeField] float defaultGravityMultiplier = 3;
+    private float lerpedMoveSpeed = 0;
     private float gravityMultiplier = 3;
 
     private Vector3 downVector = Vector3.down;
@@ -32,23 +33,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         movePlayer();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-            System.Action actions = () => Apple(3);
-
-            this.RunFunctionAfter( actions, 2, ref call);
-            
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            System.Action actions = () => Apple(1);
-            this.CancleFunctionExecution( ref call);
-
-          
-
-           
-        }
+     
     }
 
    
@@ -65,7 +50,8 @@ public class Player : MonoBehaviour
     }
     void movePlayer()
     {
-        transform.position += Vector3.forward * currentSpeed *Time.deltaTime;
+        lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, Time.deltaTime * 5);
+        transform.position += Vector3.forward * lerpedMoveSpeed *Time.deltaTime;
     }
 
     public void AddSpeed(float addedSpeed)
