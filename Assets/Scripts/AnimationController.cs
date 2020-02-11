@@ -87,5 +87,8 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    
+    public void Swim()
+    {
+        Debug.Log("swim Called");
+    }
 }

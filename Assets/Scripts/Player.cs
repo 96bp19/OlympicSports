@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] float maxMoveSpeed = 25f;
     [SerializeField] float currentSpeed = 0;
     [SerializeField] float defaultGravityMultiplier = 3;
+    [SerializeField] float jumpHeight;
+    
     private float lerpedMoveSpeed = 0;
     private float gravityMultiplier = 3;
 
@@ -21,6 +23,10 @@ public class Player : MonoBehaviour
     }
 
 
+    private void Awake()
+    {
+        transform.position = new Vector3(0, 0, 5);
+    }
 
     private void Start()
     {
@@ -104,5 +110,23 @@ public class Player : MonoBehaviour
         }
     }
 
-   
+    public void Jump(float jumpheight =0)
+    {
+        float yvel = YVel(jumpheight);
+        if (jumpheight == 0)
+        {
+            yvel = YVel(jumpHeight);
+        }
+
+        rb.velocity = new Vector3(rb.velocity.x, yvel, rb.velocity.z);
+       
+    }
+
+    private float YVel( float height)
+    {  
+            return Mathf.Sqrt(Mathf.Abs(getCurrentGravity() * height * 2f));        
+    }
+
+    
+
 }

@@ -25,7 +25,7 @@ public class NewStageLoader : MonoBehaviour
     private void Start()
     {
 
-        SetSpawnPos(new Vector3(0,0,-5));
+        SetSpawnPos(new Vector3(0,0,-2));
         LoadNextSport();
     }
 
@@ -33,7 +33,7 @@ public class NewStageLoader : MonoBehaviour
     {
         int currentIndex = SaveManager.Instance.getLastLoadedLevelIndex();
         Debug.Log("level load index : " + currentIndex);
-        
+
 
         if (currentIndex < SportsGames.Length)
         {

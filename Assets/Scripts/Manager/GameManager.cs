@@ -31,8 +31,8 @@ public class GameManager : MonoBehaviour
         InputManagerInstance = Instantiate(InputManagerPrefab) as InputManager;
         InputManagerInstance.transform.SetParent(allmanagers.transform);
 
-        PlayerInstance = Instantiate(PlayerPrefab, Vector3.zero, Quaternion.identity) as Player;
-        PlayerInstance.transform.position = new Vector3(0, 2f, 5);
+        PlayerInstance = Instantiate(PlayerPrefab, new Vector3(0,2,5), Quaternion.identity) as Player;
+      
 
         UIManager_Instance = Instantiate(UImanagerprefab) as UI_Manager;
         UIManager_Instance.transform.SetParent(allmanagers.transform);
