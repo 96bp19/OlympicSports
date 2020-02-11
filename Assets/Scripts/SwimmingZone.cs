@@ -13,7 +13,9 @@ public class SwimmingZone : MonoBehaviour
             {
                 animcontroller.StartSwimming(false);
                 GameManager.PlayerInstance.ResetPlayerSpeed();
+                Debug.Log("Trigger exit");
             }
         }
+
     }
 }

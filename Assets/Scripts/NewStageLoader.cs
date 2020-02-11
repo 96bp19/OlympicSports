@@ -25,7 +25,7 @@ public class NewStageLoader : MonoBehaviour
     private void Start()
     {
 
-        SetSpawnPos(Vector3.zero);
+        SetSpawnPos(new Vector3(0,0,-5));
         LoadNextSport();
     }
 
