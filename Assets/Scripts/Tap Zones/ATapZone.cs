@@ -12,6 +12,7 @@ public abstract class ATapZone : MonoBehaviour
     [HideInInspector]
     public AnimationController animController;
 
+    protected  bool inputReceived = false;
 
 
     public abstract void DoInputAction(float accuracy);
@@ -29,12 +30,12 @@ public abstract class ATapZone : MonoBehaviour
 
     void OnInputReceived(Inputs inp)
     {
-      
         if (inputListiningAllowed)
         {
             accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
-            animController = player.GetComponent<AnimationController>();
+           
             DoInputAction(accuracy);
+            inputReceived = true;
 
           
             inputListiningAllowed = false;
@@ -55,6 +56,7 @@ public abstract class ATapZone : MonoBehaviour
         {
            
             player = other.GetComponent<Player>();
+            animController = player.GetComponent<AnimationController>();
             inputListiningAllowed = true;
             GameManager.InputManagerInstance.EnableInput(true);
         }
@@ -63,6 +65,11 @@ public abstract class ATapZone : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // input will not be registered here onwards
+        if (!inputReceived)
+        {
+            animController.PlayFoulAnimaiton();
+            player.StopMoving();
+        }
         if (other.CompareTag("Player"))
         {
             GameManager.InputManagerInstance.EnableInput(false);
@@ -70,6 +77,7 @@ public abstract class ATapZone : MonoBehaviour
             player = null;
             GameManager.UIManager_Instance.EnableHoldMeter(false);
         }
+
     }
 
     public float  CalculatePlayerInputAccuracyWithRespectToDistance()

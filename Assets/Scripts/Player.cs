@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float currentSpeed = 0;
     [SerializeField] float defaultGravityMultiplier = 3;
     [SerializeField] float jumpHeight;
+    private bool allowedMoving = true;
     
     private float lerpedMoveSpeed = 0;
     private float gravityMultiplier = 3;
@@ -21,6 +22,23 @@ public class Player : MonoBehaviour
     {
         return rb;
     }
+
+    public void StopMoving()
+    {
+        allowedMoving = false;
+    }
+
+    public void StartMoving(bool usePreviousVelocity)
+    {
+        allowedMoving = true;
+        if (!usePreviousVelocity)
+        {
+            ResetPlayerSpeed();
+        }
+        
+    }
+
+    
 
 
     private void Awake()
@@ -43,19 +61,16 @@ public class Player : MonoBehaviour
     }
 
    
-
-    void Apple(int x)
-    {
-        Debug.Log("apple called with val : " + x);
-       
-    }
-
     private void FixedUpdate()
     {
         AddNewGravity();
     }
     void movePlayer()
     {
+        if (!allowedMoving)
+        {
+            return;
+        }
         lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, Time.deltaTime * 5);
         transform.position += Vector3.forward * lerpedMoveSpeed *Time.deltaTime;
     }
@@ -69,6 +84,9 @@ public class Player : MonoBehaviour
     public void ResetPlayerSpeed()
     {
         currentSpeed = defaultMoveSpeed;
+        allowedMoving = true;
+        
+        
     }
 
 
@@ -96,18 +114,6 @@ public class Player : MonoBehaviour
     public float GetCurrentPlayerSpeed()
     {
         return currentSpeed;
-    }
-
-    public void StopMoving(bool val)
-    {
-        if (val)
-        {
-            currentSpeed = 0;
-        }
-        else
-        {
-            ResetPlayerSpeed();
-        }
     }
 
     public void Jump(float jumpheight =0)

@@ -50,7 +50,7 @@ ModelImporter:
     second: tripleJump3
   - first:
       74: -1122032656288883499
-    second: rig|run
+    second: Foul
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -491,7 +491,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: rig|run
+      name: Foul
       takeName: rig|run
       internalID: 0
       firstFrame: 398

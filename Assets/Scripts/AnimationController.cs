@@ -11,7 +11,7 @@ public class AnimationController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            SetGroundedState(true); 
+            SetGroundedState(true);
         }
 
     }
@@ -24,7 +24,7 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    
+
     public void SlowDownRunSpeed()
     {
         Debug.Log("Animation reset");
@@ -93,7 +93,7 @@ public class AnimationController : MonoBehaviour
         Debug.Log("swim Called");
     }
 
-    int tripleJumpVal =0;
+    int tripleJumpVal = 0;
     public void TripleJump()
     {
         tripleJumpVal++;
@@ -102,5 +102,18 @@ public class AnimationController : MonoBehaviour
         {
             tripleJumpVal = 0;
         }
+    }
+
+    public void PlayFoulAnimaiton()
+    {
+        Debug.Log("foul");
+        resetAllAnimations();
+        anim.SetTrigger("Foul");
+
+    }
+
+    public void resetAllAnimations()
+    {
+        anim.SetInteger("TripleJump", 0);
     }
 }
