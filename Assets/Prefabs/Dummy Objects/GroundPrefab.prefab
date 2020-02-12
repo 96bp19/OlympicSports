@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3404380512140397199}
   - component: {fileID: 3404380512140397198}
   - component: {fileID: 3404380512140397193}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Long Jump Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 719407835686043117}
   - component: {fileID: 2066368937219256894}
   - component: {fileID: 8843628384557610502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundPrefab
   m_TagString: Ground
   m_Icon: {fileID: 0}

@@ -41,11 +41,7 @@ public class Player : MonoBehaviour
     
 
 
-    private void Awake()
-    {
-        transform.position = new Vector3(0, 0, 5);
-    }
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -57,6 +53,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         movePlayer();
+        CheckGroundDistance();
      
     }
 
@@ -133,6 +130,24 @@ public class Player : MonoBehaviour
             return Mathf.Sqrt(Mathf.Abs(getCurrentGravity() * height * 2f));        
     }
 
+
+    [SerializeField] private Vector3 raycastOffset;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float groundDIstance;
+    bool startCheckingInput;
+    public void CheckGroundDistance( )
+    {
+        Vector3 checkPos = transform.position + raycastOffset;
+        Debug.DrawRay(checkPos, Vector3.down * 10, Color.red);
+        if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, groundLayer))
+        {
+            Debug.DrawRay(hitInfo.point, Vector3.down * 10, Color.green);
+            groundDIstance = Vector3.Distance(checkPos, hitInfo.point);
+            
+        }
+        
+
+    }
     
 
 }

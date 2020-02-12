@@ -30,7 +30,7 @@ public class JavalineThrowZone : ATapZone
                 GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance()- startAccuracy+0.1f);
                 if (GameManager.InputManagerInstance.getInputData().screenHold == false)
                 {
-                    javalineHoldStart = false;
+                        javalineHoldStart = false;
                 
                         player.ResetPlayerSpeed();
                         float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() - startAccuracy;

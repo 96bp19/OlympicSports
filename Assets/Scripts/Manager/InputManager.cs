@@ -4,20 +4,33 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] private float InputBuffer =0.3f;
     private bool InputEnabled = false;
     private Inputs myInputs , defaultInputs;
 
     public delegate void OnInputRegistered(Inputs inputData);
     public OnInputRegistered InputListeners;
 
+    private float currentinputTime;
+
     private void Awake()
     {
         defaultInputs = new Inputs(false,false);
     }
 
+    void ClearInputBuffer()
+    {
+        currentinputTime = -1;
+    }
+
     public void EnableInput(bool value = true)
     {
+        Debug.Log("input enabled : " + value);
         InputEnabled = value;
+        if (!InputEnabled )
+        {
+            ClearInputBuffer();
+        }
     }
 
     public Inputs getInputData()
@@ -28,7 +41,7 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
-
+        
         if (InputEnabled)
         {
             UpdateInputs();
@@ -42,21 +55,36 @@ public class InputManager : MonoBehaviour
 
     void UpdateInputs()
     {
-        myInputs.screenTouched = Input.GetMouseButtonDown(0);
 
-        if (myInputs.screenTouched)
+        if (myInputs.screenTouched == false)
         {
-            myInputs.screenHold = true;
+            myInputs.screenTouched = Input.GetMouseButtonDown(0);
+            myInputs.screenHold = myInputs.screenTouched;
+
+
         }
-        else if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
             myInputs.screenHold = false;
-            EnableInput(false);
+            currentinputTime = InputBuffer;
+        
+        
+        }
+        if (myInputs.screenHold == false)
+        {
+            currentinputTime -= Time.deltaTime;
+
+        }
+        if (currentinputTime <=0 && myInputs.screenTouched)
+        {
+            myInputs.screenTouched = false;
+            //EnableInput(false);
         }
         
         
         if (myInputs.screenTouched || myInputs.screenHold)
         {
+            Debug.Log("screen touched : " + myInputs.screenTouched);
             InputListeners?.Invoke(myInputs);
             
 

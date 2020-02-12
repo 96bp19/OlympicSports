@@ -151,6 +151,11 @@ MonoBehaviour:
   maxMoveSpeed: 15
   currentSpeed: 0
   defaultGravityMultiplier: 3
+  jumpHeight: 0
+  raycastOffset: {x: 0, y: -1, z: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!136 &904917244900838628
 CapsuleCollider:
   m_ObjectHideFlags: 0

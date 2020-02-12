@@ -5,13 +5,19 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator anim;
+    private bool isOnGround;
 
+    public bool IsOnGround()
+    {
+        return isOnGround;
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             SetGroundedState(true);
+            
         }
 
     }
@@ -21,6 +27,7 @@ public class AnimationController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             SetGroundedState(false);
+            
         }
     }
 
@@ -62,7 +69,7 @@ public class AnimationController : MonoBehaviour
 
     void SetGroundedState(bool grounded)
     {
-        Debug.Log("grounded  : " + grounded);
+        isOnGround = grounded;
         anim.SetBool("IsGrounded", grounded);
     }
 
@@ -116,4 +123,7 @@ public class AnimationController : MonoBehaviour
     {
         anim.SetInteger("TripleJump", 0);
     }
+
+    
+   
 }

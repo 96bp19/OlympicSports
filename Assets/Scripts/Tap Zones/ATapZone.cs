@@ -16,6 +16,7 @@ public abstract class ATapZone : MonoBehaviour
 
 
     public abstract void DoInputAction(float accuracy);
+    
     public abstract void PlayAnimation();
 
 
@@ -33,8 +34,13 @@ public abstract class ATapZone : MonoBehaviour
         if (inputListiningAllowed)
         {
             accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+
+            if (inp.screenHold)
+            {
+                DoInputAction(accuracy);
+
+            }
            
-            DoInputAction(accuracy);
             inputReceived = true;
 
           
@@ -42,10 +48,13 @@ public abstract class ATapZone : MonoBehaviour
             triggercheckAllowed = false;
           
         }
+
+
        
     }
    
-    private void OnTriggerEnter(Collider other)
+
+    virtual protected void OnTriggerEnter(Collider other)
     {
         // input will be registered here onwards
         if (!triggercheckAllowed)
@@ -62,7 +71,7 @@ public abstract class ATapZone : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    virtual protected void OnTriggerExit(Collider other)
     {
         // input will not be registered here onwards
         if (!inputReceived)

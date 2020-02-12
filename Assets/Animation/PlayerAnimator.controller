@@ -188,16 +188,16 @@ AnimatorStateMachine:
     m_Position: {x: 890, y: 430, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 658090551051427128}
-    m_Position: {x: 600, y: 720, z: 0}
+    m_Position: {x: 540, y: 700, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -748199561227665089}
-    m_Position: {x: 870, y: 640, z: 0}
+    m_Position: {x: 780, y: 610, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8993815624151113834}
-    m_Position: {x: 1070, y: 500, z: 0}
+    m_Position: {x: 1000, y: 510, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4093748791351369342}
-    m_Position: {x: 1140, y: 320, z: 0}
+    m_Position: {x: 940, y: 350, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4688675061815573552}
     m_Position: {x: 240, y: 790, z: 0}
@@ -772,7 +772,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Foul
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
