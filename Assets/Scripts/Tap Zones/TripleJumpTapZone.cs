@@ -18,34 +18,55 @@ public class TripleJumpTapZone : JumpTapZone
     {
         jumpAccuracy = accuracy;
         enablejumpAction = true;
-        allowUpdating = true;
+        Debug.Log("jump action : " + enablejumpAction);
+      
        
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
+        allowUpdating = true;
     }
 
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
+        allowUpdating = false;
     }
 
+    int framecount;
     private void Update()
     {
         if (!allowUpdating)
         {
             return;
         }
-        if (animController.IsOnGround() )
+        if ( enablejumpAction)
         {
-            player.setNewGravityMutiplier(1);
-            PlayAnimation();
-            player.AddSpeed(2);
-            base.DoInputAction(jumpAccuracy);
-            allowUpdating = false;
+            if (animController.IsOnGround())
+            {
+                player.setNewGravityMutiplier(1);
+                PlayAnimation();
+                player.AddSpeed(2);
+                base.DoInputAction(jumpAccuracy);
+                allowUpdating = false;
+
+            }
+           
         }
+        else if ((animController.getCurrentTripleJumpIndex() ==1 || animController.getCurrentTripleJumpIndex() ==2) && animController.IsOnGround())
+        {
+            framecount++;
+         
+            if (framecount >10)
+            {
+                player.StopMoving();
+                animController.PlayFoulAnimaiton();
+                allowUpdating = false;
+            }
+        }
+       
     }
 
 

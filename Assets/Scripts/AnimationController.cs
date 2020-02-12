@@ -7,6 +7,8 @@ public class AnimationController : MonoBehaviour
     [SerializeField] private Animator anim;
     private bool isOnGround;
 
+
+
     public bool IsOnGround()
     {
         return isOnGround;
@@ -103,12 +105,12 @@ public class AnimationController : MonoBehaviour
     int tripleJumpVal = 0;
     public void TripleJump()
     {
-        tripleJumpVal++;
-        anim.SetInteger("TripleJump", tripleJumpVal);
         if (tripleJumpVal == 3)
         {
             tripleJumpVal = 0;
         }
+        tripleJumpVal++;
+        anim.SetInteger("TripleJump", tripleJumpVal);
     }
 
     public void PlayFoulAnimaiton()
@@ -124,6 +126,10 @@ public class AnimationController : MonoBehaviour
         anim.SetInteger("TripleJump", 0);
     }
 
+    public int getCurrentTripleJumpIndex()
+    {
+        return tripleJumpVal;
+    }
     
    
 }
