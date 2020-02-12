@@ -12,12 +12,13 @@ public class HighJumpTapZone : JumpTapZone
         jumpHeight = calculateJumpheightBasedOnAccuracy(accuracy);
      
         base.DoInputAction(accuracy);
+        PlayAnimation();
 
        
         
     }
 
-    public override void PlayAnimation(AnimationController animController)
+    public override void PlayAnimation()
     {
         animController.HighJump();
     }

@@ -366,15 +366,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.3260437
-        functionName: Swim
-        data: 
-        objectReferenceParameter: {fileID: 253336633695339286, guid: a187ad72de8925c418399e9329bd5a0c,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

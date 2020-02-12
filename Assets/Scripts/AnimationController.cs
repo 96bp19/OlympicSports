@@ -91,4 +91,15 @@ public class AnimationController : MonoBehaviour
     {
         Debug.Log("swim Called");
     }
+
+    int tripleJumpVal =0;
+    public void TripleJump()
+    {
+        tripleJumpVal++;
+        anim.SetInteger("TripleJump", tripleJumpVal);
+        if (tripleJumpVal == 3)
+        {
+            tripleJumpVal = 0;
+        }
+    }
 }

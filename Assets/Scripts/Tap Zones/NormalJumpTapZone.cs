@@ -9,13 +9,14 @@ public class NormalJumpTapZone : JumpTapZone
     public override void DoInputAction(float accuracy)
     {
         this.Playeraccuracy = accuracy;
+        PlayAnimation();
        // player.SetDefaultGravityMultiplier();
         //base.DoInputAction(accuracy);
 
     }
 
 
-    public override void PlayAnimation(AnimationController animController)
+    public override void PlayAnimation()
     {
         animController.HurdleJump();
         player.SetDefaultGravityMultiplier();

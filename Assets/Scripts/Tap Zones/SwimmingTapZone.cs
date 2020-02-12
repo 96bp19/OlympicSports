@@ -8,9 +8,10 @@ public class SwimmingTapZone : JumpTapZone
     {
         
         base.DoInputAction(accuracy);
+        PlayAnimation();
     }
 
-    public override void PlayAnimation(AnimationController animController)
+    public override void PlayAnimation()
     {
         animController.StartSwimming(true);
 

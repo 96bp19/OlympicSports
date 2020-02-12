@@ -9,12 +9,15 @@ public abstract class ATapZone : MonoBehaviour
     private bool triggercheckAllowed = true;
     private float accuracy;
     protected Player player;
-
+    [HideInInspector]
+    public AnimationController animController;
 
 
 
     public abstract void DoInputAction(float accuracy);
-    public abstract void PlayAnimation(AnimationController animController);
+    public abstract void PlayAnimation();
+
+
    
 
 
@@ -30,9 +33,10 @@ public abstract class ATapZone : MonoBehaviour
         if (inputListiningAllowed)
         {
             accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+            animController = player.GetComponent<AnimationController>();
             DoInputAction(accuracy);
-      
-            PlayAnimation(player.GetComponent<AnimationController>());
+
+          
             inputListiningAllowed = false;
             triggercheckAllowed = false;
           

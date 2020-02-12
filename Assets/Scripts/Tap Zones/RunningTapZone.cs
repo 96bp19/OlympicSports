@@ -7,10 +7,11 @@ public class RunningTapZone : ATapZone
     public override void DoInputAction(float accuracy)
     {
         float speedToadd = calculateSpeedToAddBasedOnAccuracy(accuracy);
-        player.AddSpeed(speedToadd);    
+        player.AddSpeed(speedToadd);
+        PlayAnimation();
     }
 
-    public override void PlayAnimation(AnimationController animController)
+    public override void PlayAnimation()
     {
         animController.IncreaseAnimationSpeed();
     }
