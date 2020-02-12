@@ -62,6 +62,7 @@ public class AnimationController : MonoBehaviour
 
     void SetGroundedState(bool grounded)
     {
+        Debug.Log("grounded  : " + grounded);
         anim.SetBool("IsGrounded", grounded);
     }
 

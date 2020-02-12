@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8982286505538818579
+--- !u!1 &3416966196168488307
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8982286505538818577}
-  - component: {fileID: 8982286505538818578}
+  - component: {fileID: 3416966196168488306}
+  - component: {fileID: 3416966196168488305}
   m_Layer: 0
-  m_Name: StageLoader
+  m_Name: TripleJump Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8982286505538818577
+--- !u!4 &3416966196168488306
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8982286505538818579}
+  m_GameObject: {fileID: 3416966196168488307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.068024, y: -9.479828, z: 807.6806}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8982286505538818578
+--- !u!114 &3416966196168488305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8982286505538818579}
+  m_GameObject: {fileID: 3416966196168488307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f99fe879545a75647bc6da9e15b4ee81, type: 3}
+  m_Script: {fileID: 11500000, guid: ac900e02120f9e142925d1e7c9ea370f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SportsGames:
-  - {fileID: 3416966196168488307, guid: e8e84bed056dbb748896ab872c20444e, type: 3}
-  levelLoadIndexMax: 0
+  sportsPrefab:
+  - SportPrefab: {fileID: 7358250215193985768, guid: 701123fddd524554d87550cfb1d47235,
+      type: 3}
+    lengthChangeable: 0
+    celebrationZoneDistance: 40
+  finalObjectToSpawn: {fileID: 0}
+  celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,
+    type: 3}
+  noOfSportsPrefabsToSpawn: 3
+  groundPrefab: {fileID: 4159472863960858786, guid: da35768d7a2592e438d7799c50fa212f,
+    type: 3}

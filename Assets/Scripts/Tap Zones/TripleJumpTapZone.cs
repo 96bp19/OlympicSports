@@ -11,6 +11,9 @@ public class TripleJumpTapZone : JumpTapZone
 
     public override void DoInputAction(float accuracy)
     {
+        player.setNewGravityMutiplier(1);
         PlayAnimation();
+        player.AddSpeed(2);
+        base.DoInputAction(accuracy);
     }
 }

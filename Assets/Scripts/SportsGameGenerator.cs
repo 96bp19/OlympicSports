@@ -60,14 +60,21 @@ public class SportsGameGenerator : MonoBehaviour
         }
 
         GameObject obj;
+        bool celebrationZoneDistanceChanged = false;
         if (finalObjectToSpawn)
         {
             obj = Instantiate(finalObjectToSpawn);
             obj.transform.SetParent(transform);
             obj.transform.localPosition = currentPos;
-            currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * sportsPrefab[sportsPrefab.Length-1].celebrationZoneDistance);
+            celebrationZoneDistanceChanged = true;
+            currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * sportsPrefab[sportsPrefab.Length - 1].celebrationZoneDistance);
+            
         }
+        if (!celebrationZoneDistanceChanged)
+        {
+            currentPos += ( Vector3.forward * sportsPrefab[sportsPrefab.Length - 1].celebrationZoneDistance);
 
+        }
         obj = Instantiate(celebrationPrefab);
         obj.transform.SetParent(transform);
         obj.transform.localPosition = currentPos;
