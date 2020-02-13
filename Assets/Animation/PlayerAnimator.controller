@@ -161,60 +161,63 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -7636600521362559184}
-    m_Position: {x: 170, y: 410, z: 0}
+    m_Position: {x: -430, y: 410, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -993193278008798845}
-    m_Position: {x: 410, y: 420, z: 0}
+    m_Position: {x: -190, y: 400, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7634386686098104593}
     m_Position: {x: 220, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7580612740821061081}
-    m_Position: {x: -60, y: 440, z: 0}
+    m_Position: {x: 90, y: 500, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9014395256554489969}
-    m_Position: {x: -70, y: 370, z: 0}
+    m_Position: {x: 80, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 544140938387544273}
-    m_Position: {x: 650, y: 420, z: 0}
+    m_Position: {x: 360, y: 390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8839448757465217421}
-    m_Position: {x: 510, y: 620, z: 0}
+    m_Position: {x: 510, y: 580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5031699126985296421}
-    m_Position: {x: 700, y: 520, z: 0}
+    m_Position: {x: 590, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5891975831722434347}
-    m_Position: {x: 890, y: 430, z: 0}
+    m_Position: {x: 590, y: 390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 658090551051427128}
-    m_Position: {x: 540, y: 700, z: 0}
+    m_Position: {x: 540, y: 680, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -748199561227665089}
-    m_Position: {x: 780, y: 610, z: 0}
+    m_Position: {x: 760, y: 580, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8993815624151113834}
-    m_Position: {x: 1000, y: 510, z: 0}
+    m_Position: {x: 880, y: 490, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4093748791351369342}
-    m_Position: {x: 940, y: 350, z: 0}
+    m_Position: {x: 840, y: 380, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4688675061815573552}
     m_Position: {x: 240, y: 790, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -4672917483781421131}
+    m_Position: {x: 350, y: 490, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7277857097871027566}
   - {fileID: 4080796949260162938}
   - {fileID: 7065822785794235842}
-  - {fileID: -2513528307996080169}
   - {fileID: -4160628153760195301}
   - {fileID: 5788189657076010057}
   - {fileID: 2300117105214367213}
+  - {fileID: 8828472227848246634}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 260, y: 650, z: 0}
-  m_EntryPosition: {x: -70, y: 160, z: 0}
+  m_EntryPosition: {x: 260, y: -70, z: 0}
   m_ExitPosition: {x: 790, y: 0, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 7634386686098104593}
@@ -231,6 +234,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityMultiplier: 1.5
+--- !u!1102 &-4672917483781421131
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Javaline run
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 5923271807558206833}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 4278855420148049199, guid: c79069f950ec7e24da409afa38262cc8,
+    type: 3}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-4160628153760195301
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -324,31 +355,6 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.8
   m_HasExitTime: 1
-  m_HasFixedDuration: 1
-  m_InterruptionSource: 0
-  m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
---- !u!1101 &-2513528307996080169
-AnimatorStateTransition:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: JavalinThrow
-    m_EventTreshold: 0
-  m_DstStateMachine: {fileID: 0}
-  m_DstState: {fileID: 544140938387544273}
-  m_Solo: 0
-  m_Mute: 0
-  m_IsExit: 0
-  serializedVersion: 3
-  m_TransitionDuration: 0.1687665
-  m_TransitionOffset: 0
-  m_ExitTime: 0.75
-  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -551,6 +557,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Foul
+    m_Type: 9
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: JavalineHoldRun
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -899,6 +911,31 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &5923271807558206833
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: JavalinThrow
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 544140938387544273}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.6250007
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &7065822785794235842
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1046,6 +1083,31 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.68421054
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &8828472227848246634
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: JavalineHoldRun
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -4672917483781421131}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.18108618
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

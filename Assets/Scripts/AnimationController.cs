@@ -113,11 +113,19 @@ public class AnimationController : MonoBehaviour
         anim.SetInteger("TripleJump", tripleJumpVal);
     }
 
-    public void PlayFoulAnimaiton()
+    public void PlayFoulAnimaiton(bool NormalFoul = false)
     {
         Debug.Log("foul");
         resetAllAnimations();
-        anim.SetTrigger("Foul");
+        if (NormalFoul)
+        {
+            anim.SetTrigger("NormalFoul");
+        }
+        else
+        {
+            anim.SetTrigger("Foul");
+
+        }
 
     }
 
@@ -129,6 +137,11 @@ public class AnimationController : MonoBehaviour
     public int getCurrentTripleJumpIndex()
     {
         return tripleJumpVal;
+    }
+
+    public void StartJavalineHold()
+    {
+        anim.SetTrigger("JavalineHoldRun");
     }
     
    

@@ -76,7 +76,7 @@ public abstract class ATapZone : MonoBehaviour
         // input will not be registered here onwards
         if (!inputReceived)
         {
-            animController.PlayFoulAnimaiton();
+            PlayFoulAnimation();
             player.StopMoving();
         }
         if (other.CompareTag("Player"))
@@ -102,5 +102,9 @@ public abstract class ATapZone : MonoBehaviour
         
     }
 
+    virtual protected void PlayFoulAnimation()
+    {
+        animController.PlayFoulAnimaiton();
+    }
 
 }
