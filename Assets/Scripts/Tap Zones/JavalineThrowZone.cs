@@ -122,9 +122,8 @@ public class JavalineThrowZone : ATapZone
     {
         animController.JavalineThrow();
         System.Action javalinethrowAction = () => ThrowJavaline(accuracy);
-        this.RunFunctionAfter(javalinethrowAction, 0.8f, ref enumerator);
+        AnimationEventHandler.Instance.setNewEventFunction(javalinethrowAction);
         
-
     }
 
     void RemoveJavaline()

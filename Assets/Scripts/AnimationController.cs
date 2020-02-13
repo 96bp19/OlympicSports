@@ -7,7 +7,7 @@ public class AnimationController : MonoBehaviour
     [SerializeField] private Animator anim;
     private bool isOnGround;
 
-
+   
 
     public bool IsOnGround()
     {
@@ -143,6 +143,8 @@ public class AnimationController : MonoBehaviour
     {
         anim.SetTrigger("JavalineHoldRun");
     }
+
+    
     
    
 }

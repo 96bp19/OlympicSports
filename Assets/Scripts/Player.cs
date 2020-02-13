@@ -145,9 +145,10 @@ public class Player : MonoBehaviour
     public void AttachToJavalineSocket(Transform obj)
     {
         obj.SetParent(javalineThrowSocket);
-        Debug.Log("position before : " + obj.transform.localPosition);
+        
         obj.transform.localPosition = Vector3.zero;
-        Debug.Log("position after : " + obj.transform.localPosition);
+        obj.localEulerAngles = Vector3.zero;
+  
 
     }
 
