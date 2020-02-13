@@ -56,7 +56,7 @@ public class JavalineThrowZone : ATapZone
         if (!player)
         {
             RemoveJavaline();
-            animController.PlayFoulAnimaiton();
+            PlayFoulAnimation();
             GameManager.PlayerInstance.StopMoving();
             return;
         }
@@ -127,14 +127,15 @@ public class JavalineThrowZone : ATapZone
     {
         if (javaline)
         {
-            Destroy(javaline);
+            Destroy(javaline.gameObject);
         }
     }
     protected override void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") && javalineHoldStart)
         {
-            RemoveJavaline();           
+            RemoveJavaline();
+            PlayFoulAnimation();
             player.StopMoving();
         }
         base.OnTriggerExit(other);

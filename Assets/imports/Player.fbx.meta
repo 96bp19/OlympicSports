@@ -594,7 +594,7 @@ ModelImporter:
       takeName: javlin|run
       internalID: 0
       firstFrame: 462
-      lastFrame: 506
+      lastFrame: 538
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -622,7 +622,7 @@ ModelImporter:
       name: loser_loop
       takeName: javlin|run
       internalID: 0
-      firstFrame: 506
+      firstFrame: 507
       lastFrame: 538
       wrapMode: 0
       orientationOffsetY: 0
@@ -631,7 +631,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
