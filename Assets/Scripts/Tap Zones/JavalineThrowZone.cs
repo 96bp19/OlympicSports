@@ -9,10 +9,13 @@ public class JavalineThrowZone : ATapZone
     private Vector3 javalinThrowStartpos, JavalinThrowEndPos;
     private float startAccuracy = 0;
 
-  
+
+    Transform javaline;
     public override void DoInputAction(float accuracy)
     {
-     
+        javaline = Instantiate(javalineObjectPrefab, player.transform.position, Quaternion.identity);
+        player.AttachToJavalineSocket(javaline);
+        animController.StartJavalineHold();
         javalineHoldStart = true;
         GameManager.UIManager_Instance.EnableHoldMeter(true);
         javalinThrowStartpos = player.transform.position;
@@ -35,11 +38,10 @@ public class JavalineThrowZone : ATapZone
                         player.ResetPlayerSpeed();
                         float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() - startAccuracy;
 
+                    // javaline throw animation
                         PlayJavalineThrowAnimation(newAccuracy);
-                     
-  
+                       
                 }
-
             }
             else
             {
@@ -51,11 +53,20 @@ public class JavalineThrowZone : ATapZone
 
     void ThrowJavaline(float accuracy)
     {
+        if (!player)
+        {
+            RemoveJavaline();
+            animController.PlayFoulAnimaiton();
+            GameManager.PlayerInstance.StopMoving();
+            return;
+        }
         float angleToThrowAt = calculateRandomAngleBasedOnAccuracy(accuracy);
         float throwPower = Random.Range(55, 60);
         Vector3 launchVel = new Vector3(0, Mathf.Sin(Mathf.Deg2Rad * angleToThrowAt), Mathf.Cos(Mathf.Deg2Rad * angleToThrowAt)) * throwPower;
         Debug.Log("launch vel : " + launchVel);
-        Transform javaline = Instantiate(javalineObjectPrefab, player.transform.position, Quaternion.identity);
+
+
+        javaline.SetParent(null);
         Rigidbody javaline_rb = javaline.GetComponent<Rigidbody>();
         javaline_rb.velocity = launchVel;
         javaline.GetComponent<Javaline>().setTarget(player.transform);
@@ -110,5 +121,27 @@ public class JavalineThrowZone : ATapZone
         this.RunFunctionAfter(javalinethrowAction, 0.8f, ref enumerator);
         
 
+    }
+
+    void RemoveJavaline()
+    {
+        if (javaline)
+        {
+            Destroy(javaline);
+        }
+    }
+    protected override void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") && javalineHoldStart)
+        {
+            RemoveJavaline();           
+            player.StopMoving();
+        }
+        base.OnTriggerExit(other);
+    }
+
+    protected override void PlayFoulAnimation()
+    {
+        animController.PlayFoulAnimaiton(true);
     }
 }

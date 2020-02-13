@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float currentSpeed = 0;
     [SerializeField] float defaultGravityMultiplier = 3;
     [SerializeField] float jumpHeight;
+    [SerializeField] Transform javalineThrowSocket;
     private bool allowedMoving = true;
     
     private float lerpedMoveSpeed = 0;
@@ -38,10 +39,6 @@ public class Player : MonoBehaviour
         
     }
 
-    
-
-
-    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -49,14 +46,13 @@ public class Player : MonoBehaviour
         SetDefaultGravityMultiplier();
     }
 
-    IEnumerator call;
+  
     private void Update()
     {
         movePlayer();
         CheckGroundDistance();
      
     }
-
    
     private void FixedUpdate()
     {
@@ -68,7 +64,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, Time.deltaTime * 5);
+        lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, Time.deltaTime * 2);
         transform.position += Vector3.forward * lerpedMoveSpeed *Time.deltaTime;
     }
 
@@ -85,9 +81,6 @@ public class Player : MonoBehaviour
         
         
     }
-
-
-
    
     public void AddNewGravity()
     {
@@ -148,6 +141,13 @@ public class Player : MonoBehaviour
         
 
     }
+
+    public void AttachToJavalineSocket(Transform obj)
+    {
+        obj.SetParent(javalineThrowSocket);
+        obj.transform.localPosition = Vector3.zero;
+    }
+
     
 
 }

@@ -60,13 +60,13 @@ public class InputManager : MonoBehaviour
         {
             myInputs.screenTouched = Input.GetMouseButtonDown(0);
             myInputs.screenHold = myInputs.screenTouched;
+            currentinputTime = InputBuffer;
 
 
         }
         if (Input.GetMouseButtonUp(0))
         {
             myInputs.screenHold = false;
-            currentinputTime = InputBuffer;
         
         
         }
