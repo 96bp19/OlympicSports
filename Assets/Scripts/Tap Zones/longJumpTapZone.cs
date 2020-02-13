@@ -59,7 +59,7 @@ public class longJumpTapZone : JumpTapZone
 
     void UpdatePlayerSpeed()
     {
-        player.AddSpeed(Time.fixedDeltaTime*5);
+        player.AddSpeed(Time.fixedDeltaTime*2);
         animController.UpdatePlayerSpeed();
     }
 }

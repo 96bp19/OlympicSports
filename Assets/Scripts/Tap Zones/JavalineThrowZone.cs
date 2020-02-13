@@ -15,6 +15,8 @@ public class JavalineThrowZone : ATapZone
     {
         javaline = Instantiate(javalineObjectPrefab, player.transform.position, Quaternion.identity);
         player.AttachToJavalineSocket(javaline);
+        javaline.localScale = Vector3.one;
+        Debug.Log("javaline : " + javaline);
         animController.StartJavalineHold();
         javalineHoldStart = true;
         GameManager.UIManager_Instance.EnableHoldMeter(true);
@@ -68,7 +70,9 @@ public class JavalineThrowZone : ATapZone
 
         javaline.SetParent(null);
         Rigidbody javaline_rb = javaline.GetComponent<Rigidbody>();
+        javaline_rb.useGravity = true;
         javaline_rb.velocity = launchVel;
+        javaline.GetComponent<Javaline>().ThrowJavaline();
         javaline.GetComponent<Javaline>().setTarget(player.transform);
         Debug.Log("thrown with the angle of : " + angleToThrowAt);
 

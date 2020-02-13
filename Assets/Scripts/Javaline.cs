@@ -8,8 +8,25 @@ public class Javaline : MonoBehaviour
     Transform target;
     bool calculateDistanceStart;
     public float currentDistance;
+    bool startUpdatingUpdate = false;
+
+    Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    public void ThrowJavaline()
+    {
+        startUpdatingUpdate = true;
+    }
     void Update()
     {
+        if (startUpdatingUpdate == false)
+        {
+            return;
+        }
         // this is calculated to know if the javalin has landed on ground
         // will use different approach later this is temp approach
         if (transform.position.y <1f)
@@ -23,10 +40,11 @@ public class Javaline : MonoBehaviour
             currentDistance = Mathf.Abs(target.transform.position.z - transform.position.z);
         }
 
-        if (!GetComponent<Rigidbody>().isKinematic)
+        if (!rb.isKinematic)
         {
-            Quaternion rot = Quaternion.LookRotation(GetComponent<Rigidbody>().velocity.normalized);
+            Quaternion rot = Quaternion.LookRotation(rb.velocity.normalized);
             transform.rotation = rot;
+            Debug.Log("javaline rotation updating rot : " + rot.eulerAngles);
 
         }
     }
@@ -35,7 +53,9 @@ public class Javaline : MonoBehaviour
     // target here is used to calculate the distance between the javalin and thrower
     public void setTarget(Transform target)
     {
+       
         this.target = target;
         calculateDistanceStart = true;
+        
     }
 }
