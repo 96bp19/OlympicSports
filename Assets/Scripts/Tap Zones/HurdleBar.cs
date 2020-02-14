@@ -10,11 +10,13 @@ public class HurdleBar : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AnimationController animcontroller = other.GetComponent<AnimationController>();
+
+         
             animcontroller.PlayFoulAnimaiton();
             GameManager.PlayerInstance.StopMoving();
 
-            System.Action delegatefunction = () => EnableMovement();
-            this.RunFunctionAfter(delegatefunction, 0.2f, ref enumerator);
+           // System.Action delegatefunction = () => EnableMovement();
+          //  this.RunFunctionAfter(delegatefunction, 0.2f, ref enumerator);
             
         }
         
@@ -22,7 +24,6 @@ public class HurdleBar : MonoBehaviour
 
     void EnableMovement()
     {
-        GameManager.PlayerInstance.StopMoving();
         GameManager.PlayerInstance.StartMoving(false);
   
     }

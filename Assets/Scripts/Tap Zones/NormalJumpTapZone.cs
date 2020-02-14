@@ -35,7 +35,7 @@ public class NormalJumpTapZone : JumpTapZone
 
     void JumpAfterDelay()
     {
-        Debug.Log("jump delayed");
+
         base.DoInputAction(Playeraccuracy);
 
     }

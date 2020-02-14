@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour
 
     public void EnableInput(bool value = true)
     {
-        Debug.Log("input enabled : " + value);
+
         InputEnabled = value;
         if (!InputEnabled )
         {
@@ -84,7 +84,7 @@ public class InputManager : MonoBehaviour
         
         if (myInputs.screenTouched || myInputs.screenHold)
         {
-            Debug.Log("screen touched : " + myInputs.screenTouched);
+
             InputListeners?.Invoke(myInputs);
             
 
