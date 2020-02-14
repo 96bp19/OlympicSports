@@ -75,7 +75,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2810ffd0b25550f469bd3be797797b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animController: {fileID: 0}
   jumpHeight: 6
+  SandZonePrefab: {fileID: -927199367670048503, guid: 0cbe5c877afd975419f4d37071f748f3,
+    type: 3}
 --- !u!1 &6814336745926038618
 GameObject:
   m_ObjectHideFlags: 0

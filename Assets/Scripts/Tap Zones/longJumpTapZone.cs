@@ -6,7 +6,8 @@ public class longJumpTapZone : JumpTapZone
 {
     private bool screenHoldStarted = false;
     private float startAccuracy = 0;
-   
+
+    [SerializeField] private GameObject SandZonePrefab;
 
     public override void DoInputAction(float accuracy)
     {
@@ -16,10 +17,19 @@ public class longJumpTapZone : JumpTapZone
         screenHoldStarted = true;
         player.ResetPlayerSpeed();
         GameManager.UIManager_Instance.EnableHoldMeter(true);
+
+        
        
     }
 
-   
+    protected override void Start()
+    {
+        base.Start();
+        Transform sandtrans = Instantiate(SandZonePrefab, transform.position + new Vector3(0, 0.5f, transform.lossyScale.z + 15/2+1f), Quaternion.identity).transform;
+        sandtrans.SetParent(transform);
+    }
+
+
 
     public override void PlayAnimation()
     {

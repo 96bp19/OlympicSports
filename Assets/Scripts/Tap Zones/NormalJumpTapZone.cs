@@ -19,9 +19,7 @@ public class NormalJumpTapZone : JumpTapZone
     {
         this.Playeraccuracy = accuracy;
         PlayAnimation();
-       // player.SetDefaultGravityMultiplier();
-        //base.DoInputAction(accuracy);
-
+ 
     }
 
 
