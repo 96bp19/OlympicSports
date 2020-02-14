@@ -22,6 +22,7 @@ public class HurdleBar : MonoBehaviour
 
     void EnableMovement()
     {
+        GameManager.PlayerInstance.StopMoving();
         GameManager.PlayerInstance.StartMoving(false);
   
     }

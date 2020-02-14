@@ -21,6 +21,7 @@ public class AnimationController : MonoBehaviour
             if (IsOnGround() == false)
             {
                 SetGroundedState(true);
+               
 
             }
             
@@ -146,9 +147,33 @@ public class AnimationController : MonoBehaviour
     public void StartJavalineHold()
     {
         anim.SetTrigger("JavalineHoldRun");
+        
     }
 
-    
-    
-   
+    public AnimationCurve curve;
+    public float currentTime;
+    private void Update()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("hurdles_jump"))
+        {
+            currentTime = anim.GetCurrentAnimatorStateInfo(0).normalizedTime;
+            currentTime = Mathf.Clamp(currentTime, 0, 1);
+            float colliderheight = curve.Evaluate(currentTime);
+            CapsuleCollider col = GetComponent<CapsuleCollider>();
+            col.height = colliderheight;
+            col.center = new Vector3(0, (2 -colliderheight) / 2, 0);
+        }
+        else
+        {
+            CapsuleCollider col = GetComponent<CapsuleCollider>();
+            col.height = 2;
+            col.center = new Vector3(0, 0, 0);
+        }
+
+
+    }
+
+
+
+
 }
