@@ -80,7 +80,7 @@ public class SportsGameGenerator : MonoBehaviour
         obj.transform.localPosition = currentPos;
         currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * 20);
 
-        Debug.Log("current level length is : " + currentPos.z);
+
         Transform groundTrans = Instantiate(groundPrefab, transform).transform;
         groundTrans.SetParent(transform);
         Vector3 localpos = Vector3.zero;

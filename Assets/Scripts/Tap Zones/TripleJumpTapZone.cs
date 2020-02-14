@@ -18,7 +18,7 @@ public class TripleJumpTapZone : JumpTapZone
     {
         jumpAccuracy = accuracy;
         enablejumpAction = true;
-        Debug.Log("jump action : " + enablejumpAction);
+       
       
        
     }
@@ -40,12 +40,15 @@ public class TripleJumpTapZone : JumpTapZone
     {
         if (!allowUpdating)
         {
+
             return;
         }
         if ( enablejumpAction)
         {
+            Debug.Log("anim control is on ground : " + animController.IsOnGround());
             if (animController.IsOnGround())
             {
+                Debug.Log("updating triple jump");
                 player.setNewGravityMutiplier(1);
                 PlayAnimation();
                 player.AddSpeed(2);

@@ -40,6 +40,24 @@ public class GameManager : MonoBehaviour
         Instantiate(saveManagerPrefab).transform.SetParent(allmanagers.transform);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Time.timeScale = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.KeypadMinus))
+        {
+            Debug.Log("minus");
+            Time.timeScale -= 0.1f;
+        }
+        if (Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            Debug.Log("plus");
+            Time.timeScale += 0.1f;
+        }
+    }
+
 
 
 }

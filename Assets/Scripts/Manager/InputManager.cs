@@ -56,9 +56,9 @@ public class InputManager : MonoBehaviour
     void UpdateInputs()
     {
 
-        if (myInputs.screenTouched == false)
+        if (Input.GetMouseButtonDown(0))
         {
-            myInputs.screenTouched = Input.GetMouseButtonDown(0);
+            myInputs.screenTouched = true;
             myInputs.screenHold = myInputs.screenTouched;
             currentinputTime = InputBuffer;
 

@@ -14,11 +14,15 @@ public class AnimationController : MonoBehaviour
         return isOnGround;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            SetGroundedState(true);
+            if (IsOnGround() == false)
+            {
+                SetGroundedState(true);
+
+            }
             
         }
 
