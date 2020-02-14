@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3429830034036738079
+--- !u!1 &1851028469666167115
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,93 +8,57 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2295577054655591760}
-  - component: {fileID: 760379566742092419}
-  - component: {fileID: 7825777993688841915}
-  - component: {fileID: 1594378405738245675}
-  - component: {fileID: 5017144097759316949}
+  - component: {fileID: 8033419876049850823}
+  - component: {fileID: 7192203238532315118}
+  - component: {fileID: 6726117156020111406}
   m_Layer: 0
-  m_Name: Hurdle Jump Zone
+  m_Name: Hurdle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2295577054655591760
+--- !u!4 &8033419876049850823
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429830034036738079}
+  m_GameObject: {fileID: 1851028469666167115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 46.4}
-  m_LocalScale: {x: 3, y: 0.2, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4115890660704141874}
+  - {fileID: 8612940448043610852}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &760379566742092419
+--- !u!114 &7192203238532315118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851028469666167115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e820a0fd0821e64dad6f71d61170085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6726117156020111406
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429830034036738079}
+  m_GameObject: {fileID: 1851028469666167115}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0.5}
---- !u!54 &7825777993688841915
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429830034036738079}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &1594378405738245675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429830034036738079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be711f0a05d42db46b55ffa256f2b371, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animController: {fileID: 0}
-  jumpHeight: 1.5
-  hurdleBarPrefab: {fileID: 1851028469666167115, guid: efe2a20191642d04b987e389c163d6fe,
-    type: 3}
---- !u!114 &5017144097759316949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3429830034036738079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e23d150e7c709c498ad10a1b203e390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minLength: 2
-  maxLength: 5
---- !u!1 &4115890660704141832
+  m_Size: {x: 2.21, y: 1, z: 0.27}
+  m_Center: {x: 0, y: 0.72, z: 0}
+--- !u!1 &4745692763317420279
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,45 +66,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4115890660704141874}
-  - component: {fileID: 4115890660704141875}
-  - component: {fileID: 4115890660704141876}
+  - component: {fileID: 8612940448043610852}
+  - component: {fileID: 782580748257626322}
+  - component: {fileID: 6476387783232418859}
   m_Layer: 0
-  m_Name: Long Jump Zone
+  m_Name: hurdle_bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4115890660704141874
+--- !u!4 &8612940448043610852
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115890660704141832}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
+  m_GameObject: {fileID: 4745692763317420279}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2295577054655591760}
+  m_Father: {fileID: 8033419876049850823}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4115890660704141875
+--- !u!33 &782580748257626322
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115890660704141832}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4115890660704141876
+  m_GameObject: {fileID: 4745692763317420279}
+  m_Mesh: {fileID: -2008225139463907389, guid: 7ce9265f54555294692de09b3a4da4cc, type: 3}
+--- !u!23 &6476387783232418859
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4115890660704141832}
+  m_GameObject: {fileID: 4745692763317420279}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -151,7 +115,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e82308be701537e469014fea6a19b244, type: 2}
+  - {fileID: 3221940851116039804, guid: 7ce9265f54555294692de09b3a4da4cc, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

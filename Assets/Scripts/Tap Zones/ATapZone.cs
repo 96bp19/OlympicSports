@@ -23,7 +23,7 @@ public abstract class ATapZone : MonoBehaviour
    
 
 
-    private void Start()
+    virtual protected void Start()
     {
        
         GameManager.InputManagerInstance.InputListeners += OnInputReceived;
