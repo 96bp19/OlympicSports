@@ -14,9 +14,9 @@ public abstract class JumpTapZone : ATapZone
             return Mathf.Sqrt(Mathf.Abs(2 * player.getCurrentGravity()* jumpHeight));
         }
     }
-    public override void DoInputAction(float accuracy)
+  
+    public void Jump()
     {
-       
         player.getRigidbody().velocity = Vector3.up * jumpvel;
     }
 

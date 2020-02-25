@@ -7,51 +7,55 @@ public class JavalineThrowZone : ATapZone
     [SerializeField] private Transform javalineObjectPrefab;
 
     private Vector3 javalinThrowStartpos, JavalinThrowEndPos;
-    private float startAccuracy = 0;
-
-
     Transform javaline;
-    public override void DoInputAction(float accuracy)
+
+    bool currentlyholdingJavaline = false;
+
+    public override void OnScreenTap()
     {
+        // blank function intended
+    }
+
+
+    public override void OnScreenHoldStart()
+    {
+        if (!inputListiningAllowed) return;
+         Debug.Log("screen hold started inside javaline");
+       
         javaline = Instantiate(javalineObjectPrefab, player.transform.position, Quaternion.identity);
         player.AttachToJavalineSocket(javaline);
         javaline.localScale = Vector3.one;
-        Debug.Log("javaline : " + javaline);
         animController.StartJavalineHold();
-        javalineHoldStart = true;
         GameManager.UIManager_Instance.EnableHoldMeter(true);
         javalinThrowStartpos = player.transform.position;
-        startAccuracy = accuracy;
+        currentlyholdingJavaline = true;
+       
         
     }
 
-    bool javalineHoldStart;
-    private void Update()
+    public override void OnScreenHold()
     {
-        if (javalineHoldStart)
-        {
-            if (player)
-            {
-                GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance()- startAccuracy+0.1f);
-                if (GameManager.InputManagerInstance.getInputData().screenHold == false)
-                {
-                        javalineHoldStart = false;
-                
-                        player.ResetPlayerSpeed();
-                        float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() - startAccuracy;
-
-                    // javaline throw animation
-                        PlayJavalineThrowAnimation(newAccuracy);
-                       
-                }
-            }
-            else
-            {
-                Debug.Log("foul");
-                javalineHoldStart = false;
-            }
-        }
+        if (!inputListiningAllowed) return;
+        Debug.Log("holding it now");
+         GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance() - accuracy);
     }
+
+    public override void OnScreenHoldFinish()
+    {
+        Debug.Log("hold complete");
+        if (!inputListiningAllowed) return;
+        base.OnScreenHoldFinish();
+
+        currentlyholdingJavaline = false;
+        player.ResetPlayerSpeed();
+        float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() -accuracy;
+
+        // javaline throw animation
+        PlayJavalineThrowAnimation(newAccuracy);
+
+        
+    }
+
 
     void ThrowJavaline(float accuracy)
     {
@@ -114,7 +118,7 @@ public class JavalineThrowZone : ATapZone
 
     public override void PlayAnimation()
     {
-       
+
     }
 
     IEnumerator enumerator;
@@ -133,10 +137,13 @@ public class JavalineThrowZone : ATapZone
             Destroy(javaline.gameObject);
         }
     }
+
     protected override void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && javalineHoldStart)
+      
+        if (other.CompareTag("Player") && currentlyholdingJavaline)
         {
+          
             RemoveJavaline();
             PlayFoulAnimation();
             player.StopMoving();

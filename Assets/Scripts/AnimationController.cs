@@ -120,7 +120,7 @@ public class AnimationController : MonoBehaviour
 
     public void PlayFoulAnimaiton(bool NormalFoul = false)
     {
-        Debug.Log("foul");
+
         resetAllAnimations();
         if (NormalFoul)
         {

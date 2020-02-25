@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class RunningTapZone : ATapZone
 {
-    public override void DoInputAction(float accuracy)
+    public override void OnScreenTap()
     {
-        float speedToadd = calculateSpeedToAddBasedOnAccuracy(accuracy);
-        player.AddSpeed(speedToadd);
-        PlayAnimation();
+        if (inputListiningAllowed)
+        {
+            base.OnScreenTap();
+            float speedToadd = calculateSpeedToAddBasedOnAccuracy(accuracy);
+            player.AddSpeed(speedToadd);
+            PlayAnimation();
+        }
+        
     }
 
     public override void PlayAnimation()

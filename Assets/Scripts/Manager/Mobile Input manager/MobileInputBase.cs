@@ -13,6 +13,8 @@ namespace Binaya.MyInput
         public delegate void OnSwipe_Down();
         public delegate void OnSwipe_Right();
         public delegate void OnSwipe_Left();
+        public delegate void OnHold_finish();
+        public delegate void OnHold_Start();
 
 
         public OnScreen_Tap ScreenTapListener;
@@ -22,6 +24,9 @@ namespace Binaya.MyInput
         public OnSwipe_Down SwipeDownListener;
         public OnSwipe_Right SwipeRightListener;
         public OnSwipe_Left SwipeLeftListener;
+        public OnHold_finish ScreenHoldFinishListener;
+        public OnHold_Start ScreenHoldStartListener;
+
     }
 
 }

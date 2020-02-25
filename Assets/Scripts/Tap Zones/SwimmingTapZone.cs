@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class SwimmingTapZone : JumpTapZone
 {
-    public override void DoInputAction(float accuracy)
+   
+    public override void OnScreenTap()
     {
-        
-        base.DoInputAction(accuracy);
+        if (!inputListiningAllowed) return;
+        base.OnScreenTap();
+        Jump();
         PlayAnimation();
+        
     }
 
     public override void PlayAnimation()
     {
+        
         animController.StartSwimming(true);
 
     }

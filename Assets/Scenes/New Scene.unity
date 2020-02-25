@@ -285,7 +285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9cae6dda4941a54891d7121c60d9b59, type: 3}
---- !u!1 &2065577885
+--- !u!1 &919871668
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,35 +293,34 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2065577887}
-  - component: {fileID: 2065577886}
+  - component: {fileID: 919871670}
+  - component: {fileID: 919871669}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2065577886
+--- !u!114 &919871669
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065577885}
+  m_GameObject: {fileID: 919871668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2068d8b3f5586f4c98271b59227c93d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d22baafdfe2b554e94364aee6068f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenTouchDelay: 0.3
---- !u!4 &2065577887
+--- !u!4 &919871670
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065577885}
+  m_GameObject: {fileID: 919871668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.912478, y: 3.9757333, z: 0.45620015}
   m_LocalScale: {x: 1, y: 1, z: 1}

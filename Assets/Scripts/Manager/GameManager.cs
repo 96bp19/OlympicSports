@@ -5,9 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] private InputManager InputManagerPrefab;
-    public static InputManager InputManagerInstance;
-
     [SerializeField] private Player PlayerPrefab;
     public static Player PlayerInstance;
 
@@ -28,8 +25,7 @@ public class GameManager : MonoBehaviour
     {
         GameObject allmanagers = new GameObject("All Managers");
         transform.SetParent(allmanagers.transform);
-        InputManagerInstance = Instantiate(InputManagerPrefab) as InputManager;
-        InputManagerInstance.transform.SetParent(allmanagers.transform);
+      
 
         PlayerInstance = Instantiate(PlayerPrefab, new Vector3(0,2,5), Quaternion.identity) as Player;
       

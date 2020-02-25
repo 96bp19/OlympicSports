@@ -1,87 +1,85 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Binaya.MyInput;
 
 public abstract class ATapZone : MonoBehaviour
 {
    
-    private bool inputListiningAllowed;
-    private bool triggercheckAllowed = true;
-    private float accuracy;
+    protected bool inputListiningAllowed;   
+    protected float accuracy;
     protected Player player;
     [HideInInspector]
     public AnimationController animController;
 
     protected  bool inputReceived = false;
 
-
-    public abstract void DoInputAction(float accuracy);
-    
-    public abstract void PlayAnimation();
-
-
-   
-
-
     virtual protected void Start()
     {
+        MobileInputManager.Instance.ScreenTapListener += OnScreenTap;
+        MobileInputManager.Instance.ScreenHoldListener += OnScreenHold;
+        MobileInputManager.Instance.ScreenHoldFinishListener += OnScreenHoldFinish;
+        MobileInputManager.Instance.ScreenHoldStartListener += OnScreenHoldStart;
        
-        GameManager.InputManagerInstance.InputListeners += OnInputReceived;
     }
 
-    void OnInputReceived(Inputs inp)
+    public abstract void PlayAnimation();
+    public virtual void OnScreenTap()
     {
-        if (inputListiningAllowed)
-        {
-            accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+        if (!inputListiningAllowed) return;
 
-            if (inp.screenHold)
-            {
-                DoInputAction(accuracy);
+        inputReceived = true;
+        inputListiningAllowed = false;
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
 
-            }
-           
-            inputReceived = true;
-
-          
-            inputListiningAllowed = false;
-            triggercheckAllowed = false;
-          
-        }
-
-
-       
     }
-   
+    public virtual void OnScreenHold()
+    {
+        if (!inputListiningAllowed) return;
+               
+    }
+
+    public virtual void OnScreenHoldFinish()
+    {
+        if (!inputListiningAllowed) return;
+
+        inputReceived = true;
+        inputListiningAllowed = false;
+    }
+
+    public virtual void OnScreenHoldStart()
+    {
+        if (!inputListiningAllowed) return;
+        
+    }
+
 
     virtual protected void OnTriggerEnter(Collider other)
     {
         // input will be registered here onwards
-        if (!triggercheckAllowed)
-        {
-            return;
-        }
+      
         if (other.gameObject.CompareTag("Player"))
         {
            
             player = other.GetComponent<Player>();
             animController = player.GetComponent<AnimationController>();
             inputListiningAllowed = true;
-            GameManager.InputManagerInstance.EnableInput(true);
+           
         }
     }
 
     virtual protected void OnTriggerExit(Collider other)
     {
         // input will not be registered here onwards
-        if (!inputReceived)
-        {
-            PlayFoulAnimation();
-            player.StopMoving();
-        }
         if (other.CompareTag("Player"))
         {
-            GameManager.InputManagerInstance.EnableInput(false);
+            if (!inputReceived)
+            {
+                Debug.Log("foul animation due to no input");
+                PlayFoulAnimation();
+                player.StopMoving();
+            }
+           
             inputListiningAllowed = false;
             player = null;
             GameManager.UIManager_Instance.EnableHoldMeter(false);

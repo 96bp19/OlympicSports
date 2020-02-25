@@ -5,17 +5,15 @@ using UnityEngine;
 public class HighJumpTapZone : JumpTapZone
 {
 
-    public override void DoInputAction(float accuracy)
+    public override void OnScreenTap()
     {
+        if (!inputListiningAllowed) return;
+        base.OnScreenTap();
         player.SetDefaultGravityMultiplier();
         player.ResetPlayerSpeed();
         jumpHeight = calculateJumpheightBasedOnAccuracy(accuracy);
-     
-        base.DoInputAction(accuracy);
         PlayAnimation();
-
-       
-        
+        Jump();
     }
 
     public override void PlayAnimation()

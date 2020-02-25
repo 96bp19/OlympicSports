@@ -4,22 +4,45 @@ using UnityEngine;
 
 public class longJumpTapZone : JumpTapZone
 {
-    private bool screenHoldStarted = false;
+    private bool screenHolding = false;
     private float startAccuracy = 0;
 
     [SerializeField] private GameObject SandZonePrefab;
 
-    public override void DoInputAction(float accuracy)
+    public override void OnScreenTap()
     {
-         player.setNewGravityMutiplier(5);
-        //base.DoInputAction(accuracy);
-        startAccuracy = accuracy;
-        screenHoldStarted = true;
+        // blank function intended
+    }
+
+    public override void OnScreenHoldStart()
+    {
+        if (!inputListiningAllowed) return;
+        Debug.Log("long jump hold start");
+        base.OnScreenHoldStart();
+
+        screenHolding = true;
+        player.setNewGravityMutiplier(5);
         player.ResetPlayerSpeed();
         GameManager.UIManager_Instance.EnableHoldMeter(true);
+    }
 
-        
-       
+    public override void OnScreenHold()
+    {
+        if (!inputListiningAllowed) return;
+        base.OnScreenHold();
+        UpdatePlayerSpeed();
+        Debug.Log("screen holding : " + screenHolding);
+        GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance());
+
+    }
+
+    public override void OnScreenHoldFinish()
+    {
+        if (!inputListiningAllowed) return;
+        screenHolding = false;
+        base.OnScreenHoldFinish();
+        PlayAnimation();
+        Jump();
     }
 
     protected override void Start()
@@ -29,47 +52,31 @@ public class longJumpTapZone : JumpTapZone
         sandtrans.SetParent(transform);
     }
 
-
-
     public override void PlayAnimation()
     {
         animController.LongJump();
 
     }
 
-    private void Update()
-    {
-        if ( screenHoldStarted)
-        {
-
-            if (player)
-            {
-                UpdatePlayerSpeed();
-                GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance() - startAccuracy + 0.1f);
-
-                if (!GameManager.InputManagerInstance.getInputData().screenHold)
-                {
-                    screenHoldStarted = false;
-
-                    PlayAnimation();
-                    // in this case  long jump accuracy is not required as parameter 
-                    // because it has already been calculated , so 1 used here is random value
-                    // we can use any thing it does not matter
-                    base.DoInputAction(1);
-                }
-
-            }
-            else
-            {
-                Debug.Log("foul");
-                screenHoldStarted = false;
-            }
-        }
-    }
-
     void UpdatePlayerSpeed()
     {
         player.AddSpeed(Time.fixedDeltaTime*2);
         animController.UpdatePlayerSpeed();
+    }
+
+    private void Update()
+    {
+        if (screenHolding && !inputListiningAllowed)
+        {
+            screenHolding = false;
+            PlayFoulAnimation();
+            player.StopMoving();
+
+        }
+    }
+
+    protected override void PlayFoulAnimation()
+    {
+        animController.PlayFoulAnimaiton(true);
     }
 }

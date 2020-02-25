@@ -44,7 +44,7 @@ public class Javaline : MonoBehaviour
         {
             Quaternion rot = Quaternion.LookRotation(rb.velocity.normalized);
             transform.rotation = rot;
-            Debug.Log("javaline rotation updating rot : " + rot.eulerAngles);
+
 
         }
     }

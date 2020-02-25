@@ -14,13 +14,13 @@ public class TripleJumpTapZone : JumpTapZone
     }
     bool enablejumpAction;
 
-    public override void DoInputAction(float accuracy)
+    
+
+    public override void OnScreenTap()
     {
-        jumpAccuracy = accuracy;
+        if (!inputListiningAllowed) return;
+        base.OnScreenTap();
         enablejumpAction = true;
-       
-      
-       
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -52,7 +52,7 @@ public class TripleJumpTapZone : JumpTapZone
                 player.setNewGravityMutiplier(1);
                 PlayAnimation();
                 player.AddSpeed(2);
-                base.DoInputAction(jumpAccuracy);
+                Jump();
                 allowUpdating = false;
 
             }

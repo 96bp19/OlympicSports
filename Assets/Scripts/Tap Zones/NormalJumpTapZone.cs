@@ -15,11 +15,12 @@ public class NormalJumpTapZone : JumpTapZone
         Instantiate(hurdleBarPrefab, transform.position + new Vector3(0, 0, 0.15f + zLength), Quaternion.identity).transform.SetParent(null);
     }
 
-    public override void DoInputAction(float accuracy)
+    public override void OnScreenTap()
     {
-        this.Playeraccuracy = accuracy;
+        if (!inputListiningAllowed) return;
+        base.OnScreenTap();
         PlayAnimation();
- 
+
     }
 
 
@@ -33,8 +34,7 @@ public class NormalJumpTapZone : JumpTapZone
 
     void JumpAfterDelay()
     {
-
-        base.DoInputAction(Playeraccuracy);
-
+        Jump();
+       
     }
 }
