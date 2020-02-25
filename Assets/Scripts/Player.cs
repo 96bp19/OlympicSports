@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float defaultGravityMultiplier = 3;
     [SerializeField] float jumpHeight;
     [SerializeField] Transform javalineThrowSocket;
+    [SerializeField] private float movementLerpSpeed = 1f;
     private bool allowedMoving = true;
     
     private float lerpedMoveSpeed = 0;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     public void StopMoving()
     {
         allowedMoving = false;
+        lerpedMoveSpeed = 0;
     }
 
     public void StartMoving(bool usePreviousVelocity)
@@ -35,6 +37,10 @@ public class Player : MonoBehaviour
         if (!usePreviousVelocity)
         {
             ResetPlayerSpeed();
+        }
+        else
+        {
+            lerpedMoveSpeed = currentSpeed;
         }
         
     }
@@ -64,7 +70,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, Time.deltaTime * 2);
+        lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, Time.deltaTime * movementLerpSpeed);
         transform.position += Vector3.forward * lerpedMoveSpeed *Time.deltaTime;
     }
 

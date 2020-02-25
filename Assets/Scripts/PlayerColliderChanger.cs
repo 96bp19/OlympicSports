@@ -19,6 +19,7 @@ public class PlayerColliderChanger : MonoBehaviour
     private void Start()
     {
         col = GetComponent<CapsuleCollider>();
+
     }
     void Update()
     {

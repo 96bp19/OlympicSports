@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovementStopper : StateMachineBehaviour
 {
-
+    [SerializeField] private bool MoveOnStateExit;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -20,7 +20,8 @@ public class MovementStopper : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameManager.PlayerInstance.StartMoving(false);
+        
+        GameManager.PlayerInstance.StartMoving(MoveOnStateExit);
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
