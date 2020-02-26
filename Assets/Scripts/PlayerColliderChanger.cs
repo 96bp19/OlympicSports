@@ -4,34 +4,39 @@ using UnityEngine;
 
 public class PlayerColliderChanger : MonoBehaviour
 {
-    public AnimationCurve curve;
-    public Vector3 colliderCenter;
-    public float height;
-    [Range(0f, 1f)] public float lerpTime = 0;
-
-    public float maxHeight;
-
-    CapsuleCollider col;
-    // Update is called once per frame
+    [SerializeField] private AnimationColliderHeightChecker colliderHeigthChecker;
+    private CapsuleCollider col;
+    private float defaultColliderHeight;
+    private float capsuleHeight;
+    private bool useDefaultColliderHeight = false;
+    Vector3 capsuleheightOffset;
 
    
 
     private void Start()
     {
         col = GetComponent<CapsuleCollider>();
-
-    }
-    void Update()
-    {
-        col.center = colliderCenter;
-        col.height = height;
-
-        float lerpedval = curve.Evaluate(lerpTime);
-
-        colliderCenter.y = maxHeight/2 - lerpedval;
-        col.height = lerpedval * maxHeight;
-
+      
+        defaultColliderHeight = colliderHeigthChecker.getDefaultCapsuleHeight();
         
-
     }
+
+    private void Update()
+    {
+        colliderHeigthChecker.getColliderInfoWithRespectToAnimation(out CapsuleColliderInfo info, 0.5f);
+        col.height = info.height;
+        if (!GameManager.PlayerInstance.isGrounded())
+        {
+            info.center.y *= -1f;
+        }
+        col.center = info.center;
+        col.radius = info.radius;
+    }
+
+    public void UseDefaultColliderHeight(bool value)
+    {
+        useDefaultColliderHeight = value;
+    }
+
+
 }

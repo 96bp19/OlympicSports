@@ -56,7 +56,8 @@ public class Player : MonoBehaviour
     private void Update()
     {
         movePlayer();
-        CheckGroundDistance();
+        //CheckGroundDistance();
+        Grounded = isGrounded();
      
     }
    
@@ -134,9 +135,26 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private float groundDIstance;
     bool startCheckingInput;
+
+    public bool Grounded;
+    public float groundCheckDistance;
+    public bool isGrounded()
+    {
+
+        Vector3 checkPos = transform.position + raycastOffset;
+        Debug.DrawRay(checkPos, Vector3.down * groundCheckDistance, Color.red);
+        
+        bool grounded = Physics.Raycast(checkPos, Vector3.down, out RaycastHit hitInfo,groundCheckDistance, groundLayer);
+        return grounded;
+      
+       
+    }
+
     public void CheckGroundDistance( )
     {
+       
         Vector3 checkPos = transform.position + raycastOffset;
+        Debug.DrawRay(checkPos, Vector3.down * 10, Color.red);
         Debug.DrawRay(checkPos, Vector3.down * 10, Color.red);
         if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hitInfo, groundLayer))
         {

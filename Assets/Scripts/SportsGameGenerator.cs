@@ -84,7 +84,8 @@ public class SportsGameGenerator : MonoBehaviour
         Transform groundTrans = Instantiate(groundPrefab, transform).transform;
         groundTrans.SetParent(transform);
         Vector3 localpos = Vector3.zero;
-        localpos.y = transform.localPosition.y-1f;
+        localpos.y = transform.localPosition.y;
+        groundTrans.localEulerAngles = new Vector3(0, 180, 0);
         groundTrans.localPosition = localpos;
         groundTrans.localScale = new Vector3(3, 1, currentPos.z);
 

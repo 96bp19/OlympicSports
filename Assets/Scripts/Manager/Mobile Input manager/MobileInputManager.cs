@@ -20,6 +20,7 @@ namespace Binaya.MyInput
         private bool ScreenTouched;
         private bool swipeStarted;
         private bool InputEnabled = true;
+        private bool screenHoldStarted = false;
         
 
         private Vector3 InitialTouchPos;
@@ -107,9 +108,7 @@ namespace Binaya.MyInput
                 if (ScreenTouched)
                 {
                     InitialTouchPos = Input.mousePosition;
-                    currentTime = screenTouchDelay;
-                    OnScreenHoldStart();
-                    
+                    currentTime = screenTouchDelay;                  
                 }
             }
 
@@ -121,9 +120,6 @@ namespace Binaya.MyInput
             CheckForScreenTap();
             CheckForSwipe();
             CheckForScreenHold();
-
-           
-
         }
 
         void CheckForScreenTap()
@@ -135,7 +131,7 @@ namespace Binaya.MyInput
                     // it was screen tap
                     ScreenTouched = false;
                     OnScreenTap();
-                    OnHoldFinish();
+                    
                 }
                 currentTime -= deltaTime;
             }
@@ -145,11 +141,17 @@ namespace Binaya.MyInput
         {
             if (currentTime < 0 && ScreenTouched)
             {
+                if (!screenHoldStarted)
+                {
+                    screenHoldStarted = true;
+                    OnScreenHoldStart();
+                }
                 // it was Screen Hold
                 OnScreenHold();
                 if (Input.GetMouseButtonUp(0))
                 {
                     ScreenTouched = false;
+                    screenHoldStarted = false;
                     OnHoldFinish();
 
                 }
