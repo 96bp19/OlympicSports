@@ -48,7 +48,7 @@ public class longJumpTapZone : JumpTapZone
     protected override void Start()
     {
         base.Start();
-        Transform sandtrans = Instantiate(SandZonePrefab, transform.position + new Vector3(0, 0.5f, transform.lossyScale.z + 15/2+3f), Quaternion.identity).transform;
+        Transform sandtrans = Instantiate(SandZonePrefab, transform.position + new Vector3(0, 0.15f, transform.lossyScale.z + 15/2+3f), Quaternion.identity).transform;
         sandtrans.SetParent(transform);
     }
 
