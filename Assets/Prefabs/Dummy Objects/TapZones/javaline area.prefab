@@ -154,5 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animController: {fileID: 0}
+  noOfInputAlowed: 1
   javalineObjectPrefab: {fileID: 1802688320096485009, guid: 592129c2442dde3428577c19fd2b7e86,
     type: 3}

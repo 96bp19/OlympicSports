@@ -11,8 +11,12 @@ public abstract class ATapZone : MonoBehaviour
     protected Player player;
     [HideInInspector]
     public AnimationController animController;
+  //  protected  bool inputReceived = false;
 
-    protected  bool inputReceived = false;
+    
+    [SerializeField] protected int noOfInputAlowed;
+
+    protected int inputReceiveCount =0;
 
     virtual protected void Start()
     {
@@ -27,12 +31,10 @@ public abstract class ATapZone : MonoBehaviour
     public virtual void OnScreenTap()
     {
         if (!inputListiningAllowed) return;
-
-        inputReceived = true;
-        inputListiningAllowed = false;
+        CalculateInputReceiveCount();
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
-
     }
+
     public virtual void OnScreenHold()
     {
         if (!inputListiningAllowed) return;
@@ -43,7 +45,8 @@ public abstract class ATapZone : MonoBehaviour
     {
         if (!inputListiningAllowed) return;
 
-        inputReceived = true;
+
+        CalculateInputReceiveCount();
         inputListiningAllowed = false;
     }
 
@@ -73,7 +76,7 @@ public abstract class ATapZone : MonoBehaviour
         // input will not be registered here onwards
         if (other.CompareTag("Player"))
         {
-            if (!inputReceived)
+            if (inputReceiveCount == 0)
             {
                 Debug.Log("foul animation due to no input");
                 PlayFoulAnimation();
@@ -103,6 +106,14 @@ public abstract class ATapZone : MonoBehaviour
     virtual protected void PlayFoulAnimation()
     {
         animController.PlayFoulAnimaiton();
+    }
+
+    protected void CalculateInputReceiveCount()
+    {
+        if (noOfInputAlowed == ++inputReceiveCount)
+        {
+            inputListiningAllowed = false;
+        }
     }
 
 }

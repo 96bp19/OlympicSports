@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee26a74742f5cd498a46d959686322f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animController: {fileID: 0}
+  noOfInputAlowed: 1000
   jumpHeight: 2
 --- !u!114 &53638998102446383
 MonoBehaviour:

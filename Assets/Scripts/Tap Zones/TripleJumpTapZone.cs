@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class TripleJumpTapZone : JumpTapZone
 {
-
+    [SerializeField] private float initialtripleJumpTapZonelength =3f;
     float jumpAccuracy;
     bool allowUpdating;
+    int currentJumpCount;
+    bool checkForJump = false;
     public override void PlayAnimation()
     {
 
-        animController.TripleJump();
+        //animController.TripleJump();
     }
     bool enablejumpAction;
 
@@ -21,12 +23,21 @@ public class TripleJumpTapZone : JumpTapZone
         if (!inputListiningAllowed) return;
         base.OnScreenTap();
         enablejumpAction = true;
+        checkForJump = true;
+        
+       
     }
 
     protected override void OnTriggerEnter(Collider other)
     {
+        
         base.OnTriggerEnter(other);
-        allowUpdating = true;
+        if (other.CompareTag("Player"))
+        {
+            player = other.GetComponent<Player>();
+            allowUpdating = true;
+            checkForInitialTap = true;
+        }
     }
 
     protected override void OnTriggerExit(Collider other)
@@ -38,6 +49,7 @@ public class TripleJumpTapZone : JumpTapZone
     int framecount;
     private void Update()
     {
+        CheckForInitialTap();
         if (!allowUpdating)
         {
 
@@ -46,19 +58,26 @@ public class TripleJumpTapZone : JumpTapZone
         if ( enablejumpAction)
         {
             Debug.Log("anim control is on ground : " + animController.IsOnGround());
-            if (animController.IsOnGround())
+            if (animController.IsOnGround() && checkForJump)
             {
                 Debug.Log("updating triple jump");
                 player.setNewGravityMutiplier(1);
                 PlayAnimation();
                 player.AddSpeed(2);
                 Jump();
-                allowUpdating = false;
+                animController.TripleJump(++currentJumpCount);
+                checkForJump = false;
+                enablejumpAction = false;
+                if (currentJumpCount == 3)
+                {
+                    allowUpdating = false;
+
+                }
 
             }
            
         }
-        else if ((animController.getCurrentTripleJumpIndex() ==1 || animController.getCurrentTripleJumpIndex() ==2) && animController.IsOnGround())
+        else if ((currentJumpCount==1 || currentJumpCount == 2) && animController.IsOnGround())
         {
             framecount++;
          
@@ -70,6 +89,17 @@ public class TripleJumpTapZone : JumpTapZone
             }
         }
        
+    }
+
+    bool checkForInitialTap;
+    void CheckForInitialTap()
+    {
+        if (!checkForInitialTap || currentJumpCount >0) return;
+        if ((player.transform.position.z-transform.position.z >initialtripleJumpTapZonelength))
+        {
+            checkForInitialTap = false;
+            animController.PlayFoulAnimaiton();
+        }
     }
 
 

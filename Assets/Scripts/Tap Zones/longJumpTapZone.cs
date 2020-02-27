@@ -5,7 +5,7 @@ using UnityEngine;
 public class longJumpTapZone : JumpTapZone
 {
     private bool screenHolding = false;
-    private float startAccuracy = 0;
+   
 
     [SerializeField] private GameObject SandZonePrefab;
 

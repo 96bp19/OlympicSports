@@ -106,15 +106,12 @@ public class AnimationController : MonoBehaviour
         Debug.Log("swim Called");
     }
 
-    int tripleJumpVal = 0;
-    public void TripleJump()
+   
+    public void TripleJump(int tripleJumpVal)
     {
-        if (tripleJumpVal == 3)
-        {
-            tripleJumpVal = 0;
-        }
-        tripleJumpVal++;
+       
         anim.SetInteger("TripleJump", tripleJumpVal);
+        Debug.Log("current triple jump val : " + tripleJumpVal);
     }
 
     public void PlayFoulAnimaiton(bool NormalFoul = false)
@@ -136,11 +133,6 @@ public class AnimationController : MonoBehaviour
     public void resetAllAnimations()
     {
         anim.SetInteger("TripleJump", 0);
-    }
-
-    public int getCurrentTripleJumpIndex()
-    {
-        return tripleJumpVal;
     }
 
     public void StartJavalineHold()

@@ -51,6 +51,6 @@ MonoBehaviour:
   finalObjectToSpawn: {fileID: 0}
   celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,
     type: 3}
-  noOfSportsPrefabsToSpawn: 3
+  noOfSportsPrefabsToSpawn: 1
   groundPrefab: {fileID: 1914863664198730746, guid: 6a432fc8098d940479f1c1d850557db9,
     type: 3}
