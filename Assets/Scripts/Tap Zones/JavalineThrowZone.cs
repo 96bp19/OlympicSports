@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Binaya.MyInput;
 
 public class JavalineThrowZone : ATapZone
 {
@@ -11,13 +12,15 @@ public class JavalineThrowZone : ATapZone
 
     bool currentlyholdingJavaline = false;
 
-    public override void OnScreenTap()
+    private void Start()
     {
-        // blank function intended
+        MobileInputManager.Instance.ScreenHoldStartListener += OnScreenHoldStart;
+        MobileInputManager.Instance.ScreenHoldListener += OnScreenHold;
+        MobileInputManager.Instance.ScreenHoldFinishListener += OnScreenHoldFinish;
     }
 
 
-    public override void OnScreenHoldStart()
+    public  void OnScreenHoldStart()
     {
         if (!inputListiningAllowed) return;
          Debug.Log("screen hold started inside javaline");
@@ -33,19 +36,19 @@ public class JavalineThrowZone : ATapZone
         
     }
 
-    public override void OnScreenHold()
+    public void OnScreenHold()
     {
         if (!inputListiningAllowed) return;
         Debug.Log("holding it now");
          GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance() - accuracy);
     }
 
-    public override void OnScreenHoldFinish()
+    public void OnScreenHoldFinish()
     {
         Debug.Log("hold complete");
         if (!inputListiningAllowed) return;
-        base.OnScreenHoldFinish();
-
+        CalculateInputReceiveCount();
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
         currentlyholdingJavaline = false;
         player.ResetPlayerSpeed();
         float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() -accuracy;
@@ -53,7 +56,7 @@ public class JavalineThrowZone : ATapZone
         // javaline throw animation
         PlayJavalineThrowAnimation(newAccuracy);
 
-        
+
     }
 
 
@@ -114,11 +117,6 @@ public class JavalineThrowZone : ATapZone
     bool RandomBool()
     {
         return Random.Range(0, 2) == 0;
-    }
-
-    public override void PlayAnimation()
-    {
-
     }
 
     IEnumerator enumerator;

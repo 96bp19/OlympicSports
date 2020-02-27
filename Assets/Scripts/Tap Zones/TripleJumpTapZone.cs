@@ -1,30 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Binaya.MyInput;
 
 public class TripleJumpTapZone : JumpTapZone
 {
-    [SerializeField] private float initialtripleJumpTapZonelength =3f;
+    [SerializeField] private float initialTapLength =3f;
     float jumpAccuracy;
     bool allowUpdating;
     int currentJumpCount;
     bool checkForJump = false;
-
-    public override void PlayAnimation()
-    {
-
-        //animController.TripleJump();
-    }
     bool enablejumpAction;
 
-    
+    [SerializeField] float inputBufferForJump=2f;
+    private float currentInputTime;
 
-    public override void OnScreenTap()
+   
+
+
+
+    private  void Start()
     {
-        if (!inputListiningAllowed) return;
-        base.OnScreenTap();
-        enablejumpAction = true;
-        checkForJump = true;
+        
+        MobileInputManager.Instance.ScreenHoldStartListener += OnScreenTap;
+    }
+
+    public  void OnScreenTap()
+    {
+        if (!inputListiningAllowed) return;        
+        if (!enablejumpAction)
+        {
+            checkForJump = true;
+            enablejumpAction = true;
+            currentInputTime = inputBufferForJump;
+
+        }
         
        
     }
@@ -58,22 +68,26 @@ public class TripleJumpTapZone : JumpTapZone
         }
         if ( enablejumpAction)
         {
-            Debug.Log("anim control is on ground : " + animController.IsOnGround());
+            CheckForInputBufferMiss();
+
             if (animController.IsOnGround() && checkForJump)
             {
                 Debug.Log("updating triple jump");
                 player.setNewGravityMutiplier(1);
-                PlayAnimation();
-                player.AddSpeed(2);
+               
                 Jump();
                 animController.TripleJump(++currentJumpCount);
                 checkForJump = false;
                 enablejumpAction = false;
+               
+                player.AddSpeed(MeasureSpeedBasedOnAccuracy(1));
+                CalculateInputReceiveCount();
                 if (currentJumpCount == 3)
                 {
                     allowUpdating = false;
 
                 }
+                framecount = 0;
 
             }
            
@@ -81,7 +95,7 @@ public class TripleJumpTapZone : JumpTapZone
         else if ((currentJumpCount==1 || currentJumpCount == 2) && animController.IsOnGround())
         {
             framecount++;
-         
+            //currentInputTime = 0.01f;
             if (framecount >10)
             {
                 player.StopMoving();
@@ -89,18 +103,57 @@ public class TripleJumpTapZone : JumpTapZone
                 allowUpdating = false;
             }
         }
+
        
+       
+    }
+
+    void CheckForInputBufferMiss()
+    {
+        currentInputTime -= Time.deltaTime;
+        if (currentInputTime <0)
+        {
+            enablejumpAction = false;
+        }
     }
 
     bool checkForInitialTap;
     void CheckForInitialTap()
     {
         if (!checkForInitialTap || currentJumpCount >0) return;
-        if ((player.transform.position.z-transform.position.z >initialtripleJumpTapZonelength))
+        if ((player.transform.position.z-transform.position.z >initialTapLength))
         {
             checkForInitialTap = false;
             animController.PlayFoulAnimaiton();
         }
+    }
+
+    float CalculateAccuracy(float currentval , float maxval)
+    {
+        return currentval / maxval;
+
+    }
+
+    float MeasureSpeedBasedOnAccuracy(float baseMoveSpeed)
+    {
+      
+        if (currentJumpCount ==1)
+        {
+            accuracy = (initialTapLength-(player.transform.position.z - transform.position.z)) / initialTapLength;
+        }
+        else if (framecount >2)
+        {
+            accuracy = 0.1f;
+        }
+        else
+        {
+            Debug.Log("time accuracy");
+            accuracy = CalculateAccuracy(currentInputTime, inputBufferForJump);
+        }
+        framecount = 0;
+        Debug.Log("accurcay : " + accuracy );
+        return accuracy * baseMoveSpeed + baseMoveSpeed;
+
     }
 
 

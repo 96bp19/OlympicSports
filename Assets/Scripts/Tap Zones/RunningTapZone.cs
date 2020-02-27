@@ -1,22 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Binaya.MyInput;
 
 public class RunningTapZone : ATapZone
 {
-    public override void OnScreenTap()
+
+    private void Start()
+    {
+        MobileInputManager.Instance.ScreenHoldStartListener += OnScreenTap;
+    }
+
+    public  void OnScreenTap()
     {
         if (inputListiningAllowed)
         {
-            base.OnScreenTap();
+            
             float speedToadd = calculateSpeedToAddBasedOnAccuracy(accuracy);
             player.AddSpeed(speedToadd);
             PlayAnimation();
+            CalculateInputReceiveCount();
+            accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
         }
         
     }
 
-    public override void PlayAnimation()
+    public  void PlayAnimation()
     {
         animController.IncreaseAnimationSpeed();
     }

@@ -108,7 +108,8 @@ namespace Binaya.MyInput
                 if (ScreenTouched)
                 {
                     InitialTouchPos = Input.mousePosition;
-                    currentTime = screenTouchDelay;                  
+                    currentTime = screenTouchDelay;
+                    OnScreenHoldStart();
                 }
             }
 
@@ -144,7 +145,7 @@ namespace Binaya.MyInput
                 if (!screenHoldStarted)
                 {
                     screenHoldStarted = true;
-                    OnScreenHoldStart();
+                   // OnScreenHoldStart();
                 }
                 // it was Screen Hold
                 OnScreenHold();

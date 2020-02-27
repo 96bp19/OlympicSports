@@ -127,6 +127,7 @@ public class AnimationController : MonoBehaviour
             anim.SetTrigger("Foul");
 
         }
+        Binaya.MyInput.MobileInputManager.Instance.EnableInput(false);
 
     }
 

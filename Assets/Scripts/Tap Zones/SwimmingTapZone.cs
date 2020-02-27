@@ -1,20 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Binaya.MyInput;
 
 public class SwimmingTapZone : JumpTapZone
 {
-   
-    public override void OnScreenTap()
+
+    private void Start()
+    {
+        MobileInputManager.Instance.ScreenHoldStartListener += OnScreenTap;
+    }
+
+    public  void OnScreenTap()
     {
         if (!inputListiningAllowed) return;
-        base.OnScreenTap();
+        CalculateInputReceiveCount();
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
         Jump();
         PlayAnimation();
         
     }
 
-    public override void PlayAnimation()
+    public  void PlayAnimation()
     {
         
         animController.StartSwimming(true);

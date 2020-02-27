@@ -18,47 +18,6 @@ public abstract class ATapZone : MonoBehaviour
 
     protected int inputReceiveCount =0;
 
-    virtual protected void Start()
-    {
-        MobileInputManager.Instance.ScreenTapListener += OnScreenTap;
-        MobileInputManager.Instance.ScreenHoldListener += OnScreenHold;
-        MobileInputManager.Instance.ScreenHoldFinishListener += OnScreenHoldFinish;
-        MobileInputManager.Instance.ScreenHoldStartListener += OnScreenHoldStart;
-       
-    }
-
-    public abstract void PlayAnimation();
-    public virtual void OnScreenTap()
-    {
-        if (!inputListiningAllowed) return;
-        CalculateInputReceiveCount();
-        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
-        GameManager.UIManager_Instance.AddScore(1);
-    }
-
-    public virtual void OnScreenHold()
-    {
-        if (!inputListiningAllowed) return;
-               
-    }
-
-    public virtual void OnScreenHoldFinish()
-    {
-        if (!inputListiningAllowed) return;
-
-
-        CalculateInputReceiveCount();
-        inputListiningAllowed = false;
-        GameManager.UIManager_Instance.AddScore(1);
-    }
-
-    public virtual void OnScreenHoldStart()
-    {
-        if (!inputListiningAllowed) return;
-        
-    }
-
-
     virtual protected void OnTriggerEnter(Collider other)
     {
         // input will be registered here onwards
@@ -115,6 +74,7 @@ public abstract class ATapZone : MonoBehaviour
         if (noOfInputAlowed == ++inputReceiveCount)
         {
             inputListiningAllowed = false;
+            Debug.Log("wont check for input anymore");
         }
     }
 

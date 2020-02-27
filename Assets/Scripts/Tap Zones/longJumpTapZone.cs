@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Binaya.MyInput;
 
 public class longJumpTapZone : JumpTapZone
 {
@@ -9,16 +10,22 @@ public class longJumpTapZone : JumpTapZone
 
     [SerializeField] private GameObject SandZonePrefab;
 
-    public override void OnScreenTap()
+   
+    protected  void Start()
     {
-        // blank function intended
+        MobileInputManager.Instance.ScreenHoldStartListener += OnScreenHoldStart;
+        MobileInputManager.Instance.ScreenHoldListener += OnScreenHold;
+        MobileInputManager.Instance.ScreenHoldFinishListener += OnScreenHoldFinish;
+        
+        Transform sandtrans = Instantiate(SandZonePrefab, transform.position + new Vector3(0, 0.15f, transform.lossyScale.z + 15/2+3f), Quaternion.identity).transform;
+        sandtrans.SetParent(transform);
     }
 
-    public override void OnScreenHoldStart()
+    public  void OnScreenHoldStart()
     {
         if (!inputListiningAllowed) return;
         Debug.Log("long jump hold start");
-        base.OnScreenHoldStart();
+        
 
         screenHolding = true;
         player.setNewGravityMutiplier(5);
@@ -26,33 +33,28 @@ public class longJumpTapZone : JumpTapZone
         GameManager.UIManager_Instance.EnableHoldMeter(true);
     }
 
-    public override void OnScreenHold()
+    public void OnScreenHold()
     {
         if (!inputListiningAllowed) return;
-        base.OnScreenHold();
+        
         UpdatePlayerSpeed();
         Debug.Log("screen holding : " + screenHolding);
         GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance());
 
     }
 
-    public override void OnScreenHoldFinish()
+    public void OnScreenHoldFinish()
     {
         if (!inputListiningAllowed) return;
-        screenHolding = false;
-        base.OnScreenHoldFinish();
+        screenHolding = false;        
         PlayAnimation();
         Jump();
+        CalculateInputReceiveCount();
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
     }
 
-    protected override void Start()
-    {
-        base.Start();
-        Transform sandtrans = Instantiate(SandZonePrefab, transform.position + new Vector3(0, 0.15f, transform.lossyScale.z + 15/2+3f), Quaternion.identity).transform;
-        sandtrans.SetParent(transform);
-    }
 
-    public override void PlayAnimation()
+    public  void PlayAnimation()
     {
         animController.LongJump();
 

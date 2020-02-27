@@ -171,4 +171,5 @@ MonoBehaviour:
   animController: {fileID: 0}
   noOfInputAlowed: 3
   jumpHeight: 2
-  initialtripleJumpTapZonelength: 3
+  initialTapLength: 3
+  inputBufferForJump: 1
