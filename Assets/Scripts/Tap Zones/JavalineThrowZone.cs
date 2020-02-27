@@ -91,24 +91,24 @@ public class JavalineThrowZone : ATapZone
 
         if (accuracy <0.25)
         {
-            randomAngle = Random.Range(75, 90);
+            randomAngle = Random.Range(20, 25);
         }
 
         else if (accuracy <0.5f)
         {
             //fair
-            randomAngle = RandomBool() ? Random.Range(25, 35) : Random.Range(60, 75); 
+            randomAngle = Random.Range(25, 35);
             
         }
         else if (accuracy <0.8f)
         {
             // good
-            randomAngle = RandomBool() ? Random.Range(35, 42) : Random.Range(48, 60); 
+            randomAngle = Random.Range(35, 40);
             
         }
         else
         {
-            randomAngle =  Random.Range(42, 48); 
+            randomAngle =  Random.Range(40, 50); 
         }
         return randomAngle;
     }

@@ -15,13 +15,8 @@ public class TripleJumpTapZone : JumpTapZone
     [SerializeField] float inputBufferForJump=2f;
     private float currentInputTime;
 
-   
-
-
-
     private  void Start()
     {
-        
         MobileInputManager.Instance.ScreenHoldStartListener += OnScreenTap;
     }
 
@@ -34,9 +29,7 @@ public class TripleJumpTapZone : JumpTapZone
             enablejumpAction = true;
             currentInputTime = inputBufferForJump;
 
-        }
-        
-       
+        }  
     }
 
     protected override void OnTriggerEnter(Collider other)
