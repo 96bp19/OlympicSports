@@ -9,6 +9,7 @@ public class TripleJumpTapZone : JumpTapZone
     bool allowUpdating;
     int currentJumpCount;
     bool checkForJump = false;
+
     public override void PlayAnimation()
     {
 

@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private Slider HoldMeter;
-    
+    [SerializeField] private Text ScoreText;
 
+    private int currentScore;
     private void Awake()
     {
         if (HoldMeter)
@@ -35,6 +36,12 @@ public class UI_Manager : MonoBehaviour
     public void UpdateHoldMeterVal(float value)
     {
         HoldMeter.value = value;
+    }
+
+    public void AddScore(int value)
+    {
+        currentScore += value;
+        ScoreText.text = currentScore.ToString();
     }
 
 }

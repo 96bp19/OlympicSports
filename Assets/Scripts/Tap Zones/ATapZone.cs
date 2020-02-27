@@ -33,6 +33,7 @@ public abstract class ATapZone : MonoBehaviour
         if (!inputListiningAllowed) return;
         CalculateInputReceiveCount();
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+        GameManager.UIManager_Instance.AddScore(1);
     }
 
     public virtual void OnScreenHold()
@@ -48,6 +49,7 @@ public abstract class ATapZone : MonoBehaviour
 
         CalculateInputReceiveCount();
         inputListiningAllowed = false;
+        GameManager.UIManager_Instance.AddScore(1);
     }
 
     public virtual void OnScreenHoldStart()
