@@ -7,6 +7,7 @@ public class UI_Manager : MonoBehaviour
 {
     [SerializeField] private Slider HoldMeter;
     [SerializeField] private Text ScoreText;
+    [SerializeField] private Text JavalineMeterTravel;
 
     private int currentScore;
     private void Awake()
@@ -42,6 +43,28 @@ public class UI_Manager : MonoBehaviour
     {
         currentScore += value;
         ScoreText.text = currentScore.ToString();
+    }
+
+    public void SetJavalineMeterTravel(float distanceCovered)
+    {
+        
+        if (!JavalineMeterTravel.gameObject.activeInHierarchy)
+        {
+            JavalineMeterTravel.gameObject.SetActive(true);
+        }
+        JavalineMeterTravel.text = distanceCovered.ToString("f2");
+    }
+
+    public void DisableUpdatingJavalineThrow()
+    {
+        Debug.Log("disable updating called");
+        System.Action function = () => DisableJavalineThrowText();
+        this.RunFunctionAfter(function, 2);
+    }
+
+    private void DisableJavalineThrowText()
+    {
+        JavalineMeterTravel.gameObject.SetActive(false);
     }
 
 }

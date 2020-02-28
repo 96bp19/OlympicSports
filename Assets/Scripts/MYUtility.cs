@@ -16,6 +16,14 @@ public static class MonobehaviourExtension
         
     }
 
+    public static void RunFunctionAfter(this MonoBehaviour behaviour, Action delegatefunction , float time)
+    {
+     
+        IEnumerator caller = ExecuteAfterTime(delegatefunction, time, null);
+        behaviour.StartCoroutine(caller);
+
+    }
+
     private static IEnumerator ExecuteAfterTime(Action delegatefunction, float delay , IEnumerator caller)
     {
         yield return new WaitForSeconds(delay);

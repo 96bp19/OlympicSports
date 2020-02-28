@@ -57,7 +57,7 @@ public abstract class ATapZone : MonoBehaviour
         float currentPlayerPosZ = player.transform.position.z;
         float extentz = transform.position.z + zScale;
 
-        float accuracy =  1 -Mathf.Abs((currentPlayerPosZ-1) - extentz) / zScale;
+        float accuracy =  1 -Mathf.Abs( extentz - currentPlayerPosZ) / zScale;
         accuracy = Mathf.Clamp(accuracy, 0f, 1f);
 
         return accuracy;

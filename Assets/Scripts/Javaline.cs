@@ -31,13 +31,17 @@ public class Javaline : MonoBehaviour
         // will use different approach later this is temp approach
         if (transform.position.y <1f)
         {
+            GameManager.UIManager_Instance.DisableUpdatingJavalineThrow();
             calculateDistanceStart = false;
             GetComponent<Rigidbody>().isKinematic = true;
+            startUpdatingUpdate = false;
+            Invoke("DestroyJavaline", 2f);
         }
        
         if (calculateDistanceStart)
         {
             currentDistance = Mathf.Abs(target.transform.position.z - transform.position.z);
+            GameManager.UIManager_Instance.SetJavalineMeterTravel(currentDistance);
         }
 
         if (!rb.isKinematic)
@@ -57,5 +61,10 @@ public class Javaline : MonoBehaviour
         this.target = target;
         calculateDistanceStart = true;
         
+    }
+
+    void DestroyJavaline()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -12,6 +12,8 @@ public class JavalineThrowZone : ATapZone
 
     bool currentlyholdingJavaline = false;
 
+    
+
     private void Start()
     {
         MobileInputManager.Instance.ScreenHoldStartListener += OnScreenHoldStart;
@@ -23,8 +25,7 @@ public class JavalineThrowZone : ATapZone
     public  void OnScreenHoldStart()
     {
         if (!inputListiningAllowed) return;
-         Debug.Log("screen hold started inside javaline");
-       
+     
         javaline = Instantiate(javalineObjectPrefab, player.transform.position, Quaternion.identity);
         player.AttachToJavalineSocket(javaline);
         javaline.localScale = Vector3.one;
@@ -32,6 +33,8 @@ public class JavalineThrowZone : ATapZone
         GameManager.UIManager_Instance.EnableHoldMeter(true);
         javalinThrowStartpos = player.transform.position;
         currentlyholdingJavaline = true;
+       accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+       
        
         
     }
@@ -39,22 +42,22 @@ public class JavalineThrowZone : ATapZone
     public void OnScreenHold()
     {
         if (!inputListiningAllowed) return;
-        Debug.Log("holding it now");
+        
          GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance() - accuracy);
     }
 
     public void OnScreenHoldFinish()
     {
-        Debug.Log("hold complete");
+        
         if (!inputListiningAllowed) return;
         CalculateInputReceiveCount();
-        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+        
         currentlyholdingJavaline = false;
         player.ResetPlayerSpeed();
-        float newAccuracy = CalculatePlayerInputAccuracyWithRespectToDistance() -accuracy;
+       
 
         // javaline throw animation
-        PlayJavalineThrowAnimation(newAccuracy);
+        PlayJavalineThrowAnimation(CalculatePlayerInputAccuracyWithRespectToDistance()-accuracy);
 
 
     }
@@ -70,11 +73,7 @@ public class JavalineThrowZone : ATapZone
             return;
         }
         float angleToThrowAt = calculateRandomAngleBasedOnAccuracy(accuracy);
-        float throwPower = Random.Range(55, 60);
-        Vector3 launchVel = new Vector3(0, Mathf.Sin(Mathf.Deg2Rad * angleToThrowAt), Mathf.Cos(Mathf.Deg2Rad * angleToThrowAt)) * throwPower;
-        Debug.Log("launch vel : " + launchVel);
-
-
+        Vector3 launchVel = new Vector3(0, Mathf.Sin(Mathf.Deg2Rad * angleToThrowAt), Mathf.Cos(Mathf.Deg2Rad * angleToThrowAt)) * 37;
         javaline.SetParent(null);
         Rigidbody javaline_rb = javaline.GetComponent<Rigidbody>();
         javaline_rb.useGravity = true;
@@ -89,26 +88,24 @@ public class JavalineThrowZone : ATapZone
     {
         float randomAngle = 0;
 
-        if (accuracy <0.25)
-        {
-            randomAngle = Random.Range(20, 25);
-        }
+        Debug.Log("throw accuracy was : " + accuracy);
+        
 
-        else if (accuracy <0.5f)
+         if (accuracy <0.5f)
         {
             //fair
-            randomAngle = Random.Range(25, 35);
+            randomAngle = Random.Range(15, 25);
             
         }
         else if (accuracy <0.8f)
         {
             // good
-            randomAngle = Random.Range(35, 40);
+            randomAngle = Random.Range(33, 38);
             
         }
         else
         {
-            randomAngle =  Random.Range(40, 50); 
+            randomAngle =  Random.Range(42, 50); 
         }
         return randomAngle;
     }
@@ -153,4 +150,7 @@ public class JavalineThrowZone : ATapZone
     {
         animController.PlayFoulAnimaiton(true);
     }
+
+
+   
 }
