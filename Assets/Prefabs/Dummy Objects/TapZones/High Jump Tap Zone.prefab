@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animController: {fileID: 0}
   noOfInputAlowed: 1
-  jumpHeight: 5
+  jumpHeight: 4
 --- !u!1 &8734538751217967159
 GameObject:
   m_ObjectHideFlags: 0

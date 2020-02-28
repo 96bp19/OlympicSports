@@ -57,8 +57,6 @@ public class Javaline : MonoBehaviour
         }
     }
 
-    // target is who ever throws this javalin
-    // target here is used to calculate the distance between the javalin and thrower
     public void SetjavalineStartPos(Vector3 javalineThrowStartPos)
     {
         javalineThrowPos = javalineThrowStartPos;

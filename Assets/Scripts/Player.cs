@@ -58,7 +58,15 @@ public class Player : MonoBehaviour
         movePlayer();
         //CheckGroundDistance();
         Grounded = isGrounded();
+        ClampPlayerPos();
      
+    }
+
+    void ClampPlayerPos()
+    {
+        Vector3 playerPos = transform.position;
+        playerPos.y = Mathf.Max(playerPos.y, 0.95f);
+        transform.position = playerPos;
     }
    
     private void FixedUpdate()
@@ -174,6 +182,14 @@ public class Player : MonoBehaviour
         obj.localEulerAngles = Vector3.zero;
   
 
+    }
+
+    
+
+    public void SetPlayerSpeed(float speed)
+    {
+
+        currentSpeed = speed;
     }
 
     

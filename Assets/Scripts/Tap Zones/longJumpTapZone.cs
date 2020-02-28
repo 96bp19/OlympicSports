@@ -28,7 +28,7 @@ public class longJumpTapZone : JumpTapZone
         
 
         screenHolding = true;
-        player.setNewGravityMutiplier(5);
+        player.setNewGravityMutiplier(3);
         player.ResetPlayerSpeed();
         GameManager.UIManager_Instance.EnableHoldMeter(true);
     }
@@ -72,7 +72,7 @@ public class longJumpTapZone : JumpTapZone
         {
             screenHolding = false;
             PlayFoulAnimation();
-            player.StopMoving();
+            GameManager.PlayerInstance.StopMoving();
 
         }
     }

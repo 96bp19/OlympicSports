@@ -18,7 +18,7 @@ public class HighJumpTapZone : JumpTapZone
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
         player.SetDefaultGravityMultiplier();
         player.ResetPlayerSpeed();
-        jumpHeight = calculateJumpheightBasedOnAccuracy(accuracy);
+        float heightForjump = calculateJumpheightBasedOnAccuracy(accuracy);
         PlayAnimation();
         Jump();
     }
@@ -30,26 +30,8 @@ public class HighJumpTapZone : JumpTapZone
 
     float calculateJumpheightBasedOnAccuracy(float accuracy)
     {
-        float val = 0;
-        if (accuracy < 0.5f)
-        {
-            // fair
-            val = 2.5f;
-            Debug.Log("fair");
-        }
-        else if (accuracy < 0.8)
-        {
-            // good 
-            val = 3f;
-            Debug.Log("good");
-        }
-        else
-        {
-            // perfect
-            val = 3.5f;
-            Debug.Log("perfect");
-        }
-        return val;
+
+        return accuracy * jumpHeight;
 
     }
 

@@ -11,13 +11,26 @@ public abstract class JumpTapZone : ATapZone
     {
         get
         {
+            Debug.Log("Player current gravity : " + player.getCurrentGravity());
             return Mathf.Sqrt(Mathf.Abs(2 * player.getCurrentGravity()* jumpHeight));
         }
     }
   
-    public void Jump()
+    public void Jump(float newJumpheight =0)
     {
-        player.getRigidbody().velocity = Vector3.up * jumpvel;
+        if (newJumpheight == 0)
+        {
+            player.getRigidbody().velocity = Vector3.up * jumpvel;
+
+        }
+        else
+        {
+            float originalJumpheight = jumpHeight;
+            jumpHeight = newJumpheight;
+            player.getRigidbody().velocity = Vector3.up * jumpvel;
+            jumpHeight = originalJumpheight;
+
+        }
     }
 
     
