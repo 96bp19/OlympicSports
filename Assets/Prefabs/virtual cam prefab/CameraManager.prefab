@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3370008814585985204
+--- !u!1 &410804892194277625
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2109794890513430024}
-  - component: {fileID: 6835044194085037964}
+  - component: {fileID: 2958265093533816531}
+  - component: {fileID: 5579601484212440296}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: CameraManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2109794890513430024
+--- !u!4 &2958265093533816531
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3370008814585985204}
+  m_GameObject: {fileID: 410804892194277625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.78, z: 0}
+  m_LocalPosition: {x: 12.112777, y: 7.219221, z: 117.48137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6835044194085037964
+--- !u!114 &5579601484212440296
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3370008814585985204}
+  m_GameObject: {fileID: 410804892194277625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3dc70757aa7cbb4ea5a1aaa519951fe, type: 3}
+  m_Script: {fileID: 11500000, guid: d50b10f65e08212479ed7cac2338393b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 253336633695339288, guid: a187ad72de8925c418399e9329bd5a0c,
+  playerfollowCamPrefab: {fileID: 4954904152242154066, guid: 0e238c8d33257d648b1f9b3de4c3ace7,
     type: 3}
-  UImanagerprefab: {fileID: 8808539702783088607, guid: 5d8a60aaa74104d429a7a7346e90000d,
-    type: 3}
-  StageLoaderPrefab: {fileID: 8982286505538818578, guid: 65a9070f59775a949ab1a04dca5a7a84,
-    type: 3}
-  saveManagerPrefab: {fileID: 3625216341915541429, guid: 8ba0b9c9dd1fa1a4b8220bd6a628278d,
-    type: 3}
-  camManagerPrefab: {fileID: 5579601484212440296, guid: ab9fe5f8eaa07a64eb486cb41e17f58f,
+  javalineFollowCamPrefab: {fileID: 7442201165880773025, guid: 29d2f70cb035d914597f44e572ecfbc7,
     type: 3}

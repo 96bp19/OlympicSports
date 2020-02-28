@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private SaveManager saveManagerPrefab;
 
+    [SerializeField] private CameraManager camManagerPrefab;
+
     private void Awake()
     {
         BeginGame();
@@ -34,6 +36,8 @@ public class GameManager : MonoBehaviour
         UIManager_Instance.transform.SetParent(allmanagers.transform);
         StageLoaderInstance = Instantiate(StageLoaderPrefab) as NewStageLoader;
         Instantiate(saveManagerPrefab).transform.SetParent(allmanagers.transform);
+
+        Instantiate(camManagerPrefab).transform.SetParent(allmanagers.transform);
     }
 
     private void Update()

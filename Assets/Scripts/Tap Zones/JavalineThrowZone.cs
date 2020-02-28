@@ -73,13 +73,13 @@ public class JavalineThrowZone : ATapZone
             return;
         }
         float angleToThrowAt = calculateRandomAngleBasedOnAccuracy(accuracy);
-        Vector3 launchVel = new Vector3(0, Mathf.Sin(Mathf.Deg2Rad * angleToThrowAt), Mathf.Cos(Mathf.Deg2Rad * angleToThrowAt)) * 37;
+        Vector3 launchVel = new Vector3(0, Mathf.Sin(Mathf.Deg2Rad * angleToThrowAt), Mathf.Cos(Mathf.Deg2Rad * angleToThrowAt)) * 32f;
         javaline.SetParent(null);
         Rigidbody javaline_rb = javaline.GetComponent<Rigidbody>();
         javaline_rb.useGravity = true;
         javaline_rb.velocity = launchVel;
         javaline.GetComponent<Javaline>().ThrowJavaline();
-        javaline.GetComponent<Javaline>().setTarget(player.transform);
+        javaline.GetComponent<Javaline>().SetjavalineStartPos(transform.position + new Vector3(0, 0, transform.localScale.z));
         Debug.Log("thrown with the angle of : " + angleToThrowAt);
 
     }
