@@ -4,19 +4,34 @@ using UnityEngine;
 
 public class SportsGameGenerator : MonoBehaviour
 {
-    [SerializeField] private SportGame[] sportsPrefab;
-
+    
     // this is the object that needs to be spawned at the end of running
     // eg: high jump prefab , long jump prefab, javalin throw prefab
     //if value is null it wont be spawned
-    [SerializeField] private GameObject finalObjectToSpawn;
+
+    
+    public bool useStartingObj;
+    [ConditionalHide("useStartingObj",true)]
+    public GameObject StartingObjectToSpawn;
+
+    public bool useFinalObj;
+    [ConditionalHide("useFinalObj",true)]
+    public GameObject finalObjectToSpawn;
+    [ConditionalHide("useFinalObj",true)]
+    public float distanceFromStartingObjToOther = 20;
+  
 
     // this prefab will be loaded at the end of every sports to show that game has finished
-    [SerializeField] private GameObject celebrationPrefab;
 
     [SerializeField] private int noOfSportsPrefabsToSpawn =10;
-
+    [SerializeField] private float gameStartingDistance = 15;
     [SerializeField] private GameObject groundPrefab;
+    [SerializeField] private GameObject celebrationPrefab;
+    [SerializeField] private SportGame[] sportsPrefab;
+
+
+
+
 
     private void Start()
     {
@@ -29,7 +44,15 @@ public class SportsGameGenerator : MonoBehaviour
         // LengthChanger SportLength = Instantiate(sportsPrefab[0].SportPrefab);
 
         int noOfObjectsToSpawn = noOfSportsPrefabsToSpawn / sportsPrefab.Length;
-        Vector3 currentPos = Vector3.forward * 15;
+
+        Vector3 currentPos = Vector3.forward * gameStartingDistance;
+        if (StartingObjectToSpawn)
+        {
+            Transform objtrans = Instantiate(StartingObjectToSpawn, currentPos, Quaternion.identity).transform;
+            objtrans.SetParent(transform);
+            objtrans.localPosition = currentPos;
+            currentPos.z += distanceFromStartingObjToOther;
+        }
 
         LengthChanger sportLength;
 

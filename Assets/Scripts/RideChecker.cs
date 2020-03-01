@@ -18,13 +18,14 @@ public class RideChecker : MonoBehaviour
             other.transform.localPosition = Vector3.zero;
             Collider Rideablecol  = currentRidable.GetComponent<Collider>();
             Destroy(Rideablecol);
+           
         }
     }
 
     void Ride(bool val)
     {
         GetComponent<Rigidbody>().isKinematic = val;
-
+        GetComponent<AnimationController>().StartHorseRiding(val);
     }
 
     public void Unride()

@@ -6,7 +6,7 @@ using Binaya.MyInput;
 public class RunningTapZone : ATapZone
 {
     [SerializeField] private float SpeedToAdd  = 2.5f;
-    private void Start()
+    protected virtual void Start()
     {
         MobileInputManager.Instance.ScreenHoldStartListener += OnScreenTap;
     }
