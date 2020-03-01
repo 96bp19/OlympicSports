@@ -13,12 +13,12 @@ public class SportsGameGenerator : MonoBehaviour
     public bool useStartingObj;
     [ConditionalHide("useStartingObj",true)]
     public GameObject StartingObjectToSpawn;
+    [ConditionalHide("useStartingObj",true)]
+    public float distanceFromStartingObjToOther = 20;
 
     public bool useFinalObj;
     [ConditionalHide("useFinalObj",true)]
     public GameObject finalObjectToSpawn;
-    [ConditionalHide("useFinalObj",true)]
-    public float distanceFromStartingObjToOther = 20;
   
 
     // this prefab will be loaded at the end of every sports to show that game has finished

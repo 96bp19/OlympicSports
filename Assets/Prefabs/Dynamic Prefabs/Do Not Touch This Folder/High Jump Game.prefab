@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useStartingObj: 0
   StartingObjectToSpawn: {fileID: 0}
+  distanceFromStartingObjToOther: 20
   useFinalObj: 0
   finalObjectToSpawn: {fileID: 8048196651918862880, guid: 25a59de1728292947bdf0ad6e75fe09a,
     type: 3}
-  distanceFromStartingObjToOther: 20
   noOfSportsPrefabsToSpawn: 5
   gameStartingDistance: 15
   groundPrefab: {fileID: 1914863664198730746, guid: 6a432fc8098d940479f1c1d850557db9,
