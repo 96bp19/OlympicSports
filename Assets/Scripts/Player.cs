@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float movementLerpSpeed = 1f;
     private bool allowedMoving = true;
     
-    private float lerpedMoveSpeed = 0;
+    [SerializeField] private float lerpedMoveSpeed = 0;
     private float gravityMultiplier = 3;
 
     private Vector3 downVector = Vector3.down;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, Time.deltaTime * movementLerpSpeed);
+        lerpedMoveSpeed = Mathf.Lerp(lerpedMoveSpeed, currentSpeed, 0.05f);
         transform.position += Vector3.forward * lerpedMoveSpeed *Time.deltaTime;
     }
 

@@ -15,16 +15,11 @@ public class FinishLineChecker : MonoBehaviour
             {
                 
                 player.ResetPlayerSpeed();
-                player.GetComponent<AnimationController>().SlowDownRunSpeed();
-
                 // get next sport type by increasing index
                 int nextlevel = SaveManager.Instance.getLastLoadedLevelIndex() + 1;
                 nextlevel %= GameManager.StageLoaderInstance.levelLoadIndexMax;
                 SaveManager.Instance.SaveLastLevelData(nextlevel);
 
-                // load next level
-//                Debug.Log("my current pos : " + transform.position);
-//                Debug.Log(" next load pos : " +( transform.position + Vector3.forward * 20));
                 GameManager.StageLoaderInstance.LoadNextSport();
                 
             }

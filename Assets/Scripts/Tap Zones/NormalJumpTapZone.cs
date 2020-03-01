@@ -20,7 +20,7 @@ public class NormalJumpTapZone : JumpTapZone
     {
         if (!inputListiningAllowed) return;
         CalculateInputReceiveCount();
-        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
         PlayAnimation();
 
     }

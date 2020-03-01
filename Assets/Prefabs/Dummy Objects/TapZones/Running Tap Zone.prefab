@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animController: {fileID: 0}
   noOfInputAlowed: 1
+  SpeedToAdd: 1
 --- !u!114 &-941793769728776965
 MonoBehaviour:
   m_ObjectHideFlags: 0

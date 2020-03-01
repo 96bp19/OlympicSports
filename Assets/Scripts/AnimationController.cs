@@ -36,19 +36,7 @@ public class AnimationController : MonoBehaviour
             
         }
     }
-
-
-    public void SlowDownRunSpeed()
-    {
-        Debug.Log("Animation reset");
-        anim.SetFloat("AnimationSpeeed", 1);
-    }
-
-    public void IncreaseAnimationSpeed()
-    {
-        float newSpeed = anim.GetFloat("AnimationSpeeed") + 0.05f;
-        anim.SetFloat("AnimationSpeeed", newSpeed);
-    }
+   
 
     public void HighJump()
     {

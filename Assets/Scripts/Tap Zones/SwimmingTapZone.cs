@@ -15,7 +15,7 @@ public class SwimmingTapZone : JumpTapZone
     {
         if (!inputListiningAllowed) return;
         CalculateInputReceiveCount();
-        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(true);
         Jump();
         PlayAnimation();
         

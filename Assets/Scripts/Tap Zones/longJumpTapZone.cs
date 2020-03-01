@@ -39,7 +39,7 @@ public class longJumpTapZone : JumpTapZone
         
         UpdatePlayerSpeed();
         Debug.Log("screen holding : " + screenHolding);
-        GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance());
+        GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance(false));
 
     }
 
@@ -50,7 +50,7 @@ public class longJumpTapZone : JumpTapZone
         PlayAnimation();
         Jump();
         CalculateInputReceiveCount();
-        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
     }
 
 

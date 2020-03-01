@@ -15,7 +15,7 @@ public class HighJumpTapZone : JumpTapZone
         if (!inputListiningAllowed) return;
 
         CalculateInputReceiveCount();
-        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance();
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(true);
         player.SetDefaultGravityMultiplier();
         player.ResetPlayerSpeed();
         float heightForjump = calculateJumpheightBasedOnAccuracy(accuracy);

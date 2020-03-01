@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3383904277163817033}
   - component: {fileID: -8324277804982608919}
   - component: {fileID: -5554669590849890142}
+  - component: {fileID: 29628546875441332}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -72,6 +73,7 @@ MonoBehaviour:
   jumpHeight: 2
   javalineThrowSocket: {fileID: 9065381697557178884}
   movementLerpSpeed: 100
+  lerpedMoveSpeed: 0
   raycastOffset: {x: 0, y: 0, z: 0}
   groundLayer:
     serializedVersion: 2
@@ -139,6 +141,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colliderHeigthChecker: {fileID: -8324277804982608919}
+--- !u!114 &29628546875441332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253336633695339286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab5776539e2b5cc4b9cdab98a7952eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6467416535757426147
 GameObject:
   m_ObjectHideFlags: 0

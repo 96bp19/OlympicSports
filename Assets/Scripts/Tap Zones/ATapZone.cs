@@ -51,7 +51,9 @@ public abstract class ATapZone : MonoBehaviour
 
     }
 
-    public float  CalculatePlayerInputAccuracyWithRespectToDistance()
+    // modified accuracy means that player input will be perfect at the middle of tap zone and start and end will have 0% accuracy
+    // unmodified means accuracy starts from start and linearly increase to end of the tap zone,  i.e accuracy in middle will be 50%
+    public virtual float  CalculatePlayerInputAccuracyWithRespectToDistance(bool useModifiedAccuracy)
     {
         float zScale = transform.localScale.z;
         float currentPlayerPosZ = player.transform.position.z;
@@ -59,7 +61,19 @@ public abstract class ATapZone : MonoBehaviour
 
         float accuracy =  1 -Mathf.Abs( extentz - currentPlayerPosZ) / zScale;
         accuracy = Mathf.Clamp(accuracy, 0f, 1f);
+        if (useModifiedAccuracy)
+        {
+            if (accuracy <0.5f)
+            {
+                accuracy = accuracy / 0.5f;
+            }
+            else
+            {
+                accuracy = (1 - accuracy) / 0.5f;
+            }
 
+        }
+        Debug.Log("accuracy : " + accuracy);
         return accuracy;
         
     }
