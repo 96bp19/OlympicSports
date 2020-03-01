@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5378614238950840508}
   - component: {fileID: 3221054049491164292}
   - component: {fileID: 6199656506369631551}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: High Jump Tap Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 8734538751217967117}
   - component: {fileID: 8734538751217967116}
   - component: {fileID: 8734538751217967115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Long Jump Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

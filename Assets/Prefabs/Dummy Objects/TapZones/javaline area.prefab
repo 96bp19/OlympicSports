@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5679419172499337791}
   - component: {fileID: 5679419172499337790}
   - component: {fileID: 5679419172499337785}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Long Jump Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 9025957154181565070}
   - component: {fileID: 1969606329247436470}
   - component: {fileID: 7057021509157685705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: javaline area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

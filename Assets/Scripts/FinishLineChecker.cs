@@ -21,9 +21,16 @@ public class FinishLineChecker : MonoBehaviour
                 SaveManager.Instance.SaveLastLevelData(nextlevel);
 
                 GameManager.StageLoaderInstance.LoadNextSport();
+                RideChecker rider = player.GetComponent<RideChecker>();
+                if (rider!= null && rider.currentRidable != null)
+                {
+                    rider.Unride();
+                }
                 
             }
         }
+
+        
     }
 
    

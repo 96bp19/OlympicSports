@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RideChecker : MonoBehaviour
 {
-    private Rideable currentRidable;
+    public Rideable currentRidable;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ride"))
@@ -16,6 +16,8 @@ public class RideChecker : MonoBehaviour
             currentPos.y = currentRidable.ridingHeight;
             transform.position = currentPos;
             other.transform.localPosition = Vector3.zero;
+            Collider Rideablecol  = currentRidable.GetComponent<Collider>();
+            Destroy(Rideablecol);
         }
     }
 
@@ -28,7 +30,7 @@ public class RideChecker : MonoBehaviour
     public void Unride()
     {
         Ride(false);
-        Destroy(currentRidable);
+        Destroy(currentRidable.gameObject);
         currentRidable = null;
     }
 }

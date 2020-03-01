@@ -35,11 +35,13 @@ public abstract class ATapZone : MonoBehaviour
     virtual protected void OnTriggerExit(Collider other)
     {
         // input will not be registered here onwards
+        Debug.Log("trigger");
         if (other.CompareTag("Player"))
         {
             if (inputReceiveCount == 0)
             {
-                Debug.Log("foul animation due to no input");
+                Debug.Log("foul animation due to no input on " + other.name);
+
                 PlayFoulAnimation();
                 player.StopMoving();
             }
