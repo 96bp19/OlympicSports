@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7716222615923654843}
   - component: {fileID: 7716222615923654840}
   m_Layer: 0
-  m_Name: Horse Riding Game
+  m_Name: Cycling Tap Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,14 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac900e02120f9e142925d1e7c9ea370f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useStartingObj: 1
-  StartingObjectToSpawn: {fileID: 2873624602191117669, guid: cd2c87fbe96252c48a1c9e7cc770b7b3,
-    type: 3}
+  useStartingObj: 0
+  StartingObjectToSpawn: {fileID: 0}
   distanceFromStartingObjToOther: 20
   useFinalObj: 0
   finalObjectToSpawn: {fileID: 0}
   noOfSportsPrefabsToSpawn: 10
-  gameStartingDistance: 25
+  gameStartingDistance: 15
   groundPrefab: {fileID: 1914863664198730746, guid: 6a432fc8098d940479f1c1d850557db9,
     type: 3}
   celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,

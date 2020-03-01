@@ -5,11 +5,6 @@ using UnityEngine;
 public class SportsGameGenerator : MonoBehaviour
 {
     
-    // this is the object that needs to be spawned at the end of running
-    // eg: high jump prefab , long jump prefab, javalin throw prefab
-    //if value is null it wont be spawned
-
-    
     public bool useStartingObj;
     [ConditionalHide("useStartingObj",true)]
     public GameObject StartingObjectToSpawn;
