@@ -135,4 +135,9 @@ public class AnimationController : MonoBehaviour
         anim.SetBool("StartHorseRiding", value);
     }
 
+    public void StartCycling(bool value)
+    {
+        anim.SetBool("StartCycling", value);
+    }
+
 }

@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class RideChecker : MonoBehaviour
 {
-    public Rideable currentRidable;
+    [HideInInspector]
+    public ARideable currentRidable;
+    private AnimationController animController;
+
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ride"))
         {
-            currentRidable = other.GetComponent<Rideable>();
+            currentRidable = other.GetComponent<ARideable>();
             other.transform.SetParent(transform);
             Ride(true);
-            Vector3 currentPos = transform.position;
-            currentPos.y = currentRidable.ridingHeight;
-            transform.position = currentPos;
-            other.transform.localPosition = Vector3.zero;
-            Collider Rideablecol  = currentRidable.GetComponent<Collider>();
-            Destroy(Rideablecol);
-           
+            
         }
     }
 
-    void Ride(bool val)
+    void AdjustPivotForRidables(ARideable ride)
     {
-        GetComponent<Rigidbody>().isKinematic = val;
-        GetComponent<AnimationController>().StartHorseRiding(val);
+        Vector3 localpos = new Vector3(0, ride.ridingHeight, 0);
+        ride.transform.SetParent(transform);
+        ride.transform.localPosition = localpos;
+        Destroy(ride.GetComponent<Collider>());
+    }
+
+    void Ride(bool val)
+    {  
+        currentRidable.PlayPlayerRideAnimation(animController,val);        
     }
 
     public void Unride()

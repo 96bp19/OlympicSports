@@ -339,7 +339,7 @@ AnimatorStateMachine:
     m_Position: {x: -170, y: 410, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 296065058477173828}
-    m_Position: {x: -820, y: 500, z: 0}
+    m_Position: {x: -750, y: 490, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -7277857097871027566}
@@ -771,6 +771,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: StartHorseRiding
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: StartCycling
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
