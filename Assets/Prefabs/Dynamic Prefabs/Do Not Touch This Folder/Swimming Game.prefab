@@ -43,15 +43,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac900e02120f9e142925d1e7c9ea370f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useStartingObj: 0
+  StartingObjectToSpawn: {fileID: 0}
+  distanceFromStartingObjToOther: 20
+  useFinalObj: 1
+  finalObjectToSpawn: {fileID: 3414810965681694080, guid: e0cf217f6e49b1a45b2753267ecc1af8,
+    type: 3}
+  finalObjectDistance: 0
+  noOfSportsPrefabsToSpawn: 1
+  gameStartingDistance: 15
+  groundPrefab: {fileID: 1914863664198730746, guid: 6a432fc8098d940479f1c1d850557db9,
+    type: 3}
+  celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,
+    type: 3}
   sportsPrefab:
   - SportPrefab: {fileID: 53638998102446383, guid: 517e4e19e1fbfb64ea4bd1d5b3c75ae4,
       type: 3}
     lengthChangeable: 1
     celebrationZoneDistance: 10
-  finalObjectToSpawn: {fileID: 3414810965681694080, guid: e0cf217f6e49b1a45b2753267ecc1af8,
-    type: 3}
-  celebrationPrefab: {fileID: 890553153190531960, guid: 036671fcc6250834aafc4a150f7e2e93,
-    type: 3}
-  noOfSportsPrefabsToSpawn: 1
-  groundPrefab: {fileID: 1914863664198730746, guid: 6a432fc8098d940479f1c1d850557db9,
-    type: 3}
+  minimumDistanceBetweenPlatforms: 2.5
+  maxDistanceBetweenPlatforms: 15

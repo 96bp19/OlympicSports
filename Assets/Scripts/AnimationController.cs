@@ -140,4 +140,16 @@ public class AnimationController : MonoBehaviour
         anim.SetBool("StartCycling", value);
     }
 
+    public void PlayWinAnimation(bool value)
+    {
+        if (value)
+        {
+            anim.SetTrigger("GameWon");
+        }
+        else
+        {
+            anim.SetTrigger("NewGameStart");
+        }
+    }
+
 }

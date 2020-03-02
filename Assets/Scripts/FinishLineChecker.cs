@@ -5,7 +5,14 @@ using UnityEngine;
 public class FinishLineChecker : MonoBehaviour
 {
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<AnimationController>().PlayWinAnimation(true);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -19,6 +26,7 @@ public class FinishLineChecker : MonoBehaviour
                 int nextlevel = SaveManager.Instance.getLastLoadedLevelIndex() + 1;
                 nextlevel %= GameManager.StageLoaderInstance.levelLoadIndexMax;
                 SaveManager.Instance.SaveLastLevelData(nextlevel);
+                other.GetComponent<AnimationController>().PlayWinAnimation(false);
 
                 GameManager.StageLoaderInstance.LoadNextSport();
                
