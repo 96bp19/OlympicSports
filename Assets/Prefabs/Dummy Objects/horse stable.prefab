@@ -658,7 +658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2687433914672828266}
   m_Layer: 0
-  m_Name: horse stable 1
+  m_Name: horse stable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1668,11 +1668,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8029010306880346117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d36ff8b5e89e4e347831e09aa8256d2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 13555a3e752e3894aa616faee8541019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  ridingHeight: 1.87
+  ridingHeight: 0
 --- !u!1 &8130113578764177709
 GameObject:
   m_ObjectHideFlags: 0

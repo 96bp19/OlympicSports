@@ -8,13 +8,18 @@ public class RideChecker : MonoBehaviour
     public ARideable currentRidable;
     private AnimationController animController;
 
-   
+    private void Start()
+    {
+        animController = GetComponent<AnimationController>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ride"))
         {
             currentRidable = other.GetComponent<ARideable>();
             other.transform.SetParent(transform);
+            AdjustPivotForRidables(currentRidable);
             Ride(true);
             
         }
