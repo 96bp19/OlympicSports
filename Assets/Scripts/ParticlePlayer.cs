@@ -8,6 +8,12 @@ public class ParticlePlayer : MonoBehaviour
     [SerializeField] private GameObject swimmingSplash;
     [SerializeField] private GameObject runningDust;
     [SerializeField] private GameObject landingImpact;
+    [SerializeField] private GameObject Implosion;
+    [SerializeField] private GameObject Explosion;
+
+
+    private Transform swimmingLefthandParticle, swimmingRightHandParticle;
+    private Transform dustLeftLegParticle, dustRightLegParticle;
 
     private static ParticlePlayer _Instance;
     public static ParticlePlayer Instance
@@ -32,13 +38,12 @@ public class ParticlePlayer : MonoBehaviour
     {
         // val = 0 is left hand
         // val = 1 is right hand
-        if (val ==0)
+        if (val == 0)
         {
-            Instantiate(swimmingSplash,leftHandSocket.position, Quaternion.identity).transform.SetParent(null);
-
+            ReuseParticle(ref swimmingLefthandParticle, swimmingSplash, leftHandSocket);
         }
         else
-        Instantiate(swimmingSplash, rightHandSocket.position, Quaternion.identity).transform.SetParent(null);
+            ReuseParticle(ref swimmingRightHandParticle, swimmingSplash, rightHandSocket);
         
     }
 
@@ -49,11 +54,55 @@ public class ParticlePlayer : MonoBehaviour
 
         if (val == 0)
         {
-            Instantiate(runningDust, leftlegSocket.position, Quaternion.identity).transform.SetParent(null);
+            ReuseParticle(ref dustLeftLegParticle, runningDust, leftlegSocket);
 
         }
         else
-            Instantiate(runningDust, rightlegSocket.position, Quaternion.identity).transform.SetParent(null);
+            ReuseParticle(ref dustRightLegParticle, runningDust, rightlegSocket);
+    }
+
+    public void PlayImplosion()
+    {
+        Explosion.SetActive(false);
+        Implosion.SetActive(false);
+        Implosion.gameObject.SetActive(true);
+    }
+
+    public void PlayExplosion()
+    {
+        Explosion.SetActive(false);
+        Implosion.SetActive(false);
+        Explosion.gameObject.SetActive(true);
+    }
+
+    public void PlayLandingDustParticle()
+    {
+        landingImpact.SetActive(false);
+        landingImpact.SetActive(true);
+    }
+
+    public void ReuseParticle(ref Transform particleTrans ,GameObject particlePrefab ,Transform socketTrans)
+    {
+        Debug.Log("given particle is : " + particleTrans);
+        if (particleTrans == null)
+        {
+            particleTrans = Instantiate(particlePrefab, socketTrans.position, Quaternion.identity).transform;
+            particleTrans.SetParent(null);
+            particleTrans.position = socketTrans.position;
+        }
+        else
+        {
+            particleTrans.gameObject.SetActive(false);
+            particleTrans.gameObject.SetActive(true);
+            particleTrans.SetParent(null);
+            particleTrans.position = socketTrans.position;
+        }
+    }
+
+    public void ResetImplosionExplostion()
+    {
+        Implosion.gameObject.SetActive(false);
+        Explosion.gameObject.SetActive(false);
     }
     
 }

@@ -36,6 +36,7 @@ public class longJumpTapZone : JumpTapZone
         
         // player.ResetPlayerSpeed();
         GameManager.UIManager_Instance.EnableHoldMeter(true);
+        ParticlePlayer.Instance.PlayImplosion();
     }
 
     public void OnScreenHold()
@@ -62,6 +63,7 @@ public class longJumpTapZone : JumpTapZone
         EnableLineRenderer(rendererStartPos, rendererEndPos);
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
         CalculateInputReceiveCount();
+        ParticlePlayer.Instance.PlayExplosion();
     }
 
 

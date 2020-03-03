@@ -28,6 +28,7 @@ public class TripleJumpTapZone : JumpTapZone
             checkForJump = true;
             enablejumpAction = true;
             currentInputTime = inputBufferForJump;
+            rendererStartPos.z = player.transform.position.z;
 
         }  
     }
@@ -67,7 +68,8 @@ public class TripleJumpTapZone : JumpTapZone
             {
                 Debug.Log("updating triple jump");
                 player.setNewGravityMutiplier(1);
-               
+                rendererEndPos.z = player.transform.position.z;
+                EnableLineRenderer(rendererStartPos, rendererEndPos);
                 Jump();
                 animController.TripleJump(++currentJumpCount);
                 checkForJump = false;

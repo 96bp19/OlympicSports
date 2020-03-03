@@ -35,6 +35,7 @@ public class JavalineThrowZone : ATapZone
         currentlyholdingJavaline = true;
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
         rendererStartPos.z = player.transform.position.z;
+        ParticlePlayer.Instance.PlayImplosion();
        
 
 
@@ -63,7 +64,7 @@ public class JavalineThrowZone : ATapZone
         rendererEndPos.z = player.transform.position.z;
         rendererEndPos.z = Mathf.Min(rendererEndPos.z, Zextent-2f);
         EnableLineRenderer(rendererStartPos, rendererEndPos);
-
+        ParticlePlayer.Instance.PlayExplosion();
 
 
         // javaline throw animation

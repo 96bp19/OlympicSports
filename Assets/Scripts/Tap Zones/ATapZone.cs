@@ -61,6 +61,7 @@ public abstract class ATapZone : MonoBehaviour
             inputListiningAllowed = false;
             player = null;
             GameManager.UIManager_Instance.EnableHoldMeter(false);
+            ParticlePlayer.Instance.ResetImplosionExplostion();
         }
 
     }
