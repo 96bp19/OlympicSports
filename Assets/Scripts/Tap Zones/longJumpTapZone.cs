@@ -9,6 +9,7 @@ public class longJumpTapZone : JumpTapZone
    
 
     [SerializeField] private GameObject SandZonePrefab;
+   
 
    
     protected  void Start()
@@ -23,13 +24,16 @@ public class longJumpTapZone : JumpTapZone
 
     public  void OnScreenHoldStart()
     {
+        Debug.Log("input listening allowed : " + inputListiningAllowed);
         if (!inputListiningAllowed) return;
         Debug.Log("long jump hold start");
         
 
         screenHolding = true;
         player.setNewGravityMutiplier(3);
-        player.ResetPlayerSpeed();
+        rendererStartPos.z = player.transform.position.z;
+        
+        // player.ResetPlayerSpeed();
         GameManager.UIManager_Instance.EnableHoldMeter(true);
     }
 
@@ -40,6 +44,8 @@ public class longJumpTapZone : JumpTapZone
         UpdatePlayerSpeed();
         Debug.Log("screen holding : " + screenHolding);
         GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance(false));
+        rendererEndPos.z = player.transform.position.z;
+        EnableLineRenderer(rendererStartPos, rendererEndPos);
 
     }
 
@@ -49,8 +55,10 @@ public class longJumpTapZone : JumpTapZone
         screenHolding = false;        
         PlayAnimation();
         Jump();
-        CalculateInputReceiveCount();
+        rendererEndPos.z = player.transform.position.z;
+        EnableLineRenderer(rendererStartPos, rendererEndPos);
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
+        CalculateInputReceiveCount();
     }
 
 

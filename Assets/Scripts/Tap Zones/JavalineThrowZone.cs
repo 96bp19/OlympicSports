@@ -11,7 +11,6 @@ public class JavalineThrowZone : ATapZone
     Transform javaline;
 
     bool currentlyholdingJavaline = false;
-
     
 
     private void Start()
@@ -33,10 +32,12 @@ public class JavalineThrowZone : ATapZone
         GameManager.UIManager_Instance.EnableHoldMeter(true);
         javalinThrowStartpos = player.transform.position;
         currentlyholdingJavaline = true;
-       accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
+        accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
+        rendererStartPos.z = player.transform.position.z;
        
-       
-        
+
+
+
     }
 
     public void OnScreenHold()
@@ -44,6 +45,9 @@ public class JavalineThrowZone : ATapZone
         if (!inputListiningAllowed) return;
         
          GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance(false) - accuracy);
+        rendererEndPos.z = player.transform.position.z;
+        EnableLineRenderer(rendererStartPos, rendererEndPos);
+
     }
 
     public void OnScreenHoldFinish()
@@ -54,7 +58,10 @@ public class JavalineThrowZone : ATapZone
         
         currentlyholdingJavaline = false;
         player.ResetPlayerSpeed();
-       
+        rendererEndPos.z = player.transform.position.z;
+        EnableLineRenderer(rendererStartPos, rendererEndPos);
+
+
 
         // javaline throw animation
         PlayJavalineThrowAnimation(CalculatePlayerInputAccuracyWithRespectToDistance(false)-accuracy);
