@@ -132,6 +132,7 @@ namespace Binaya.MyInput
                     // it was screen tap
                     ScreenTouched = false;
                     OnScreenTap();
+                    OnHoldFinish();
                     
                 }
                 currentTime -= deltaTime;

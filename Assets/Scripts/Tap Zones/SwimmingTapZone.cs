@@ -16,6 +16,9 @@ public class SwimmingTapZone : JumpTapZone
         if (!inputListiningAllowed) return;
         CalculateInputReceiveCount();
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(true);
+        rendererStartPos = new Vector3(0, 0, player.transform.position.z);
+        rendererEndPos = new Vector3(0, 0.1f, 0.4f + player.transform.position.z);
+        EnableLineRenderer(rendererStartPos, rendererEndPos);
         Jump();
         PlayAnimation();
         

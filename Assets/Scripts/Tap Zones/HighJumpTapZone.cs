@@ -18,6 +18,9 @@ public class HighJumpTapZone : JumpTapZone
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(true);
         player.SetDefaultGravityMultiplier();
         player.ResetPlayerSpeed();
+        rendererStartPos = new Vector3(0, 0, player.transform.position.z);
+        rendererEndPos = new Vector3(0, 0.1f, 0.4f + player.transform.position.z);
+        EnableLineRenderer(rendererStartPos, rendererEndPos);
         float heightForjump = calculateJumpheightBasedOnAccuracy(accuracy);
         PlayAnimation();
         Jump();
@@ -34,6 +37,8 @@ public class HighJumpTapZone : JumpTapZone
         return accuracy * jumpHeight;
 
     }
+
+   
 
     
 

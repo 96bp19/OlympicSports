@@ -11,9 +11,21 @@ public abstract class ATapZone : MonoBehaviour
     protected Player player;
     [HideInInspector]
     public AnimationController animController;
-  //  protected  bool inputReceived = false;
+
+    protected Vector3 rendererStartPos = new Vector3(0, 0, 0), rendererEndPos = new Vector3(0, 0.1f, 0);
+    protected LineRenderer lineRenderer;
 
     
+
+    protected virtual void OnEnable()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.enabled = false;
+        
+    }
+    //  protected  bool inputReceived = false;
+
+
     [SerializeField] protected int noOfInputAlowed;
 
     protected int inputReceiveCount =0;
@@ -92,6 +104,13 @@ public abstract class ATapZone : MonoBehaviour
             inputListiningAllowed = false;
             Debug.Log("wont check for input anymore");
         }
+    }
+
+    protected void EnableLineRenderer(Vector3 pos1, Vector3 pos2)
+    {
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, pos1);
+        lineRenderer.SetPosition(1, pos2);
     }
 
 }
