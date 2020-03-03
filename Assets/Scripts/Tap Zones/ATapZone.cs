@@ -12,7 +12,7 @@ public abstract class ATapZone : MonoBehaviour
     [HideInInspector]
     public AnimationController animController;
 
-    protected Vector3 rendererStartPos = new Vector3(0, 0, 0), rendererEndPos = new Vector3(0, 0.1f, 0);
+    protected Vector3 rendererStartPos = new Vector3(0, 0.1f, 0), rendererEndPos = new Vector3(0,0.11f, 0);
     protected LineRenderer lineRenderer;
 
     

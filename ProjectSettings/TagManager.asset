@@ -40,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: LineRenderer
+    uniqueID: 2216057973
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

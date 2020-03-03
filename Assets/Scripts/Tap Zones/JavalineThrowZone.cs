@@ -11,13 +11,14 @@ public class JavalineThrowZone : ATapZone
     Transform javaline;
 
     bool currentlyholdingJavaline = false;
-    
+    float Zextent;
 
     private void Start()
     {
         MobileInputManager.Instance.ScreenHoldStartListener += OnScreenHoldStart;
         MobileInputManager.Instance.ScreenHoldListener += OnScreenHold;
         MobileInputManager.Instance.ScreenHoldFinishListener += OnScreenHoldFinish;
+        Zextent = transform.localScale.z + transform.position.z;
     }
 
 
@@ -46,6 +47,7 @@ public class JavalineThrowZone : ATapZone
         
          GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance(false) - accuracy);
         rendererEndPos.z = player.transform.position.z;
+        rendererEndPos.z = Mathf.Min(rendererEndPos.z, Zextent-2f);
         EnableLineRenderer(rendererStartPos, rendererEndPos);
 
     }
@@ -59,6 +61,7 @@ public class JavalineThrowZone : ATapZone
         currentlyholdingJavaline = false;
         player.ResetPlayerSpeed();
         rendererEndPos.z = player.transform.position.z;
+        rendererEndPos.z = Mathf.Min(rendererEndPos.z, Zextent-2f);
         EnableLineRenderer(rendererStartPos, rendererEndPos);
 
 

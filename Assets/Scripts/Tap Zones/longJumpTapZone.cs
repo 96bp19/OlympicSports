@@ -9,16 +9,17 @@ public class longJumpTapZone : JumpTapZone
    
 
     [SerializeField] private GameObject SandZonePrefab;
-   
 
-   
+
+    float Zextent;
     protected  void Start()
     {
         MobileInputManager.Instance.ScreenHoldStartListener += OnScreenHoldStart;
         MobileInputManager.Instance.ScreenHoldListener += OnScreenHold;
         MobileInputManager.Instance.ScreenHoldFinishListener += OnScreenHoldFinish;
-        
-        Transform sandtrans = Instantiate(SandZonePrefab, transform.position + new Vector3(0, 0.15f, transform.lossyScale.z + 15/2+3f), Quaternion.identity).transform;
+        Zextent = transform.localScale.z + transform.position.z;
+
+        Transform sandtrans = Instantiate(SandZonePrefab, transform.position + new Vector3(0, 0.15f, transform.lossyScale.z+3f), Quaternion.identity).transform;
         sandtrans.SetParent(transform);
     }
 
@@ -45,6 +46,7 @@ public class longJumpTapZone : JumpTapZone
         Debug.Log("screen holding : " + screenHolding);
         GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance(false));
         rendererEndPos.z = player.transform.position.z;
+        rendererEndPos.z = Mathf.Min(rendererEndPos.z, Zextent-0.1f);
         EnableLineRenderer(rendererStartPos, rendererEndPos);
 
     }
@@ -56,6 +58,7 @@ public class longJumpTapZone : JumpTapZone
         PlayAnimation();
         Jump();
         rendererEndPos.z = player.transform.position.z;
+        rendererEndPos.z = Mathf.Min(rendererEndPos.z, Zextent - 0.1f);
         EnableLineRenderer(rendererStartPos, rendererEndPos);
         accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(false);
         CalculateInputReceiveCount();
@@ -81,6 +84,7 @@ public class longJumpTapZone : JumpTapZone
             screenHolding = false;
             PlayFoulAnimation();
             GameManager.PlayerInstance.StopMoving();
+           
 
         }
     }
