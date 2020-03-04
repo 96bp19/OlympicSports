@@ -66,7 +66,7 @@ public class TripleJumpTapZone : JumpTapZone
 
             if (animController.IsOnGround() && checkForJump)
             {
-                Debug.Log("updating triple jump");
+                //Debug.log("updating triple jump");
                 player.setNewGravityMutiplier(1);
                 rendererEndPos.z = player.transform.position.z;
                 EnableLineRenderer(rendererStartPos, rendererEndPos);
@@ -142,11 +142,11 @@ public class TripleJumpTapZone : JumpTapZone
         }
         else
         {
-            Debug.Log("time accuracy");
+            //Debug.log("time accuracy");
             accuracy = CalculateAccuracy(currentInputTime, inputBufferForJump);
         }
         framecount = 0;
-        Debug.Log("accurcay : " + accuracy );
+        //Debug.log("accurcay : " + accuracy );
         return accuracy * baseMoveSpeed + baseMoveSpeed;
 
     }

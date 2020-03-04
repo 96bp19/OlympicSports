@@ -47,12 +47,12 @@ public abstract class ATapZone : MonoBehaviour
     virtual protected void OnTriggerExit(Collider other)
     {
         // input will not be registered here onwards
-        Debug.Log("trigger");
+        //Debug.log("trigger");
         if (other.CompareTag("Player"))
         {
             if (inputReceiveCount == 0)
             {
-                Debug.Log("foul animation due to no input on " + other.name);
+                //Debug.log("foul animation due to no input on " + other.name);
 
                 PlayFoulAnimation();
                 player.StopMoving();
@@ -88,7 +88,7 @@ public abstract class ATapZone : MonoBehaviour
             }
 
         }
-        Debug.Log("accuracy : " + accuracy);
+        //Debug.log("accuracy : " + accuracy);
         return accuracy;
         
     }
@@ -103,7 +103,7 @@ public abstract class ATapZone : MonoBehaviour
         if (noOfInputAlowed == ++inputReceiveCount)
         {
             inputListiningAllowed = false;
-            Debug.Log("wont check for input anymore");
+            //Debug.log("wont check for input anymore");
         }
     }
 

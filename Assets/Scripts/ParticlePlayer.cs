@@ -83,7 +83,6 @@ public class ParticlePlayer : MonoBehaviour
 
     public void ReuseParticle(ref Transform particleTrans ,GameObject particlePrefab ,Transform socketTrans)
     {
-        Debug.Log("given particle is : " + particleTrans);
         if (particleTrans == null)
         {
             particleTrans = Instantiate(particlePrefab, socketTrans.position, Quaternion.identity).transform;

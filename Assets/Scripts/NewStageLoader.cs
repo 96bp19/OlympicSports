@@ -32,17 +32,16 @@ public class NewStageLoader : MonoBehaviour
     public void LoadNextSport()
     {
         int currentIndex = SaveManager.Instance.getLastLoadedLevelIndex();
-        Debug.Log("level load index : " + currentIndex);
+        //Debug.log("level load index : " + currentIndex);
 
 
         if (currentIndex < SportsGames.Length)
         {
             GameObject obj = Instantiate(SportsGames[currentIndex], newSpawnPos, Quaternion.identity);
-
-
         }
         else
             Debug.Log("Sports Type not found");
+            
 
     }
 }

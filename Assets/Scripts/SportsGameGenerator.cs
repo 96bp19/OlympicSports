@@ -17,6 +17,10 @@ public class SportsGameGenerator : MonoBehaviour
 
     [ConditionalHide("useFinalObj", true)]
     public float finalObjectDistance =15f;
+
+    public bool useTimeCounter;
+    [ConditionalHide("useTimeCounter", true)]
+    public GameObject TimeEnablerPrefab;
   
 
     // this prefab will be loaded at the end of every sports to show that game has finished
@@ -26,7 +30,7 @@ public class SportsGameGenerator : MonoBehaviour
     [SerializeField] private GameObject groundPrefab;
     [SerializeField] private GameObject celebrationPrefab;
     [SerializeField] private SportGame[] sportsPrefab;
-    [SerializeField] private float minimumDistanceBetweenPlatforms=2.5f;
+    [SerializeField] private float minimumDistanceBetweenPlatforms=5f;
     [SerializeField] private float maxDistanceBetweenPlatforms = 15f;
 
     private void Start()
@@ -42,7 +46,7 @@ public class SportsGameGenerator : MonoBehaviour
         int noOfObjectsToSpawn = noOfSportsPrefabsToSpawn / sportsPrefab.Length;
 
         Vector3 currentPos = Vector3.forward * gameStartingDistance;
-        if (StartingObjectToSpawn)
+        if (useStartingObj)
         {
             Transform objtrans = Instantiate(StartingObjectToSpawn, currentPos, Quaternion.identity).transform;
             objtrans.SetParent(transform);
@@ -57,6 +61,14 @@ public class SportsGameGenerator : MonoBehaviour
         float maxlength = (float)noOfObjectsToSpawn * sportsPrefab.Length;
         for (int i = 0; i < noOfObjectsToSpawn; i++)
         {
+            if (i== 0)
+            {
+                InstantiateTimeEnabler(currentPos);
+            }
+            if (i== noOfObjectsToSpawn-1)
+            {
+                SetTimeEnablerScale(currentPos);
+            }
             for (int j = 0; j < sportsPrefab.Length; j++)
             {
                 sportLength = Instantiate(sportsPrefab[j].SportPrefab);
@@ -80,7 +92,7 @@ public class SportsGameGenerator : MonoBehaviour
 
         GameObject obj;
         bool celebrationZoneDistanceChanged = false;
-        if (finalObjectToSpawn)
+        if (useFinalObj)
         {
             obj = Instantiate(finalObjectToSpawn);
             obj.transform.SetParent(transform);
@@ -112,6 +124,28 @@ public class SportsGameGenerator : MonoBehaviour
         // spawn pos for next platform
         Vector3 spawnPos = transform.position + new Vector3(0, 0, currentPos.z);
         GameManager.StageLoaderInstance.SetSpawnPos(spawnPos);
+    }
+
+    private GameObject timeEnabler;
+    void InstantiateTimeEnabler(Vector3 SpawnPos)
+    {
+        if (useTimeCounter)
+        {
+            timeEnabler = Instantiate(TimeEnablerPrefab);
+            timeEnabler.transform.SetParent(transform);
+            timeEnabler.transform.localPosition = SpawnPos;
+        }
+    }
+
+    void SetTimeEnablerScale(Vector3 currentPos)
+    {
+        if (useTimeCounter && timeEnabler)
+        {
+            Vector3 scale = timeEnabler.transform.localScale;
+            scale.z = currentPos.z - timeEnabler.transform.localPosition.z;
+            timeEnabler.transform.localScale = scale;
+
+        }
     }
 }
 

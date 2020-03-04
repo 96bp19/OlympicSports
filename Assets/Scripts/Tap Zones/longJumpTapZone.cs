@@ -25,9 +25,9 @@ public class longJumpTapZone : JumpTapZone
 
     public  void OnScreenHoldStart()
     {
-        Debug.Log("input listening allowed : " + inputListiningAllowed);
+        //Debug.log("input listening allowed : " + inputListiningAllowed);
         if (!inputListiningAllowed) return;
-        Debug.Log("long jump hold start");
+        //Debug.log("long jump hold start");
         
 
         screenHolding = true;
@@ -44,7 +44,7 @@ public class longJumpTapZone : JumpTapZone
         if (!inputListiningAllowed) return;
         
         UpdatePlayerSpeed();
-        Debug.Log("screen holding : " + screenHolding);
+        //Debug.log("screen holding : " + screenHolding);
         GameManager.UIManager_Instance.UpdateHoldMeterVal(CalculatePlayerInputAccuracyWithRespectToDistance(false));
         rendererEndPos.z = player.transform.position.z;
         rendererEndPos.z = Mathf.Min(rendererEndPos.z, Zextent-0.1f);

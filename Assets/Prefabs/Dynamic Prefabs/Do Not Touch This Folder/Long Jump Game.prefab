@@ -46,9 +46,12 @@ MonoBehaviour:
   useStartingObj: 0
   StartingObjectToSpawn: {fileID: 0}
   distanceFromStartingObjToOther: 20
-  useFinalObj: 0
+  useFinalObj: 1
   finalObjectToSpawn: {fileID: 5194554361303768653, guid: 98d96cce69ee11f4a8e5140863c76248,
     type: 3}
+  finalObjectDistance: 15
+  useTimeCounter: 0
+  TimeEnablerPrefab: {fileID: 0}
   noOfSportsPrefabsToSpawn: 0
   gameStartingDistance: 15
   groundPrefab: {fileID: 1914863664198730746, guid: 6a432fc8098d940479f1c1d850557db9,
@@ -60,3 +63,5 @@ MonoBehaviour:
       type: 3}
     lengthChangeable: 1
     celebrationZoneDistance: 100
+  minimumDistanceBetweenPlatforms: 2.5
+  maxDistanceBetweenPlatforms: 15

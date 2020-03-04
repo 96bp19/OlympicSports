@@ -8,6 +8,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Slider HoldMeter;
     [SerializeField] private Text ScoreText;
     [SerializeField] private Text JavalineMeterTravel;
+    [SerializeField] private Text Timetext;
 
     private int currentScore;
     private void Awake()
@@ -66,6 +67,19 @@ public class UI_Manager : MonoBehaviour
     {
         JavalineMeterTravel.gameObject.SetActive(false);
     }
+
+    public void EnableTimeText(bool value)
+    {
+        Timetext.gameObject.SetActive(value);
+        
+    }
+
+    public void UpdateTimeText(float value)
+    {
+        Timetext.text = value.ToString("f2") + " s";
+    }
+
+  
 
 
 

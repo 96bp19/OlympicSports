@@ -29,12 +29,18 @@ public class FinishLineChecker : MonoBehaviour
                 other.GetComponent<AnimationController>().PlayWinAnimation(false);
 
                 GameManager.StageLoaderInstance.LoadNextSport();
+                Invoke("RemoveConnectedPlatform", 6f);
                
                 
             }
         }
 
         
+    }
+
+    void RemoveConnectedPlatform()
+    {
+        Destroy(transform.parent.gameObject);
     }
 
    

@@ -11,7 +11,7 @@ public abstract class JumpTapZone : ATapZone
     {
         get
         {
-            Debug.Log("Player current gravity : " + player.getCurrentGravity());
+            //Debug.log("Player current gravity : " + player.getCurrentGravity());
             return Mathf.Sqrt(Mathf.Abs(2 * player.getCurrentGravity()* jumpHeight));
         }
     }

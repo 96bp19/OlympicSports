@@ -91,7 +91,7 @@ public class JavalineThrowZone : ATapZone
         javaline_rb.velocity = launchVel;
         javaline.GetComponent<Javaline>().ThrowJavaline();
         javaline.GetComponent<Javaline>().SetjavalineStartPos(transform.position + new Vector3(0, 0, transform.localScale.z));
-        Debug.Log("thrown with the angle of : " + angleToThrowAt);
+        //Debug.log("thrown with the angle of : " + angleToThrowAt);
 
     }
 
@@ -101,7 +101,7 @@ public class JavalineThrowZone : ATapZone
     {
         float randomAngle = 0;
 
-        Debug.Log("throw accuracy was : " + accuracy);
+        //Debug.log("throw accuracy was : " + accuracy);
         
 
          if (accuracy <0.5f)
