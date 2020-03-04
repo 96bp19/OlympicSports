@@ -65,10 +65,7 @@ public class SportsGameGenerator : MonoBehaviour
             {
                 InstantiateTimeEnabler(currentPos);
             }
-            if (i== noOfObjectsToSpawn-1)
-            {
-                SetTimeEnablerScale(currentPos);
-            }
+           
             for (int j = 0; j < sportsPrefab.Length; j++)
             {
                 sportLength = Instantiate(sportsPrefab[j].SportPrefab);
@@ -87,6 +84,10 @@ public class SportsGameGenerator : MonoBehaviour
                 currentPos += ( new Vector3(0, 0, sportLength.transform.localScale.z)  + Vector3.forward *distanceTonextplatform);
                 
 
+            }
+            if (i == noOfObjectsToSpawn - 1)
+            {
+                SetTimeEnablerScale(currentPos);
             }
         }
 
