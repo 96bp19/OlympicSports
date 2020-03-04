@@ -11,13 +11,19 @@ public class TripleJumpTapZone : JumpTapZone
     int currentJumpCount;
     bool checkForJump = false;
     bool enablejumpAction;
+    
+    float distanceTraveled = 0;
 
     [SerializeField] float inputBufferForJump=2f;
     private float currentInputTime;
 
+    float scaleZ, startZ;
+
     private  void Start()
     {
         MobileInputManager.Instance.ScreenHoldStartListener += OnScreenTap;
+        scaleZ = transform.localScale.z;
+        startZ = transform.position.z + initialTapLength;
     }
 
     public  void OnScreenTap()
@@ -45,6 +51,8 @@ public class TripleJumpTapZone : JumpTapZone
         }
     }
 
+  
+
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
@@ -55,6 +63,8 @@ public class TripleJumpTapZone : JumpTapZone
     private void Update()
     {
         CheckForInitialTap();
+        CheckForMeterTravel();
+        
         if (!allowUpdating)
         {
 
@@ -63,7 +73,6 @@ public class TripleJumpTapZone : JumpTapZone
         if ( enablejumpAction)
         {
             CheckForInputBufferMiss();
-
             if (animController.IsOnGround() && checkForJump)
             {
                 //Debug.log("updating triple jump");
@@ -75,10 +84,11 @@ public class TripleJumpTapZone : JumpTapZone
                 checkForJump = false;
                 enablejumpAction = false;
                
-                player.AddSpeed(MeasureSpeedBasedOnAccuracy(1));
+                player.AddSpeed(MeasureSpeedBasedOnAccuracy(2));
                 CalculateInputReceiveCount();
                 if (currentJumpCount == 3)
                 {
+                    timeSpent = 1f;
                     allowUpdating = false;
 
                 }
@@ -138,17 +148,45 @@ public class TripleJumpTapZone : JumpTapZone
         }
         else if (framecount >2)
         {
-            accuracy = 0.1f;
+            accuracy = Random.Range(0, 0.8f);
         }
         else
         {
             //Debug.log("time accuracy");
-            accuracy = CalculateAccuracy(currentInputTime, inputBufferForJump);
+            accuracy = CalculateAccuracy(currentInputTime, inputBufferForJump*1.5f);
         }
         framecount = 0;
         //Debug.log("accurcay : " + accuracy );
-        return accuracy * baseMoveSpeed + baseMoveSpeed;
+        return accuracy * baseMoveSpeed;
 
+    }
+
+    // hacky solution for now 
+    float timeSpent;  // this needs to be removed later when better solution is found
+    void CheckForMeterTravel()
+    {
+
+
+        if (currentJumpCount >0 && currentJumpCount <=3)
+        {
+            distanceTraveled = GameManager.PlayerInstance.transform.position.z - startZ;
+            distanceTraveled = Mathf.Max(0, distanceTraveled);
+            GameManager.UIManager_Instance.StartUpdatigMeterTravel(true, distanceTraveled);
+
+        }
+        if (currentJumpCount == 3)
+        {
+            timeSpent -= Time.deltaTime;
+        }
+
+        if (timeSpent <=0 && GameManager.PlayerInstance.isGrounded() && currentJumpCount ==3)
+        {
+            
+            GameManager.UIManager_Instance.StartUpdatigMeterTravel(false, distanceTraveled);
+            currentJumpCount = 4;
+            
+
+        }
     }
 
 
