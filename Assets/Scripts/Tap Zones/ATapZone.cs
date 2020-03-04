@@ -114,4 +114,20 @@ public abstract class ATapZone : MonoBehaviour
         lineRenderer.SetPosition(1, pos2);
     }
 
+    protected void AddScorebasedOnAccuracy(float accuracy)
+    {
+        if (accuracy <0.4)
+        {
+            GameManager.UIManager_Instance.AddScore(1);
+        }
+        else if (accuracy <0.75)
+        {
+            GameManager.UIManager_Instance.AddScore(2);
+        }
+        else
+        {
+            GameManager.UIManager_Instance.AddScore(4);
+           
+        }
+    }
 }

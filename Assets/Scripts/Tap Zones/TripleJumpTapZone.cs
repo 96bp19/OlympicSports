@@ -80,6 +80,7 @@ public class TripleJumpTapZone : JumpTapZone
                 rendererEndPos.z = player.transform.position.z;
                 EnableLineRenderer(rendererStartPos, rendererEndPos);
                 Jump();
+                AddScorebasedOnAccuracy(accuracy);
                 animController.TripleJump(++currentJumpCount);
                 checkForJump = false;
                 enablejumpAction = false;

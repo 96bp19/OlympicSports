@@ -51,6 +51,9 @@ MonoBehaviour:
   finalObjectToSpawn: {fileID: 2873624602191117669, guid: d1bd0189c0374d2408aa515366c57ccc,
     type: 3}
   finalObjectDistance: 15
+  useTimeCounter: 1
+  TimeEnablerPrefab: {fileID: 5563398400578877071, guid: d9d71e10335e9364384e207190cad514,
+    type: 3}
   noOfSportsPrefabsToSpawn: 10
   gameStartingDistance: 15
   groundPrefab: {fileID: 1914863664198730746, guid: 6a432fc8098d940479f1c1d850557db9,

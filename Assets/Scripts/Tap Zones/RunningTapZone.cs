@@ -17,12 +17,14 @@ public class RunningTapZone : ATapZone
         {
             
             accuracy = CalculatePlayerInputAccuracyWithRespectToDistance(true);
+            AddScorebasedOnAccuracy(accuracy);
             float speedToadd = calculateSpeedToAddBasedOnAccuracy(accuracy ,SpeedToAdd);
             player.AddSpeed(speedToadd);
             rendererStartPos = new Vector3(0, 0, player.transform.position.z);
             rendererEndPos = new Vector3(0, 0.1f, 0.4f + player.transform.position.z);
             EnableLineRenderer(rendererStartPos,rendererEndPos);
             CalculateInputReceiveCount();
+
         }
         
     }

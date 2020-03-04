@@ -30,6 +30,7 @@ public class FinishLineChecker : MonoBehaviour
 
                 GameManager.StageLoaderInstance.LoadNextSport();
                 Invoke("RemoveConnectedPlatform", 6f);
+                GameManager.Instance.SpeedUpGame();
                
                 
             }
@@ -37,6 +38,8 @@ public class FinishLineChecker : MonoBehaviour
 
         
     }
+
+  
 
     void RemoveConnectedPlatform()
     {

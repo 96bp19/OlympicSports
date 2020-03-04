@@ -18,9 +18,18 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private CameraManager camManagerPrefab;
 
+    public static GameManager Instance;
+    private float currentGameSpeed=1;
+    private float ScoreMultiplier;
+
+    public float getCurrentScoreMultiplier()
+    {
+        return ScoreMultiplier;
+    }
     private void Awake()
     {
         BeginGame();
+        Instance = this;
     }
 
     void BeginGame()
@@ -56,6 +65,19 @@ public class GameManager : MonoBehaviour
             Debug.Log("plus");
             Time.timeScale += 0.1f;
         }
+    }
+
+    public void SpeedUpGame()
+    {
+        currentGameSpeed += 0.1f;
+        currentGameSpeed = Mathf.Clamp(currentGameSpeed,1, 3);
+        Time.timeScale = currentGameSpeed;
+        ScoreMultiplier = 10 * (currentGameSpeed-1);
+    }
+
+    public void ResetGameSpeed()
+    {
+        Time.timeScale = 1;
     }
 
 

@@ -102,7 +102,7 @@ public class JavalineThrowZone : ATapZone
         float randomAngle = 0;
 
         //Debug.log("throw accuracy was : " + accuracy);
-        
+        AddScorebasedOnAccuracy(accuracy);
 
          if (accuracy <0.5f)
         {

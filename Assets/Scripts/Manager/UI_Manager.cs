@@ -43,7 +43,7 @@ public class UI_Manager : MonoBehaviour
 
     public void AddScore(int value)
     {
-        currentScore += value;
+        currentScore = value  + (int)GameManager.Instance.getCurrentScoreMultiplier() + currentScore;
         ScoreText.text = currentScore.ToString();
     }
 

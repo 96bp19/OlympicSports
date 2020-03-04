@@ -21,6 +21,7 @@ public class HurdleTapZone : JumpTapZone
         if (!inputListiningAllowed) return;
         CalculateInputReceiveCount();
         accuracy = 1 -CalculatePlayerInputAccuracyWithRespectToDistance(false);
+        AddScorebasedOnAccuracy(accuracy);
         rendererStartPos = new Vector3(0, 0, player.transform.position.z);
         rendererEndPos = new Vector3(0, 0.1f, 0.4f + player.transform.position.z);
         EnableLineRenderer(rendererStartPos, rendererEndPos);
