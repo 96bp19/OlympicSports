@@ -9,6 +9,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Text ScoreText;
     [SerializeField] private Text JavalineMeterTravel;
     [SerializeField] private Text Timetext;
+    [SerializeField] private Text MeterTraveledbyPlayer;
 
     private int currentScore;
     private void Awake()
@@ -79,7 +80,29 @@ public class UI_Manager : MonoBehaviour
         Timetext.text = value.ToString("f2") + " s";
     }
 
-  
+    public void StartUpdatigMeterTravel(bool value ,float distance)
+    {
+        if (!MeterTraveledbyPlayer.gameObject.activeInHierarchy && value)
+        {
+            MeterTraveledbyPlayer.gameObject.SetActive(true);
+        }
+
+        if (value)
+        {
+            MeterTraveledbyPlayer.text = distance.ToString("f2") + " m";
+        }
+        if (value == false)
+        {
+            Invoke("StopUpdatingMeterTravel", 3f);
+        }
+
+
+    }
+
+    void StopUpdatingMeterTravel()
+    {
+        MeterTraveledbyPlayer.gameObject.SetActive(false);
+    }
 
 
 

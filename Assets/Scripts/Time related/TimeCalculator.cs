@@ -24,7 +24,7 @@ public class TimeCalculator : MonoBehaviour
 
     private float currentTime = 0;
     private bool StartCounting = false;
-    public float textdisappeartime = 5f;
+    public float textdisappeartime = 3f;
 
     public void StartTimeCount()
     {

@@ -79,7 +79,7 @@ MonoBehaviour:
   animController: {fileID: 0}
   noOfInputAlowed: 1
   jumpHeight: 3
-  SandZonePrefab: {fileID: -927199367670048503, guid: 0cbe5c877afd975419f4d37071f748f3,
+  SandZonePrefab: {fileID: 4844487012461650689, guid: 236507497cf9c7e40af05f9f318926f7,
     type: 3}
 --- !u!120 &-6653925223715451853
 LineRenderer:
