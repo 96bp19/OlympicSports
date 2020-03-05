@@ -41,8 +41,8 @@ ModelImporter:
       name: HorseRun
       takeName: metarig|horse_action
       internalID: 0
-      firstFrame: 0
-      lastFrame: 26
+      firstFrame: 663
+      lastFrame: 689
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -70,8 +70,8 @@ ModelImporter:
       name: HorseJump
       takeName: metarig|horse_action
       internalID: 0
-      firstFrame: 30
-      lastFrame: 62
+      firstFrame: 693
+      lastFrame: 722
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
