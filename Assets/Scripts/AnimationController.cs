@@ -148,7 +148,8 @@ public class AnimationController : MonoBehaviour
     public void StartHorseRiding(bool value)
     {
         anim.SetBool("StartHorseRiding", value);
-        GameManager.PlayerInstance.SetMeshActive(!value);
+        anim.SetTrigger("StarHorseRide");
+       // GameManager.PlayerInstance.SetMeshActive(!value);
     }
 
     public void StartCycling(bool value)

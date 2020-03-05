@@ -12,6 +12,7 @@ public class JavalineThrowZone : ATapZone
 
     bool currentlyholdingJavaline = false;
     float Zextent;
+    float javalineThrowPower =32f;
 
     private void Start()
     {
@@ -84,7 +85,7 @@ public class JavalineThrowZone : ATapZone
             return;
         }
         float angleToThrowAt = calculateRandomAngleBasedOnAccuracy(accuracy);
-        Vector3 launchVel = new Vector3(0, Mathf.Sin(Mathf.Deg2Rad * angleToThrowAt), Mathf.Cos(Mathf.Deg2Rad * angleToThrowAt)) * 32f;
+        Vector3 launchVel = new Vector3(0, Mathf.Sin(Mathf.Deg2Rad * angleToThrowAt), Mathf.Cos(Mathf.Deg2Rad * angleToThrowAt)) * javalineThrowPower;
         javaline.SetParent(null);
         Rigidbody javaline_rb = javaline.GetComponent<Rigidbody>();
         javaline_rb.useGravity = true;
@@ -108,17 +109,21 @@ public class JavalineThrowZone : ATapZone
         {
             //fair
             randomAngle = Random.Range(15, 25);
+            javalineThrowPower = 28;
+           
             
         }
         else if (accuracy <0.8f)
         {
             // good
             randomAngle = Random.Range(33, 38);
+            javalineThrowPower = 30;
             
         }
         else
         {
             randomAngle =  Random.Range(42, 50); 
+            javalineThrowPower = 32;
         }
         return randomAngle;
     }

@@ -73,8 +73,8 @@ public class GameManager : MonoBehaviour
 
     public void SpeedUpGame()
     {
-        currentGameSpeed += 0.1f;
-        currentGameSpeed = Mathf.Clamp(currentGameSpeed,1, 3);
+        currentGameSpeed += 0.05f;
+        currentGameSpeed = Mathf.Clamp(currentGameSpeed,1,1.5f);
         Time.timeScale = currentGameSpeed;
         ScoreMultiplier = 10 * (currentGameSpeed-1);
     }

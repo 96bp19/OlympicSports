@@ -42,7 +42,7 @@ ModelImporter:
       takeName: metarig|horse_action
       internalID: 0
       firstFrame: 663
-      lastFrame: 689
+      lastFrame: 688
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -50,7 +50,7 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 1
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
