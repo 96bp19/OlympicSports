@@ -102,6 +102,9 @@ ModelImporter:
   - first:
       74: 5488258859999681752
     second: winStart
+  - first:
+      74: 5488258859999681752
+    second: winStart
   externalObjects:
   - first:
       type: UnityEngine:Material
