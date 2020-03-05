@@ -110,8 +110,13 @@ public abstract class ATapZone : MonoBehaviour
     protected void EnableLineRenderer(Vector3 pos1, Vector3 pos2)
     {
         lineRenderer.enabled = true;
+
+        pos1.z = Mathf.Max(transform.position.z, pos1.z);
+        pos2.z = Mathf.Min(transform.position.z + transform.localScale.z, pos2.z);
         lineRenderer.SetPosition(0, pos1);
         lineRenderer.SetPosition(1, pos2);
+
+        
     }
 
     protected void AddScorebasedOnAccuracy(float accuracy)

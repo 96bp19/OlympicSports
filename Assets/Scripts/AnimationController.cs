@@ -61,6 +61,7 @@ public class AnimationController : MonoBehaviour
         if (currentRide.currentRidable)
         {
             currentRide.currentRidable.Jump();
+            HorseJump();
         }
         else
         anim.SetTrigger("HurdleJump");
@@ -163,6 +164,11 @@ public class AnimationController : MonoBehaviour
         {
             anim.SetTrigger("NewGameStart");
         }
+    }
+
+    public void HorseJump()
+    {
+        anim.SetTrigger("HorseJump");
     }
 
 }
