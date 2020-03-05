@@ -6,10 +6,15 @@ public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator anim;
     private bool isOnGround;
+    private RideChecker currentRide;
 
 
-   
-   
+
+    private void Start()
+    {
+        currentRide = GetComponent<RideChecker>();
+    }
+
 
     public bool IsOnGround()
     {
@@ -53,6 +58,11 @@ public class AnimationController : MonoBehaviour
 
     public void HurdleJump()
     {
+        if (currentRide.currentRidable)
+        {
+            currentRide.currentRidable.Jump();
+        }
+        else
         anim.SetTrigger("HurdleJump");
     }
 

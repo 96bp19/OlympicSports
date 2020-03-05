@@ -9,5 +9,10 @@ public abstract class ARideable : MonoBehaviour
 
     
     public abstract void PlayPlayerRideAnimation(AnimationController playeranimController,bool value);
+
+    public virtual void Jump()
+    {
+
+    }
     
 }

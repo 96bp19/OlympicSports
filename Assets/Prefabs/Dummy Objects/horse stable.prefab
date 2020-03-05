@@ -1622,7 +1622,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6428782422243633686}
   - component: {fileID: 8029010306880346119}
-  - component: {fileID: 8029010306880346116}
+  - component: {fileID: 6967497661676012271}
+  - component: {fileID: 559911145065783327}
   m_Layer: 10
   m_Name: horse
   m_TagString: Ride
@@ -1638,7 +1639,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8029010306880346117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.87, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1245414461810272879}
@@ -1658,8 +1659,8 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.6, y: 2.18, z: 3.29}
-  m_Center: {x: 0, y: -0.43, z: 0}
---- !u!114 &8029010306880346116
+  m_Center: {x: 0, y: 1.33, z: 0}
+--- !u!114 &6967497661676012271
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1671,8 +1672,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13555a3e752e3894aa616faee8541019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 559911145065783327}
   ridingHeight: 0
+--- !u!95 &559911145065783327
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029010306880346117}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e42a1f05fb1c4934e8120ae5303d2a56, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8130113578764177709
 GameObject:
   m_ObjectHideFlags: 0

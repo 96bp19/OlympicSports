@@ -8,4 +8,11 @@ public class HorseRiding : ARideable
     {
         playeranimController.StartHorseRiding(value);
     }
+
+    public override void Jump()
+    {
+        anim.SetTrigger("Jump");
+    }
+
+
 }
