@@ -7,6 +7,7 @@ public class AnimationController : MonoBehaviour
     [SerializeField] private Animator anim;
     private bool isOnGround;
 
+
    
    
 
@@ -116,6 +117,8 @@ public class AnimationController : MonoBehaviour
 
         }
         Binaya.MyInput.MobileInputManager.Instance.EnableInput(false);
+        GameManager.Instance.GameOver();
+
 
     }
 

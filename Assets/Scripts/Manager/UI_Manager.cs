@@ -10,6 +10,8 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] private Text JavalineMeterTravel;
     [SerializeField] private Text Timetext;
     [SerializeField] private Text MeterTraveledbyPlayer;
+    [SerializeField] private GameObject retry_but, start_but;
+    
 
     private int currentScore;
     private void Awake()
@@ -19,6 +21,13 @@ public class UI_Manager : MonoBehaviour
             EnableHoldMeter(false);
         }
     }
+
+    private void Start()
+    {
+        GameManager.Instance.GameOverListener += OnGameOver;
+        Time.timeScale = 0;
+    }
+
     public void EnableHoldMeter(bool value)
     {
         if (HoldMeter)
@@ -102,6 +111,26 @@ public class UI_Manager : MonoBehaviour
     void StopUpdatingMeterTravel()
     {
         MeterTraveledbyPlayer.gameObject.SetActive(false);
+    }
+
+    public void OnGameOver()
+    {
+        StopUpdatingMeterTravel();
+        EnableTimeText(false);
+        DisableJavalineThrowText();
+        start_but.gameObject.SetActive(false);
+        retry_but.gameObject.SetActive(true);
+        
+    }
+
+    public void OnGameStarted()
+    {
+        Time.timeScale = 1;
+    }
+
+    public void RestartGame()
+    {
+        GameManager.Instance.RestartGame();
     }
 
 

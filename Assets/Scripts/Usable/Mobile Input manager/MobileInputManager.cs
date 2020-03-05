@@ -89,19 +89,13 @@ namespace Binaya.MyInput
             }
         }
 
-        private void Start()
-        {
-            Time.timeScale = 1;
-            deltaTime = Time.deltaTime;
-
-        }
-
         void CheckForInputs()
         {
             if (!InputEnabled)
             {
                 return;
             }
+            deltaTime = Time.deltaTime;
             if (ScreenTouched == false)
             {
                 ScreenTouched = Input.GetMouseButtonDown(0);

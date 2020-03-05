@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,14 +23,17 @@ public class GameManager : MonoBehaviour
     private float currentGameSpeed=1;
     private float ScoreMultiplier;
 
+    public delegate void OnGameOver();
+    public OnGameOver GameOverListener;
+
     public float getCurrentScoreMultiplier()
     {
         return ScoreMultiplier;
     }
     private void Awake()
     {
-        BeginGame();
         Instance = this;
+        BeginGame();
     }
 
     void BeginGame()
@@ -78,6 +82,17 @@ public class GameManager : MonoBehaviour
     public void ResetGameSpeed()
     {
         Time.timeScale = 1;
+    }
+
+    public void GameOver()
+    {
+        GameOverListener?.Invoke();
+        Time.timeScale = 0;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
     }
 
 
