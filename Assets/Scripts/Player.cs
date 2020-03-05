@@ -12,7 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] Transform javalineThrowSocket;
     [SerializeField] private float movementLerpSpeed = 1f;
+    [SerializeField] private SkinnedMeshRenderer playerMeshRenderer;
     private bool allowedMoving = true;
+
     
     [SerializeField] private float lerpedMoveSpeed = 0;
     private float gravityMultiplier = 3;
@@ -191,6 +193,13 @@ public class Player : MonoBehaviour
 
         currentSpeed = speed;
     }
+
+    public void SetMeshActive(bool value)
+    {
+        playerMeshRenderer.enabled = value;
+    }
+
+    
 
     
 

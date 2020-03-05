@@ -62,6 +62,7 @@ public class AnimationController : MonoBehaviour
         {
             currentRide.currentRidable.Jump();
             HorseJump();
+            
         }
         else
         anim.SetTrigger("HurdleJump");
@@ -147,6 +148,7 @@ public class AnimationController : MonoBehaviour
     public void StartHorseRiding(bool value)
     {
         anim.SetBool("StartHorseRiding", value);
+        GameManager.PlayerInstance.SetMeshActive(!value);
     }
 
     public void StartCycling(bool value)
