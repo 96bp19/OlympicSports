@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 8452926166750519482}
   serializedVersion: 6
   lengthInSec: 0.8
-  simulationSpeed: 2
+  simulationSpeed: 2.5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -866,8 +866,8 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 8
+      scalar: 12
+      minScalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -976,7 +976,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 15
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4878,6 +4878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796042121603753493, guid: 7510b0666908eba4ca1c2c5e25263243,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 8796042121603753493, guid: 7510b0666908eba4ca1c2c5e25263243,
         type: 3}
