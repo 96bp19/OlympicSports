@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8982286505538818579}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.068024, y: -9.479828, z: 807.6806}
+  m_LocalRotation: {x: 0, y: 0.23938082, z: 0, w: 0.97092575}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 27.7, z: 0}
 --- !u!114 &8982286505538818578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SportsGames:
-  - {fileID: 7716222615923654842, guid: 7049d673f8774ea41a52432890f5c728, type: 3}
+  - {fileID: 2299164425195103545, guid: 09717f3b194518c40bd387560c40c5bb, type: 3}
   levelLoadIndexMax: 0
