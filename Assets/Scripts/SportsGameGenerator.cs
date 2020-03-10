@@ -32,6 +32,7 @@ public class SportsGameGenerator : MonoBehaviour
     [SerializeField] private SportGame[] sportsPrefab;
     [SerializeField] private float minimumDistanceBetweenPlatforms=5f;
     [SerializeField] private float maxDistanceBetweenPlatforms = 15f;
+    [SerializeField] private GameObject FlagPrefab;
 
     private void Start()
     {
@@ -43,6 +44,7 @@ public class SportsGameGenerator : MonoBehaviour
         // length changer is a script that is used to change the scale of the game object , it is attached to
         // LengthChanger SportLength = Instantiate(sportsPrefab[0].SportPrefab);
 
+        GenerateFlag();
         int noOfObjectsToSpawn = noOfSportsPrefabsToSpawn / sportsPrefab.Length;
 
         Vector3 currentPos = Vector3.forward * gameStartingDistance;
@@ -61,17 +63,17 @@ public class SportsGameGenerator : MonoBehaviour
         float maxlength = (float)noOfObjectsToSpawn * sportsPrefab.Length;
         for (int i = 0; i < noOfObjectsToSpawn; i++)
         {
-            if (i== 0)
+            if (i == 0)
             {
                 InstantiateTimeEnabler(currentPos);
             }
-           
+
             for (int j = 0; j < sportsPrefab.Length; j++)
             {
                 sportLength = Instantiate(sportsPrefab[j].SportPrefab);
                 if (sportsPrefab[j].lengthChangeable)
                 {
-                    ReducedLength =  ((maxlength- lengthCount) / maxlength)*6;
+                    ReducedLength = ((maxlength - lengthCount) / maxlength) * 6;
                     sportLength.SetLength(ReducedLength);
                     lengthCount++;
 
@@ -79,10 +81,10 @@ public class SportsGameGenerator : MonoBehaviour
 
                 sportLength.transform.SetParent(transform);
                 sportLength.transform.localPosition = currentPos;
-                float distanceTonextplatform = sportsPrefab.Length * (noOfObjectsToSpawn +1) - lengthCount;
-                distanceTonextplatform = Mathf.Clamp(distanceTonextplatform,minimumDistanceBetweenPlatforms, maxDistanceBetweenPlatforms);
-                currentPos += ( new Vector3(0, 0, sportLength.transform.localScale.z)  + Vector3.forward *distanceTonextplatform);
-                
+                float distanceTonextplatform = sportsPrefab.Length * (noOfObjectsToSpawn + 1) - lengthCount;
+                distanceTonextplatform = Mathf.Clamp(distanceTonextplatform, minimumDistanceBetweenPlatforms, maxDistanceBetweenPlatforms);
+                currentPos += (new Vector3(0, 0, sportLength.transform.localScale.z) + Vector3.forward * distanceTonextplatform);
+
 
             }
             if (i == noOfObjectsToSpawn - 1)
@@ -101,11 +103,11 @@ public class SportsGameGenerator : MonoBehaviour
             obj.transform.localPosition = currentPos;
             celebrationZoneDistanceChanged = true;
             currentPos += (new Vector3(0, 0, obj.transform.localScale.z) + Vector3.forward * sportsPrefab[sportsPrefab.Length - 1].celebrationZoneDistance);
-            
+
         }
         if (!celebrationZoneDistanceChanged)
         {
-            currentPos += ( Vector3.forward * sportsPrefab[sportsPrefab.Length - 1].celebrationZoneDistance);
+            currentPos += (Vector3.forward * sportsPrefab[sportsPrefab.Length - 1].celebrationZoneDistance);
 
         }
         obj = Instantiate(celebrationPrefab);
@@ -125,6 +127,17 @@ public class SportsGameGenerator : MonoBehaviour
         // spawn pos for next platform
         Vector3 spawnPos = transform.position + new Vector3(0, 0, currentPos.z);
         GameManager.StageLoaderInstance.SetSpawnPos(spawnPos);
+    }
+
+    private void GenerateFlag()
+    {
+        if (FlagPrefab)
+        {
+            Transform flagTransform = Instantiate(FlagPrefab).transform;
+            flagTransform.SetParent(transform);
+            flagTransform.localPosition = new Vector3(1f, -0.1f, 5f);
+
+        }
     }
 
     private GameObject timeEnabler;
