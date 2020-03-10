@@ -472,7 +472,7 @@ ModelImporter:
       name: tripleJump2
       takeName: rig|run
       internalID: 0
-      firstFrame: 350
+      firstFrame: 351
       lastFrame: 365
       wrapMode: 0
       orientationOffsetY: 0
