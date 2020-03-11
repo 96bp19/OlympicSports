@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752f3048667e02f4e9d644a7946b2342, type: 3}
+  m_Name: Feet
+  m_EditorClassIdentifier: 
+  usedMaterial: {fileID: 2100000, guid: 80c9f35b2aff3fc4fb2a14f5467a6c41, type: 2}
+  mesh: {fileID: 4300006, guid: 0840a29f773a210429bc8ed92b910e83, type: 3}
+  transformToAffect: {fileID: 0}
