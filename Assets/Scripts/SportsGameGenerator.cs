@@ -135,7 +135,7 @@ public class SportsGameGenerator : MonoBehaviour
         {
             Transform flagTransform = Instantiate(FlagPrefab).transform;
             flagTransform.SetParent(transform);
-            flagTransform.localPosition = new Vector3(1f, -0.1f, 5f);
+            flagTransform.localPosition = new Vector3(1f, -0.1f, 9f);
 
         }
     }

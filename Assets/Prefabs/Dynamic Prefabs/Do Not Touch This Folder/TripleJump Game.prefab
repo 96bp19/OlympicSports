@@ -64,5 +64,5 @@ MonoBehaviour:
     celebrationZoneDistance: 40
   minimumDistanceBetweenPlatforms: 5
   maxDistanceBetweenPlatforms: 15
-  FlagPrefab: {fileID: 1235586933799636072, guid: 96994d8a791e4564babe95439d8b475a,
+  FlagPrefab: {fileID: 1235586933799636072, guid: 8a11518f1d0324a48b0d24fd6e8ee315,
     type: 3}

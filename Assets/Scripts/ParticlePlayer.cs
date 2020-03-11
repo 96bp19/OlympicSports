@@ -87,14 +87,14 @@ public class ParticlePlayer : MonoBehaviour
         {
             particleTrans = Instantiate(particlePrefab, socketTrans.position, Quaternion.identity).transform;
             particleTrans.SetParent(null);
-            particleTrans.position = socketTrans.position + new Vector3(0,0.3f,0);
+            particleTrans.position = socketTrans.position + new Vector3(0,0.5f,0);
         }
         else
         {
             particleTrans.gameObject.SetActive(false);
             particleTrans.gameObject.SetActive(true);
             particleTrans.SetParent(null);
-            particleTrans.position = socketTrans.position + new Vector3(0, 0.3f, 0);
+            particleTrans.position = socketTrans.position + new Vector3(0, 0.5f, 0);
         }
     }
 
