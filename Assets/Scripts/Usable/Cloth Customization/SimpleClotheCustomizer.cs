@@ -8,25 +8,22 @@ public class SimpleClotheCustomizer : MonoBehaviour
     [SerializeField] private ClothInformation defaultClothInfo;
     public SkinnedMeshRenderer upperBodySkinRenderer, lowerBodySkinRenderer, FeetSkinRenderer;
 
-    //     private static SimpleClotheCustomizer _Instance;
-    //     public static SimpleClotheCustomizer Instance
-    //     {
-    //         get
-    //         {
-    //             if (_Instance == null)
-    //             {
-    //                 _Instance = GameManager.PlayerInstance.GetComponent<SimpleClotheCustomizer>();
-    //             }
-    //             return _Instance;
-    //         }
-    //     }
-
-    public static SimpleClotheCustomizer Instance;
-    
+    private static SimpleClotheCustomizer _Instance;
+    public static SimpleClotheCustomizer Instance
+    {
+        get
+        {
+            if (_Instance == null)
+            {
+                _Instance = GameManager.PlayerInstance.GetComponent<SimpleClotheCustomizer>();
+            }
+            return _Instance;
+        }
+    }
 
     private void Start()
     {
-        Instance = this;
+        
         CheckForClothData();
     }
 
