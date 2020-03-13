@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752f3048667e02f4e9d644a7946b2342, type: 3}
   m_Name: DefaultUpperBody
   m_EditorClassIdentifier: 
-  usedMaterial: {fileID: 2100000, guid: 9eef2c20ecd5fa54f9490a51cdb971e4, type: 2}
-  mesh: {fileID: 4300014, guid: a6e84a5d73cb4b742bc7f1d34c6e6091, type: 3}
-  usedSkinMeshRenderer: {fileID: 0}
+  usedMaterial: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
+  mesh: {fileID: -8672708672286616542, guid: 62d7ea725c464f7459d1e1e0d5effec3, type: 3}

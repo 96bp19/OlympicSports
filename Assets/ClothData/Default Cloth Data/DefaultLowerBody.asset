@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752f3048667e02f4e9d644a7946b2342, type: 3}
   m_Name: DefaultLowerBody
   m_EditorClassIdentifier: 
-  usedMaterial: {fileID: 2100000, guid: eaecf49849d64534abecb4343ad00a16, type: 2}
-  mesh: {fileID: 4300006, guid: 45e8eef3c3d04994ba435e05fd49f885, type: 3}
+  usedMaterial: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
+  mesh: {fileID: -6453120163297598331, guid: 569b7bf10c11e0e42894bd1848d918f6, type: 3}

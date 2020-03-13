@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] Transform javalineThrowSocket;
     [SerializeField] private float movementLerpSpeed = 1f;
-    [SerializeField] private SkinnedMeshRenderer playerMeshRenderer;
+    [SerializeField] private SkinnedMeshRenderer[] playerMeshRenderer;
     private bool allowedMoving = true;
 
     
@@ -196,7 +196,11 @@ public class Player : MonoBehaviour
 
     public void SetMeshActive(bool value)
     {
-        playerMeshRenderer.enabled = value;
+        foreach (var item in playerMeshRenderer)
+        {
+            item.enabled = value;
+        }
+      
     }
 
     
