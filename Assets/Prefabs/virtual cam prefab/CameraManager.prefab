@@ -47,3 +47,5 @@ MonoBehaviour:
     type: 3}
   javalineFollowCamPrefab: {fileID: 7442201165880773025, guid: 29d2f70cb035d914597f44e572ecfbc7,
     type: 3}
+  PlayerCustomizationCamPrefab: {fileID: 6308465477317752666, guid: 29f5349f12b6e6246a2aa8ef2954c93d,
+    type: 3}

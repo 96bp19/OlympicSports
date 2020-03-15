@@ -1,25 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public abstract class  ICloth : MonoBehaviour
+public abstract class  ICloth : MonoBehaviour,IPointerClickHandler
 {
 
     public ClotheData clothType;
-    SkinnedMeshRenderer skinRenderer;
+    protected SkinnedMeshRenderer skinRenderer;
     public virtual void Start()
     {
         AssignClothRenderer();
     }
 
-    void AssignClothRenderer()
-    {
-        skinRenderer = SimpleClotheCustomizer.Instance.FeetSkinRenderer;
-    }
+    public abstract void AssignClothRenderer();
+   
 
     public  virtual void ChangeCloth()
     {
-        SimpleClotheCustomizer.Instance.clothInfo.feet = clothType;
         clothType.ChangeCloth(skinRenderer);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        ChangeCloth();
     }
 }
