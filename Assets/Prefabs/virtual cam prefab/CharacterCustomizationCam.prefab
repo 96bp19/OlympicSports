@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3105525002251388041}
   - component: {fileID: 6308465477317752666}
   m_Layer: 0
-  m_Name: CM vcam1
+  m_Name: CharacterCustomizationCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,14 +24,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2484782193582560912}
-  m_LocalRotation: {x: -1.5934563e-24, y: 0.9688349, z: -0.2477076, w: 3.436261e-23}
+  m_LocalRotation: {x: 0.00000006957663, y: -0.9688344, z: 0.24770921, w: 0.00000027212647}
   m_LocalPosition: {x: 3.403534e-13, y: 2.0278797, z: 15.639991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4509955154690197758}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.684002, y: -179.99998, z: 0}
 --- !u!114 &6308465477317752666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 283
+  m_Priority: 2
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
     LensShift: {x: 0, y: 0}
   m_Transitions:
     m_BlendHint: 0
-    m_InheritPosition: 0
+    m_InheritPosition: 1
     m_OnCameraLive:
       m_PersistentCalls:
         m_Calls: []
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4509955154690197758}
   - component: {fileID: 3267458822437080251}
   - component: {fileID: 4011074786102582007}
-  - component: {fileID: 6836392861709341090}
+  - component: {fileID: 8698958668093486151}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_BiasX: 0
   m_BiasY: -0.49999985
   m_CenterOnActivate: 1
---- !u!114 &6836392861709341090
+--- !u!114 &8698958668093486151
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,11 +150,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7960368783278937585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
+  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 1.0363438, z: 5.8644276}
+  m_FollowOffset: {x: 0, y: 0, z: 5.81}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -163,35 +163,3 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
-  m_Heading:
-    m_Definition: 2
-    m_VelocityFilterStrength: 4
-    m_Bias: 0
-  m_RecenterToTargetHeading:
-    m_enabled: 1
-    m_WaitTime: 1
-    m_RecenteringTime: 2
-    m_LegacyHeadingDefinition: -1
-    m_LegacyVelocityFilterStrength: -1
-  m_XAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 300
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: Mouse X
-    m_InputAxisValue: 0
-    m_InvertInput: 1
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 1
-      m_RecenteringTime: 2
-      m_LegacyHeadingDefinition: -1
-      m_LegacyVelocityFilterStrength: -1
-  m_LegacyRadius: 3.4028235e+38
-  m_LegacyHeightOffset: 3.4028235e+38
-  m_LegacyHeadingBias: 3.4028235e+38
-  m_HeadingIsSlave: 0

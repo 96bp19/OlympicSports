@@ -174,4 +174,9 @@ public class AnimationController : MonoBehaviour
         anim.SetTrigger("HorseJump");
     }
 
+    public void StartGame()
+    {
+        anim.SetTrigger("GameStarted");
+    }
+
 }

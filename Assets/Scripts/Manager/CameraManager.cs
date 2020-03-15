@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour
      private CinemachineVirtualCamera PlayerFollowingCam;
      private CinemachineVirtualCamera JavalineFollowingCam;
      private CinemachineVirtualCamera PlayerCustomizationCam;
-    Vector3 playerOldPos;
+     Vector3 playerOldPos;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class CameraManager : MonoBehaviour
         JavalineFollowingCam = Instantiate(javalineFollowCamPrefab);
         PlayerCustomizationCam = Instantiate(PlayerCustomizationCamPrefab);
         FollowPlayer();
-        UseCharacterCustomization(true);
+      //  UseCharacterCustomization(true);
     }
 
     private static CameraManager _Instance;
@@ -55,15 +55,23 @@ public class CameraManager : MonoBehaviour
         if (val)
         {
             playerOldPos = GameManager.PlayerInstance.transform.position;
+            GameManager.PlayerInstance.transform.position = new Vector3(500, 500, 500);
+           
         }
         else
         {
-            GameManager.PlayerInstance.transform.position = playerOldPos;
+            if (playerOldPos.z !=0)
+            {
+                GameManager.PlayerInstance.transform.position = playerOldPos;
+
+            }
         }
 
         PlayerCustomizationCam.LookAt = GameManager.PlayerInstance.transform;
         PlayerCustomizationCam.Follow = GameManager.PlayerInstance.transform;
         PlayerCustomizationCam.Priority = val ? 100 : 1;
+
+      
     }
 
    

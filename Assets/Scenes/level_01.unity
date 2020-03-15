@@ -197,8 +197,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471754545}
-  m_LocalRotation: {x: -1.5934563e-24, y: 0.9688349, z: -0.2477076, w: 3.436261e-23}
-  m_LocalPosition: {x: 500, y: 501.03635, z: 505.86444}
+  m_LocalRotation: {x: 0.00000006957663, y: -0.9688344, z: 0.24770921, w: 0.00000027212647}
+  m_LocalPosition: {x: 3.403534e-13, y: 2.0278797, z: 15.639991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -218,12 +218,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ShowDebugText: 0
   m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
+  m_IgnoreTimeScale: 1
   m_WorldUpOverride: {fileID: 0}
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 1
+    m_Style: 7
     m_Time: 0.5
     m_CustomCurve:
       serializedVersion: 2
@@ -231,7 +231,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 1d03e16cd4c884d4899f8f4675f5f583, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []

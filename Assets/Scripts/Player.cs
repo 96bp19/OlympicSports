@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private Vector3 downVector = Vector3.down;
     private Rigidbody rb;
 
+    
+
     public Rigidbody getRigidbody()
     {
         return rb;
@@ -29,12 +31,14 @@ public class Player : MonoBehaviour
 
     public void StopMoving()
     {
+        rb.isKinematic = true;
         allowedMoving = false;
         lerpedMoveSpeed = 0;
     }
 
     public void StartMoving(bool usePreviousVelocity)
     {
+        rb.isKinematic = false;
         allowedMoving = true;
         if (!usePreviousVelocity)
         {
@@ -50,8 +54,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentSpeed = defaultMoveSpeed;
+        currentSpeed = 0;
         SetDefaultGravityMultiplier();
+        rb.isKinematic = true;
     }
 
   

@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         transform.SetParent(allmanagers.transform);
       
 
-        PlayerInstance = Instantiate(PlayerPrefab, new Vector3(0,2,5), Quaternion.identity) as Player;
+        PlayerInstance = Instantiate(PlayerPrefab, new Vector3(0,1,5), Quaternion.identity) as Player;
       
 
         UIManager_Instance = Instantiate(UImanagerprefab) as UI_Manager;
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         GameOverListener?.Invoke();
-        Time.timeScale = 0;
+      
     }
 
     public void RestartGame()

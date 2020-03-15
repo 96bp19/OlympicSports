@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(UnityEngine.UI.Button))]
 public abstract class  ICloth : MonoBehaviour,IPointerClickHandler
 {
 
