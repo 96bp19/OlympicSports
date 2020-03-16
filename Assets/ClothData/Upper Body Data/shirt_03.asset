@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 752f3048667e02f4e9d644a7946b2342, type: 3}
-  m_Name: UpperBody
+  m_Name: shirt_03
   m_EditorClassIdentifier: 
-  usedMaterial: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
+  usedMaterial: {fileID: 2100000, guid: edf5874a918803f449ffeb8b29ee4832, type: 2}
   mesh: {fileID: -6191914714726740874, guid: 46b7300de7bae9545a4746f5fb3a6d22, type: 3}
+  ClothSprite: {fileID: 0}
+  itemUnlocked: 1

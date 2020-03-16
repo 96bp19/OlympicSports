@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 851853873329268565}
   - component: {fileID: 3652449620624245894}
   m_Layer: 5
-  m_Name: Shirt_01
+  m_Name: Shirt_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de52fc5fb0f1da4d957a0cf74944cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clothType: {fileID: 11400000, guid: 797349d78f5a6ec4a97e0783295d8ef7, type: 2}
+  clothType: {fileID: 11400000, guid: 758df43295e1a7142a35fc035e17c439, type: 2}
   lockedUnlockedImage: {fileID: 2231942110187672444}
   LockedImage: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   UnlockedImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
