@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: PlayerClothInformation
   m_EditorClassIdentifier: Assembly-CSharp::ClothInformation
   upperBody: {fileID: 11400000, guid: 8bce7e183f6869948907ba9cdb0b37ba, type: 2}
-  lowerBody: {fileID: 11400000, guid: 4beb12a37e3697a429bdd89e44fb3ff4, type: 2}
+  lowerBody: {fileID: 11400000, guid: f42520a8b6279b04eb016a95ba374512, type: 2}
   feet: {fileID: 11400000, guid: 6a40d39b8f1d31d4ab1aee0b9044f7da, type: 2}
+  Head: {fileID: 11400000, guid: 5e4450f8a6778664c94cce84eb6df977, type: 2}

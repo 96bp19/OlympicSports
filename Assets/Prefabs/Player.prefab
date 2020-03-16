@@ -374,6 +374,7 @@ MonoBehaviour:
   upperBodySkinRenderer: {fileID: 9160532624920283440}
   lowerBodySkinRenderer: {fileID: 7695330941836099174}
   FeetSkinRenderer: {fileID: 6314497340385719396}
+  HeadSkinRenderer: {fileID: 6279581575878523539}
 --- !u!1 &264567911943372742
 GameObject:
   m_ObjectHideFlags: 0

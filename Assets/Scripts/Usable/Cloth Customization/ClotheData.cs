@@ -25,6 +25,22 @@ public class ClothInformation : ScriptableObject
     public ClotheData upperBody;
     public ClotheData lowerBody;
     public ClotheData feet;
+    public ClotheData Head;
+}
+
+[CreateAssetMenu(menuName = "ClothCustomization/Clothunlocker")]
+public class ClothUnlocker :ScriptableObject
+{
+    public List<ClotheData> clotheDatas;
+
+
+    public void UnlockCloth()
+    {
+        int length = clotheDatas.Count;
+        int randomIndex = Random.Range(0, length);
+        clotheDatas[randomIndex].itemUnlocked = true;
+        clotheDatas.RemoveAt(randomIndex);
+    }
 }
 
 

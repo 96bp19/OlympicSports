@@ -6,7 +6,7 @@ public class SimpleClotheCustomizer : MonoBehaviour
 {
     public ClothInformation clothInfo;
     [SerializeField] private ClothInformation defaultClothInfo;
-    public SkinnedMeshRenderer upperBodySkinRenderer, lowerBodySkinRenderer, FeetSkinRenderer;
+    public SkinnedMeshRenderer upperBodySkinRenderer, lowerBodySkinRenderer, FeetSkinRenderer , HeadSkinRenderer;
 
     private static SimpleClotheCustomizer _Instance;
     public static SimpleClotheCustomizer Instance
@@ -44,6 +44,11 @@ public class SimpleClotheCustomizer : MonoBehaviour
             clothInfo.lowerBody = defaultClothInfo.lowerBody;
         }
 
+        if (clothInfo.Head == null)
+        {
+            clothInfo.Head = defaultClothInfo.Head;
+        }
+
         LoadClothing();
     }
 
@@ -52,6 +57,7 @@ public class SimpleClotheCustomizer : MonoBehaviour
         clothInfo.feet.ChangeCloth(FeetSkinRenderer);
         clothInfo.upperBody.ChangeCloth(upperBodySkinRenderer);
         clothInfo.lowerBody.ChangeCloth(lowerBodySkinRenderer);
+        clothInfo.Head.ChangeCloth(HeadSkinRenderer);
 
     }
 

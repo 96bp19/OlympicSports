@@ -16,8 +16,9 @@ public class GameManager : MonoBehaviour
     public static NewStageLoader StageLoaderInstance;
 
     [SerializeField] private SaveManager saveManagerPrefab;
-
     [SerializeField] private CameraManager camManagerPrefab;
+    [SerializeField] private ClothManager clothManagerPrefab;
+
 
     public static GameManager Instance;
     private float currentGameSpeed=1;
@@ -49,8 +50,10 @@ public class GameManager : MonoBehaviour
         UIManager_Instance.transform.SetParent(allmanagers.transform);
         StageLoaderInstance = Instantiate(StageLoaderPrefab) as NewStageLoader;
         Instantiate(saveManagerPrefab).transform.SetParent(allmanagers.transform);
-
         Instantiate(camManagerPrefab).transform.SetParent(allmanagers.transform);
+        Instantiate(clothManagerPrefab).transform.SetParent(allmanagers.transform);
+        
+
     }
 
     private void Update()

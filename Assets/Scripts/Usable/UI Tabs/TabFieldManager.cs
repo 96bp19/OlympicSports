@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class TabFieldManager : MonoBehaviour
 {
-    public Transform UpperBodyTabField, LowerBodyTabField, ShoeTabField;
+    public Transform UpperBodyTabField, LowerBodyTabField, ShoeTabField , headField;
     public GameObject[] UpperBodyItems;
     public GameObject[] lowerBodyItems;
     public GameObject[] ShoeItems;
+    public GameObject[] headItems;
 
 
     private void Start()
@@ -15,6 +16,7 @@ public class TabFieldManager : MonoBehaviour
         InstantiateMultipleObject(UpperBodyItems, UpperBodyTabField);
         InstantiateMultipleObject(lowerBodyItems,LowerBodyTabField);
         InstantiateMultipleObject(ShoeItems,ShoeTabField);
+        InstantiateMultipleObject(headItems, headField);
     }
 
     void InstantiateMultipleObject(GameObject[] objToInstiantiate,Transform parent)
