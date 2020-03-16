@@ -8,6 +8,8 @@ public class ClotheData : ScriptableObject
   
     public Material usedMaterial;
     public Mesh mesh;
+    public Sprite ClothSprite;
+    public bool itemUnlocked;
    
     public void ChangeCloth( SkinnedMeshRenderer usedSkinMeshRenderer)
     {

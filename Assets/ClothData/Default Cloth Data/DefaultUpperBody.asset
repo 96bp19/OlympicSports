@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usedMaterial: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
   mesh: {fileID: -8672708672286616542, guid: 62d7ea725c464f7459d1e1e0d5effec3, type: 3}
+  ClothSprite: {fileID: 0}
+  itemUnlocked: 1
