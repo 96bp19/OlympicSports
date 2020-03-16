@@ -808,10 +808,26 @@ MonoBehaviour:
   LowerBodyTabField: {fileID: 344873607}
   ShoeTabField: {fileID: 15541645}
   UpperBodyItems:
+  - {fileID: 851853873329268567, guid: 2c205544f4df6aa4c8190e862d59915e, type: 3}
   - {fileID: 851853873329268567, guid: b300f93b21e0c914cb34f968e7c0340e, type: 3}
   - {fileID: 851853873329268567, guid: 4134dca5c0893c846a4c20fad2a0895b, type: 3}
-  lowerBodyItems: []
-  ShoeItems: []
+  - {fileID: 851853873329268567, guid: a5cf8f7ef78c58340b36acba1defcf8e, type: 3}
+  - {fileID: 851853873329268567, guid: 82e051940d4a1134f8aae6b21489447e, type: 3}
+  - {fileID: 851853873329268567, guid: ad304de3400851e44a047d10c18f1f98, type: 3}
+  lowerBodyItems:
+  - {fileID: 851853873329268567, guid: ed4cb1da1b754aa49a581694a7afa1c2, type: 3}
+  - {fileID: 851853873329268567, guid: e3648a56be890ae47890cfcb9548d052, type: 3}
+  - {fileID: 851853873329268567, guid: 429b2f1ab88cd174a8b87cca6debbeb6, type: 3}
+  - {fileID: 851853873329268567, guid: d69bb0fc831027e44a8db87dc4323fcd, type: 3}
+  - {fileID: 851853873329268567, guid: a447834a943ea3544bf6ff403c77a4d0, type: 3}
+  - {fileID: 851853873329268567, guid: e2d2690e149c82f459e0db4ab702b9f2, type: 3}
+  ShoeItems:
+  - {fileID: 851853873329268567, guid: 107a87a17c387814394fd52ce35a7eb1, type: 3}
+  - {fileID: 851853873329268567, guid: 50766b21224fe774eb590447919c18d2, type: 3}
+  - {fileID: 851853873329268567, guid: b262e0373edc11642ae9ffbab277b6a3, type: 3}
+  - {fileID: 851853873329268567, guid: cd7d9eccb610568489ddf9a463d9d476, type: 3}
+  - {fileID: 851853873329268567, guid: 1a5e73a600fda0a488a6ae7355ba82d6, type: 3}
+  - {fileID: 851853873329268567, guid: 322f2669f39d2b7489905a19114d9573, type: 3}
 --- !u!1 &1247372737
 GameObject:
   m_ObjectHideFlags: 0
