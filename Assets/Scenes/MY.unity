@@ -1049,6 +1049,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6279581575878523539, guid: a187ad72de8925c418399e9329bd5a0c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
+    - target: {fileID: 9160532624920283440, guid: a187ad72de8925c418399e9329bd5a0c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
+    - target: {fileID: 7695330941836099174, guid: a187ad72de8925c418399e9329bd5a0c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
+    - target: {fileID: 6314497340385719396, guid: a187ad72de8925c418399e9329bd5a0c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d57b1dd587ba858479a375d5106b61c3, type: 2}
     - target: {fileID: 253336633695339291, guid: a187ad72de8925c418399e9329bd5a0c,
         type: 3}
       propertyPath: m_LocalPosition.x
