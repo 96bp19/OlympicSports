@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClothLowerBody :ICloth
+public class ClothLowerBody :ACloth
 {
     public override void AssignClothRenderer()
     {

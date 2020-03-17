@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClothFeet : ICloth
+public class ClothFeet : ACloth
 {
     public override void AssignClothRenderer()
     {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Button),typeof(Image))]
-public abstract class  ICloth : MonoBehaviour,IPointerClickHandler
+public abstract class  ACloth : MonoBehaviour,IPointerClickHandler
 {
 
     public ClotheData clothType;
