@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 2ec46c61c3f09b847a36294aa6031fad
+guid: 957de5560886c2a47bb13ca119e4f9d9
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - clothUnlocker: {fileID: 11400000, guid: 449035a8b457be54080b2c7237ce44ea, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

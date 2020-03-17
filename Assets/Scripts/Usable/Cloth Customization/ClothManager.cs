@@ -23,4 +23,13 @@ public class ClothManager : MonoBehaviour
     {
         clothUnlocker.UnlockCloth();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+          
+            UnlockRandomCloth();
+        }
+    }
 }

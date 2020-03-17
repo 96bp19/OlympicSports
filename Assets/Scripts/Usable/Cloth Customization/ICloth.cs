@@ -25,6 +25,13 @@ public abstract class  ICloth : MonoBehaviour,IPointerClickHandler
         clothType.itemUnlocked = value;
     }
 
+    void OnClothUnlocked()
+    {
+        ItemUnlocked = true;
+        UnlockItem(ItemUnlocked);
+        Debug.Log("new item unlocked");
+    }
+
     void ChangeBackGroundImageBasedOnItemUnlock(bool value)
     {
         lockedUnlockedImage.sprite = value ? UnlockedImage : LockedImage;
@@ -37,6 +44,7 @@ public abstract class  ICloth : MonoBehaviour,IPointerClickHandler
         UnlockItem(ItemUnlocked);
         MainItemImageImage.sprite = clothType.ClothSprite;
         AssignClothRenderer();
+        clothType.ClothUnlockedListeners += OnClothUnlocked;
 
     }
 
@@ -50,9 +58,6 @@ public abstract class  ICloth : MonoBehaviour,IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (ItemUnlocked)
-        {
-            ChangeCloth();
-        }
+        ChangeCloth();   
     }
 }
