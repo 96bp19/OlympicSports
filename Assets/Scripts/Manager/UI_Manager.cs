@@ -140,7 +140,7 @@ public class UI_Manager : MonoBehaviour
     public void LoadCharacterCustomizationMenu(bool value)
     {
         CameraManager.Instance.UseCharacterCustomization(value);
-        GameManager.PlayerInstance.StopMoving();
+        GameManager.PlayerInstance.StopMoving(true);
     }
 
 

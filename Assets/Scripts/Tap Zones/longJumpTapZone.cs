@@ -85,7 +85,7 @@ public class longJumpTapZone : JumpTapZone
         {
             screenHolding = false;
             PlayFoulAnimation();
-            GameManager.PlayerInstance.StopMoving();
+            GameManager.PlayerInstance.StopMoving(false);
            
 
         }

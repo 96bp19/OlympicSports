@@ -13,7 +13,7 @@ public class HurdleBar : MonoBehaviour
 
          
             animcontroller.PlayFoulAnimaiton();
-            GameManager.PlayerInstance.StopMoving();
+            GameManager.PlayerInstance.StopMoving(false);
 
            // System.Action delegatefunction = () => EnableMovement();
           //  this.RunFunctionAfter(delegatefunction, 0.2f, ref enumerator);

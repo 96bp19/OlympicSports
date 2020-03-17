@@ -55,7 +55,7 @@ public abstract class ATapZone : MonoBehaviour
                 //Debug.log("foul animation due to no input on " + other.name);
 
                 PlayFoulAnimation();
-                player.StopMoving();
+                player.StopMoving(true);
             }
            
             inputListiningAllowed = false;

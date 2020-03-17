@@ -29,9 +29,9 @@ public class Player : MonoBehaviour
         return rb;
     }
 
-    public void StopMoving()
+    public void StopMoving(bool iskinematic)
     {
-        rb.isKinematic = true;
+        rb.isKinematic = iskinematic;
         allowedMoving = false;
         lerpedMoveSpeed = 0;
     }

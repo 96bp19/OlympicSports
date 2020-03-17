@@ -81,7 +81,7 @@ public class JavalineThrowZone : ATapZone
         {
             RemoveJavaline();
             PlayFoulAnimation();
-            GameManager.PlayerInstance.StopMoving();
+            GameManager.PlayerInstance.StopMoving(true);
             return;
         }
         float angleToThrowAt = calculateRandomAngleBasedOnAccuracy(accuracy);
@@ -159,7 +159,7 @@ public class JavalineThrowZone : ATapZone
           
             RemoveJavaline();
             PlayFoulAnimation();
-            player.StopMoving();
+            player.StopMoving(false);
         }
         base.OnTriggerExit(other);
     }
