@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpHeight;
     [SerializeField] Transform javalineThrowSocket;
     [SerializeField] private float movementLerpSpeed = 1f;
-    [SerializeField] private SkinnedMeshRenderer playerMeshRenderer;
+    [SerializeField] private SkinnedMeshRenderer[] playerMeshRenderer;
     private bool allowedMoving = true;
 
     
@@ -22,19 +22,23 @@ public class Player : MonoBehaviour
     private Vector3 downVector = Vector3.down;
     private Rigidbody rb;
 
+    
+
     public Rigidbody getRigidbody()
     {
         return rb;
     }
 
-    public void StopMoving()
+    public void StopMoving(bool iskinematic)
     {
+        rb.isKinematic = iskinematic;
         allowedMoving = false;
         lerpedMoveSpeed = 0;
     }
 
     public void StartMoving(bool usePreviousVelocity)
     {
+        rb.isKinematic = false;
         allowedMoving = true;
         if (!usePreviousVelocity)
         {
@@ -50,8 +54,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        currentSpeed = defaultMoveSpeed;
+        currentSpeed = 0;
         SetDefaultGravityMultiplier();
+        rb.isKinematic = true;
     }
 
   
@@ -196,7 +201,11 @@ public class Player : MonoBehaviour
 
     public void SetMeshActive(bool value)
     {
-        playerMeshRenderer.enabled = value;
+        foreach (var item in playerMeshRenderer)
+        {
+            item.enabled = value;
+        }
+      
     }
 
     

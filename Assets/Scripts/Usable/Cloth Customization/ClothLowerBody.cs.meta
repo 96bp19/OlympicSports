@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bb3d90ff279b7a0459fcb8f99acffce8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - clothType: {instanceID: 0}
+  - lockedUnlockedImage: {instanceID: 0}
+  - LockedImage: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  - UnlockedImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -4,16 +4,20 @@ using UnityEngine;
 using Cinemachine;
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera playerfollowCamPrefab, javalineFollowCamPrefab;
+    [SerializeField] private CinemachineVirtualCamera playerfollowCamPrefab, javalineFollowCamPrefab , PlayerCustomizationCamPrefab;
 
      private CinemachineVirtualCamera PlayerFollowingCam;
      private CinemachineVirtualCamera JavalineFollowingCam;
+     private CinemachineVirtualCamera PlayerCustomizationCam;
+     Vector3 playerOldPos;
 
     private void Start()
     {
         PlayerFollowingCam = Instantiate(playerfollowCamPrefab);
         JavalineFollowingCam = Instantiate(javalineFollowCamPrefab);
+        PlayerCustomizationCam = Instantiate(PlayerCustomizationCamPrefab);
         FollowPlayer();
+      //  UseCharacterCustomization(true);
     }
 
     private static CameraManager _Instance;
@@ -43,6 +47,31 @@ public class CameraManager : MonoBehaviour
         JavalineFollowingCam.LookAt = target;
         PlayerFollowingCam.Priority = 1;
         JavalineFollowingCam.Priority = 10;
+    }
+
+    public void UseCharacterCustomization(bool val)
+    {
+
+        if (val)
+        {
+            playerOldPos = GameManager.PlayerInstance.transform.position;
+            GameManager.PlayerInstance.transform.position = new Vector3(500, 500, 500);
+           
+        }
+        else
+        {
+            if (playerOldPos.z !=0)
+            {
+                GameManager.PlayerInstance.transform.position = playerOldPos;
+
+            }
+        }
+
+        PlayerCustomizationCam.LookAt = GameManager.PlayerInstance.transform;
+        PlayerCustomizationCam.Follow = GameManager.PlayerInstance.transform;
+        PlayerCustomizationCam.Priority = val ? 100 : 1;
+
+      
     }
 
    

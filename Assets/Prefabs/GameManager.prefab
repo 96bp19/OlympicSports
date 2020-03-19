@@ -53,3 +53,5 @@ MonoBehaviour:
     type: 3}
   camManagerPrefab: {fileID: 5579601484212440296, guid: ab9fe5f8eaa07a64eb486cb41e17f58f,
     type: 3}
+  clothManagerPrefab: {fileID: 1973911909924065898, guid: aa78eeffa81e81c4a9af38607b5d00dd,
+    type: 3}

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 2ec46c61c3f09b847a36294aa6031fad
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - clothUnlocker: {fileID: 11400000, guid: 449035a8b457be54080b2c7237ce44ea, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

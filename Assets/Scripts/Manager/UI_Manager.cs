@@ -25,7 +25,7 @@ public class UI_Manager : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.GameOverListener += OnGameOver;
-        Time.timeScale = 0;
+      //  Time.timeScale = 0;
     }
 
     public void EnableHoldMeter(bool value)
@@ -125,12 +125,22 @@ public class UI_Manager : MonoBehaviour
 
     public void OnGameStarted()
     {
-        Time.timeScale = 1;
+        GameManager.PlayerInstance.ResetPlayerSpeed();
+        GameManager.PlayerInstance.StartMoving(false);
+        GameManager.PlayerInstance.GetComponent<AnimationController>().StartGame();
+        CameraManager.Instance.UseCharacterCustomization(false);
+
     }
 
     public void RestartGame()
     {
         GameManager.Instance.RestartGame();
+    }
+
+    public void LoadCharacterCustomizationMenu(bool value)
+    {
+        CameraManager.Instance.UseCharacterCustomization(value);
+        GameManager.PlayerInstance.StopMoving(true);
     }
 
 

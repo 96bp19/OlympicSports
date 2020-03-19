@@ -104,7 +104,7 @@ public class TripleJumpTapZone : JumpTapZone
             //currentInputTime = 0.01f;
             if (framecount >10)
             {
-                player.StopMoving();
+                player.StopMoving(false);
                 animController.PlayFoulAnimaiton();
                 allowUpdating = false;
             }
